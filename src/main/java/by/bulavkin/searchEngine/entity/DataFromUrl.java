@@ -3,18 +3,16 @@ package by.bulavkin.searchEngine.entity;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "search_engine")
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Link {
+public class DataFromUrl {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,8 +28,8 @@ public class Link {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Link link = (Link) o;
-        return Id != null && Objects.equals(Id, link.Id);
+        DataFromUrl that = (DataFromUrl) o;
+        return Id != null && Objects.equals(Id, that.Id);
     }
 
     @Override

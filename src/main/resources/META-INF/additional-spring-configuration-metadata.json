@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "app.link",
+      "type": "java.lang.String",
+      "description": "Description for app.link."
+    },
+    {
+      "name": "profiles",
+      "type": "java.lang.String",
+      "description": "Description for profiles."
+    }
+  ] }
