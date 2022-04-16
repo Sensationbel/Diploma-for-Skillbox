@@ -7,32 +7,31 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "page")
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class DataFromUrl {
+public class Field {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Id;
-
-    @Column(columnDefinition = "text", nullable = false)
-    private String path;
+    private Integer id;
 
     @Column(nullable = false)
-    private Integer code;
+    private String name;
 
-    @Column(columnDefinition = "mediumtext", nullable = false)
-    private String content;
+    @Column(nullable = false)
+    private String selector;
+
+    @Column(nullable = false)
+    private Float weight;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        DataFromUrl that = (DataFromUrl) o;
-        return Id != null && Objects.equals(Id, that.Id);
+        Field field = (Field) o;
+        return id != null && Objects.equals(id, field.id);
     }
 
     @Override
