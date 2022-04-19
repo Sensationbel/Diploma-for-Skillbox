@@ -1,13 +1,16 @@
 package by.bulavkin.searchEngine.entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "page")
+@Table(name = "page")//, indexes = {@Index(columnList = "path")}
 @Getter
 @Setter
 @ToString
@@ -18,13 +21,13 @@ public class DataFromUrl {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
-    @Column(columnDefinition = "text", nullable = false)
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String path;
 
     @Column(nullable = false)
     private Integer code;
 
-    @Column(columnDefinition = "mediumtext", nullable = false)
+    @Column(columnDefinition = "MEDIUMTEXT", nullable = false)
     private String content;
 
     @Override

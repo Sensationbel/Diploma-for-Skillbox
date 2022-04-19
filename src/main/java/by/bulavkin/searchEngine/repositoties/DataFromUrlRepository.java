@@ -1,5 +1,6 @@
-package by.bulavkin.searchEngine.entity;
+package by.bulavkin.searchEngine.repositoties;
 
+import by.bulavkin.searchEngine.entity.DataFromUrl;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
