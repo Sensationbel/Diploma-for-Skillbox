@@ -6,7 +6,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
-#    properties:
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      mode: always
+  #    properties:
 #      hibernate:
 #        globally_quoted_identifiers: true
   profiles:

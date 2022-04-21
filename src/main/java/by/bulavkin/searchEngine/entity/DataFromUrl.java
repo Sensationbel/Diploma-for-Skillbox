@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "page")//, indexes = {@Index(columnList = "path")}
+@Table(name = "pages", indexes = @Index(name = "path" ,columnList = "path"))//, indexes = {@Index(columnList = "path")}
 @Getter
 @Setter
 @ToString
@@ -21,7 +21,7 @@ public class DataFromUrl {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(nullable = false)
     private String path;
 
     @Column(nullable = false)

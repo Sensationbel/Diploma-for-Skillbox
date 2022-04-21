@@ -25,19 +25,6 @@ public class IndexEntity {
     @Column(name = "lemma_id", nullable = false)
     private Integer lemmaId;
 
-    @Column(name = "rang", nullable = false)
+    @Column(name = "ranks", nullable = false)
     private Float rank;
-
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-//        IndexEntity that = (IndexEntity) o;
-//        return id != null && Objects.equals(id, that.id);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return getClass().hashCode();
-//    }
 }

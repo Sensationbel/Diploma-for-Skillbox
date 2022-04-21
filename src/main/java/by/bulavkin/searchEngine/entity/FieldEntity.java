@@ -8,11 +8,11 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "fields")
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-@Table(name = "field_entity")
 public class FieldEntity {
 
     @Id

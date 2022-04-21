@@ -22,8 +22,8 @@ public class Controller {
     public String getUrl() {
 //        wlp.start();
 //        dfur.saveAll(wlp.getListDfu());
-        fr.insertFieldEntity(1, "title", "title", 1.0F);
-        fr.insertFieldEntity(2, "body", "body", 0.8F);
+//        fr.insertFieldEntity(1, "title", "title", 1.0F);
+//        fr.insertFieldEntity(2, "body", "body", 0.8F);
         return "Парсинг завершен";
     }
 }

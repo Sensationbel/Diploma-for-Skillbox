@@ -7,11 +7,12 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "lemmas")
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Lemma {
+public class LemmaEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +28,7 @@ public class Lemma {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Lemma lemma = (Lemma) o;
+        LemmaEntity lemma = (LemmaEntity) o;
         return id != null && Objects.equals(id, lemma.id);
     }
 
