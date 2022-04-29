@@ -10,12 +10,12 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "pages", indexes = @Index(name = "path" ,columnList = "path"))//, indexes = {@Index(columnList = "path")}
+@Table(name = "pages", indexes = @Index(name = "path" ,columnList = "path"))
 @Getter
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class DataFromUrl {
+public class PageEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,7 +34,7 @@ public class DataFromUrl {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        DataFromUrl that = (DataFromUrl) o;
+        PageEntity that = (PageEntity) o;
         return Id != null && Objects.equals(Id, that.Id);
     }
 

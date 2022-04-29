@@ -1,4 +1,4 @@
-package by.bulavkin.searchEngine.service;
+package by.bulavkin.searchEngine.parsing;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

@@ -1,35 +1,38 @@
-package by.bulavkin.searchEngine.service;
+package by.bulavkin.searchEngine.parsing;
 
-import by.bulavkin.searchEngine.entity.DataFromUrl;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import by.bulavkin.searchEngine.content.ContentFromLemmas;
+import by.bulavkin.searchEngine.entity.PageEntity;
+import lombok.*;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
-
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Pattern;
 
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @ConfigurationProperties(prefix = "app")
 @Getter
 @Setter
 public class WebLinkParser {
 
-    private List<DataFromUrl> listDfu = new ArrayList<>();
+    private List<PageEntity> listDfu = new ArrayList<>();
     private volatile List<String> listIsVisit = new ArrayList<>();
-    private String link;
+
+    private String link, userAgent, referrer;
     private static int MAX_TREADS = Runtime.getRuntime().availableProcessors() * 2;
+
+    private ContentFromLemmas cfl = new ContentFromLemmas();
 
     public void start() {
         try {
@@ -46,19 +49,19 @@ public class WebLinkParser {
     }
 
     public Set<String> parsingPage(String pageUrl) throws IOException, InterruptedException {
-        Thread.sleep(500);
+        Thread.sleep(1500);
         System.out.println(pageUrl);
         Set<String> urls = new HashSet<>();
         Connection.Response response = Jsoup.connect(pageUrl)
-                .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)" +
-                        " Chrome/100.0.4896.75 Safari/537.36")
-                .timeout(3000)
-                .referrer("http://www.google.com")
+                .userAgent(userAgent)
+                .timeout(7000)
+                .referrer(referrer)
                 .ignoreHttpErrors(true)
                 .execute();
         int statusCode = response.statusCode();
         Document doc = response.parse();
         String contentCurrentURL = doc.html();
+        cfl.addDataToNumberOfLemm(doc);
         createDataFromUrl(pageUrl, statusCode, contentCurrentURL);
         for (Element element : doc.select("a")) {
             String currentUrl = element.attr("abs:href");
@@ -71,14 +74,14 @@ public class WebLinkParser {
     }
 
     private void createDataFromUrl(String pageUrl, int statusCode, String contentCurrentURL) {
-        DataFromUrl dfu = new DataFromUrl();
+        PageEntity dfu = new PageEntity();
         dfu.setPath(pageUrl.replaceAll(link, "/"));
         dfu.setCode(statusCode);
         dfu.setContent(contentCurrentURL);
         addListDfu(dfu);
     }
 
-    private void addListDfu(DataFromUrl dataFromUrl) {
+    private void addListDfu(PageEntity dataFromUrl) {
         listDfu.add(dataFromUrl);
     }
 

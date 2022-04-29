@@ -9,6 +9,7 @@ public class SearchEngineApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SearchEngineApplication.class, args);
 
+
 	}
 
 
