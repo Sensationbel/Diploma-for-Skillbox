@@ -27,5 +27,4 @@ public class FieldEntity {
 
     @Column(nullable = false)
     private Float weight;
-
 }

@@ -3,6 +3,13 @@ spring:
     url: jdbc:mysql://localhost:3306/search_engine_schema
     username: root
     password: root
+    hikari:
+      connection-timeout: 100000
+      minimum-idle: 10
+      maximum-pool-size: 10
+      idle-timeout: 10000
+      max-lifetime: 30000
+      auto-commit: true
   jpa:
     hibernate:
       ddl-auto: create-drop

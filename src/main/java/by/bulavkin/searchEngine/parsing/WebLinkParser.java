@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
 @Setter
 public class WebLinkParser {
 
-    private List<PageEntity> listDfu = new ArrayList<>();
+    private List<PageEntity> listPE = new ArrayList<>();
     private volatile List<String> listIsVisit = new ArrayList<>();
 
     private String link, userAgent, referrer;
@@ -82,7 +82,7 @@ public class WebLinkParser {
     }
 
     private void addListDfu(PageEntity dataFromUrl) {
-        listDfu.add(dataFromUrl);
+        listPE.add(dataFromUrl);
     }
 
     private boolean isValidToVisit(String currentUrl) {

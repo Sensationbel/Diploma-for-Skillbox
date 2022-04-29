@@ -10,9 +10,11 @@ public interface PageService {
 
     PageEntity findById(Integer pageId);
 
-    PageEntity saveTodo(PageEntity page);
+    PageEntity savePageEntity(PageEntity page);
 
-    PageEntity updateTodo(PageEntity page);
+    List<PageEntity> saveALL(List<PageEntity> listPE);
 
-    PageEntity deleteTodo(Integer pageId);
+    PageEntity updatePageEntity(PageEntity page);
+
+    PageEntity deletePageEntity(Integer pageId);
 }

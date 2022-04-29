@@ -15,7 +15,7 @@ import java.util.Objects;
 public class LemmaEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)
@@ -23,17 +23,4 @@ public class LemmaEntity {
 
     @Column(nullable = false)
     private Integer frequency;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        LemmaEntity lemma = (LemmaEntity) o;
-        return id != null && Objects.equals(id, lemma.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

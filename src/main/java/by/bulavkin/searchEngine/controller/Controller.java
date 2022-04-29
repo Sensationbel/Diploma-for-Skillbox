@@ -1,9 +1,11 @@
 package by.bulavkin.searchEngine.controller;
 
 import by.bulavkin.searchEngine.content.ContentFromLemmas;
-import by.bulavkin.searchEngine.repositoties.DataFromUrlRepository;
+import by.bulavkin.searchEngine.repositoties.PageRepository;
 import by.bulavkin.searchEngine.repositoties.FieldRepository;
 import by.bulavkin.searchEngine.parsing.WebLinkParser;
+import by.bulavkin.searchEngine.service.LemmaService;
+import by.bulavkin.searchEngine.service.PageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +20,8 @@ import java.util.Map;
 @Service
 public class Controller {
 
-    private final DataFromUrlRepository dfur;
-    private final FieldRepository fr;
+    private final PageService ps;
+    private final LemmaService ls;
     private final WebLinkParser wlp;
 
     @Autowired
@@ -28,15 +30,14 @@ public class Controller {
     @GetMapping("/url")
     public String getUrl() throws IOException, InterruptedException {
         wlp.parsingPage("https://www.lutherancathedral.ru/");
-        dfur.saveAll(wlp.getListDfu());
-//        fr.insertFieldEntity(1, "title", "title", 1.0F);
-//        fr.insertFieldEntity(2, "body", "body", 0.8F);
+        ps.saveALL(wlp.getListPE());
         return "Парсинг завершен";
     }
 
     @GetMapping("/lemma")
     public Map<String, Integer> getLemmas(){
-
+        ls.saveLemmaEntity(wlp.getCfl().getLemmaFromTitle());
+        ls.saveLemmaEntity(wlp.getCfl().getLemmaFromBody());
         return wlp.getCfl().getLemmaFromTitle();
     }
 }
