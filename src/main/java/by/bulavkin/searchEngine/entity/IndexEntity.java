@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class IndexEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "page_id", nullable = false)
@@ -27,4 +27,5 @@ public class IndexEntity {
 
     @Column(name = "ranks", nullable = false)
     private Float rank;
+
 }

@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 
 
 @Service
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 @ConfigurationProperties(prefix = "app")
 @Getter
 @Setter
@@ -32,7 +32,7 @@ public class WebLinkParser {
     private String link, userAgent, referrer;
     private static int MAX_TREADS = Runtime.getRuntime().availableProcessors() * 2;
 
-    private ContentFromLemmas cfl = new ContentFromLemmas();
+    private final ContentFromLemmas cfl;
 
     public void start() {
         try {

@@ -24,9 +24,6 @@ public class Controller {
     private final LemmaService ls;
     private final WebLinkParser wlp;
 
-    @Autowired
-    private final ContentFromLemmas cfl;
-
     @GetMapping("/url")
     public String getUrl() throws IOException, InterruptedException {
         wlp.parsingPage("https://www.lutherancathedral.ru/");
@@ -38,6 +35,6 @@ public class Controller {
     public Map<String, Integer> getLemmas(){
         ls.saveLemmaEntity(wlp.getCfl().getLemmaFromTitle());
         ls.saveLemmaEntity(wlp.getCfl().getLemmaFromBody());
-        return wlp.getCfl().getLemmaFromTitle();
+        return wlp.getCfl().getLemmaFromBody();
     }
 }

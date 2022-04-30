@@ -27,7 +27,4 @@ public class ContentFromLemmas {
             this.LemmaFromBody = lemmatizer.lemmatization(c[1]);
         });
     }
-
-
-
 }
