@@ -61,7 +61,7 @@ public class WebLinkParser {
         int statusCode = response.statusCode();
         Document doc = response.parse();
         String contentCurrentURL = doc.html();
-        cfl.addDataToNumberOfLemm(doc);
+        cfl.addDataToNumberOfLemm(doc, pageUrl);
         createDataFromUrl(pageUrl, statusCode, contentCurrentURL);
         for (Element element : doc.select("a")) {
             String currentUrl = element.attr("abs:href");

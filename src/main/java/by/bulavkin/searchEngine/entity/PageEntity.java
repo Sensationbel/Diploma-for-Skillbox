@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -29,6 +30,12 @@ public class PageEntity {
 
     @Column(columnDefinition = "MEDIUMTEXT", nullable = false)
     private String content;
+
+//    @ManyToMany(fetch = FetchType.EAGER )
+//    @JoinTable(name = "indexes",
+//    joinColumns = @JoinColumn(name = "page_id"),
+//    inverseJoinColumns = @JoinColumn(name = "lemma_id"))
+//    private List<LemmaEntity> lemmas;
 
     @Override
     public boolean equals(Object o) {

@@ -19,9 +19,11 @@ public class ContentFromLemmas {
 
     private Map<String, Integer> lemmaFromTitle = new HashMap<>();
     private Map<String, Integer> LemmaFromBody = new HashMap<>();
+    private String url;
 
 
-    public void addDataToNumberOfLemm(Document doc){
+    public void addDataToNumberOfLemm(Document doc, String url){
+        this.url = url;
         cftab.addDataToListContentFromTitleAndBody(doc).forEach(c -> {
             this.lemmaFromTitle = lemmatizer.lemmatization(c[0]);
             this.LemmaFromBody = lemmatizer.lemmatization(c[1]);

@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -23,4 +24,7 @@ public class LemmaEntity {
 
     @Column(nullable = false)
     private Integer frequency;
+
+//    @ManyToMany(mappedBy = "lemmas", fetch = FetchType.EAGER)
+//    private List<PageEntity> pages;
 }

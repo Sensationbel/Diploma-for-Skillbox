@@ -12,6 +12,13 @@ import java.util.List;
 public class PageServiceImp implements PageService{
 
     private final PageRepository pr;
+
+
+    @Override
+    public PageEntity findByPath(String path) {
+        return pr.findByPath(path);
+    }
+
     @Override
     public List<PageEntity> findAll() {
         return null;
@@ -19,7 +26,7 @@ public class PageServiceImp implements PageService{
 
     @Override
     public PageEntity findById(Integer pageId) {
-        return null;
+        return pr.getById(pageId);
     }
 
     @Override

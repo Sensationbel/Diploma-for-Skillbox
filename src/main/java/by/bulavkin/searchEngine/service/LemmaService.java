@@ -10,7 +10,7 @@ public interface LemmaService {
 
     void saveLemmaEntity(Map<String, Integer> mapLemmas);
 
-    List<LemmaEntity> findByLemma(String lemma);
+    LemmaEntity findByLemma(String lemma);
 
     LemmaEntity findById(Integer id);
 }

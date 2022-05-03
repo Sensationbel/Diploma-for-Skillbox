@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface PageService {
 
+    PageEntity findByPath(String path);
+
     List<PageEntity> findAll();
 
     PageEntity findById(Integer pageId);
