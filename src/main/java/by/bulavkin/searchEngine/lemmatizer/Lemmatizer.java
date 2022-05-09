@@ -1,11 +1,10 @@
 package by.bulavkin.searchEngine.lemmatizer;
 
-import by.bulavkin.searchEngine.content.ContentFromLemmas;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.apache.lucene.morphology.LuceneMorphology;
 import org.apache.lucene.morphology.russian.RussianLuceneMorphology;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -17,6 +16,7 @@ import java.util.regex.Pattern;
 
 @Data
 @NoArgsConstructor
+@Component
 public class Lemmatizer {
 
     private LuceneMorphology lm;
@@ -32,7 +32,6 @@ public class Lemmatizer {
     public Map<String, Integer> lemmatization(String text){
         Map<String, Integer> numberOfLemm = new HashMap<>();
         String[] split = text.toLowerCase()
-//                .replaceAll("[^(а-яё|\\s|\\-)]", "")
                 .split("(\\-|\\s+)");
         List<String> listDeleteServiceParts = deleteServiceParts(split);
         List<List<String>> listsNormalForm = listDeleteServiceParts.stream()

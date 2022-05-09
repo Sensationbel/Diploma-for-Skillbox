@@ -5,10 +5,11 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public interface LemmaService {
 
-    void saveLemmaEntity(Map<String, Integer> mapLemmas);
+    void saveAll(Set<LemmaEntity> lemmaEntities);
 
     LemmaEntity findByLemma(String lemma);
 

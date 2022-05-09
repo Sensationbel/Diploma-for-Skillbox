@@ -25,6 +25,13 @@ public class LemmaEntity {
     @Column(nullable = false)
     private Integer frequency;
 
+    @Transient
+    private Integer pageId;
+
+    public boolean isEmpty(){
+        return lemma == null && frequency == null;
+    }
+
 //    @ManyToMany(mappedBy = "lemmas", fetch = FetchType.EAGER)
 //    private List<PageEntity> pages;
 }

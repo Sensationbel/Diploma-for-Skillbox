@@ -1,6 +1,5 @@
 package by.bulavkin.searchEngine.parsing;
 
-import by.bulavkin.searchEngine.content.ContentFromLemmas;
 import by.bulavkin.searchEngine.entity.PageEntity;
 import lombok.*;
 import org.jsoup.Connection;
@@ -32,8 +31,6 @@ public class WebLinkParser {
     private String link, userAgent, referrer;
     private static int MAX_TREADS = Runtime.getRuntime().availableProcessors() * 2;
 
-    private final ContentFromLemmas cfl;
-
     public void start() {
         try {
             try {
@@ -49,19 +46,18 @@ public class WebLinkParser {
     }
 
     public Set<String> parsingPage(String pageUrl) throws IOException, InterruptedException {
-        Thread.sleep(1500);
+        Thread.sleep(800);
         System.out.println(pageUrl);
         Set<String> urls = new HashSet<>();
         Connection.Response response = Jsoup.connect(pageUrl)
                 .userAgent(userAgent)
-                .timeout(7000)
+                .timeout(3000)
                 .referrer(referrer)
                 .ignoreHttpErrors(true)
                 .execute();
         int statusCode = response.statusCode();
         Document doc = response.parse();
         String contentCurrentURL = doc.html();
-        cfl.addDataToNumberOfLemm(doc, pageUrl);
         createDataFromUrl(pageUrl, statusCode, contentCurrentURL);
         for (Element element : doc.select("a")) {
             String currentUrl = element.attr("abs:href");

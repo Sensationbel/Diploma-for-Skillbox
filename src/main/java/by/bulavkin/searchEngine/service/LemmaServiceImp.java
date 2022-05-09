@@ -5,32 +5,21 @@ import by.bulavkin.searchEngine.repositoties.LemmaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class LemmaServiceImp implements LemmaService{
 
     private final LemmaRepository lr;
+    private Set<LemmaEntity> lemmas = new HashSet<>();
 
     @Override
-    public void saveLemmaEntity(Map<String, Integer> mapLemas) {
-        final boolean[] isVisited = {true};
-        mapLemas.forEach((k, v) -> {
-            LemmaEntity lemmaEntities = findByLemma(k);
-            if(lemmaEntities == null){
-                isVisited[0] = false;
-                LemmaEntity lemmaEntity = new LemmaEntity();
-                lemmaEntity.setLemma(k);
-                lemmaEntity.setFrequency(1);
-                lr.save(lemmaEntity);
-            } else if(isVisited[0]){
-                int id = lemmaEntities.getId();
-                LemmaEntity lemmaEntity = findById(id);
-                lemmaEntity.setFrequency(lemmaEntity.getFrequency() + 1);
-                lr.save(lemmaEntity);
-            }
-        });
+    public void saveAll(Set<LemmaEntity> lemmaEntities) {
+        lr.saveAll(lemmaEntities);
     }
 
     @Override
