@@ -21,7 +21,7 @@ public class PageServiceImp implements PageService{
 
     @Override
     public List<PageEntity> findAll() {
-        return null;
+        return pr.findAll();
     }
 
     @Override
@@ -29,23 +29,8 @@ public class PageServiceImp implements PageService{
         return pr.getById(pageId);
     }
 
-    @Override
-    public PageEntity savePageEntity(PageEntity page) {
-        return null;
-    }
-
-    @Override
+   @Override
     public List<PageEntity> saveALL(List<PageEntity> listPE) {
         return pr.saveAll(listPE);
-    }
-
-    @Override
-    public PageEntity updatePageEntity(PageEntity page) {
-        return null;
-    }
-
-    @Override
-    public PageEntity deletePageEntity(Integer pageId) {
-        return null;
     }
 }

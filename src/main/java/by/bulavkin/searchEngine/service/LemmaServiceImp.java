@@ -5,9 +5,7 @@ import by.bulavkin.searchEngine.repositoties.LemmaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -15,11 +13,15 @@ import java.util.Set;
 public class LemmaServiceImp implements LemmaService{
 
     private final LemmaRepository lr;
-    private Set<LemmaEntity> lemmas = new HashSet<>();
 
     @Override
-    public void saveAll(Set<LemmaEntity> lemmaEntities) {
-        lr.saveAll(lemmaEntities);
+    public List<LemmaEntity> saveAll(List<LemmaEntity> lemmaEntities) {
+        return lr.saveAll(lemmaEntities);
+    }
+
+    @Override
+    public List<LemmaEntity> findAll() {
+        return lr.findAll();
     }
 
     @Override

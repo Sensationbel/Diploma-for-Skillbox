@@ -9,7 +9,9 @@ import java.util.Set;
 
 public interface LemmaService {
 
-    void saveAll(Set<LemmaEntity> lemmaEntities);
+    List<LemmaEntity> saveAll(List<LemmaEntity> lemmaEntities);
+
+    List<LemmaEntity> findAll();
 
     LemmaEntity findByLemma(String lemma);
 

@@ -5,17 +5,18 @@ import by.bulavkin.searchEngine.entity.IndexEntity;
 import by.bulavkin.searchEngine.entity.LemmaEntity;
 import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.lemmatizer.Lemmatizer;
-import by.bulavkin.searchEngine.repositoties.FieldRepository;
-import by.bulavkin.searchEngine.repositoties.PageRepository;
+import by.bulavkin.searchEngine.parsing.WebLinkParser;
+import by.bulavkin.searchEngine.service.FieldServiceIml;
 import by.bulavkin.searchEngine.service.IndexServiceImp;
 import by.bulavkin.searchEngine.service.LemmaServiceImp;
+import by.bulavkin.searchEngine.service.PageServiceImp;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Field;
+import java.io.IOException;
 import java.util.*;
 
 import static org.springframework.util.ObjectUtils.isEmpty;
@@ -24,24 +25,24 @@ import static org.springframework.util.ObjectUtils.isEmpty;
 @RequiredArgsConstructor
 public class Content {
 
-    private final PageRepository pr;
-    private final FieldRepository fr;
+    private final PageServiceImp psi;
+    private final FieldServiceIml fsi;
     private final LemmaServiceImp lsi;
     private final IndexServiceImp isi;
     private final Lemmatizer lm;
+    private final WebLinkParser wlp;
 
-    private final HashSet<IndexEntity> indexes;
-    private final HashSet<LemmaEntity> lemmaEntitys;
-
-    private int lemmaId;
+    private final ArrayList<IndexEntity> indexes;
+    private final ArrayList<LemmaEntity> lemmaEntitys;
     private List<FieldEntity> fields;
 
-    public void startAddContentToDatabase() {
-        fields = fr.findAll();
-        List<PageEntity> pages = new ArrayList<>(pr.findAll());
-        pages.forEach(pageEntity -> normalizeContent(pageEntity));
-        lsi.saveAll(lemmaEntitys);
-        isi.saveIndexesList(indexes);
+    public void startAddContentToDatabase() throws IOException, InterruptedException {
+        wlp.start();
+        psi.saveALL(wlp.getPageEntities());
+        fields = fsi.findAll();
+        new ArrayList<>(psi.findAll()).
+                forEach(pageEntity -> normalizeContent(pageEntity));
+        isi.saveAll(indexes);
     }
 
     public void normalizeContent(PageEntity page) {
@@ -53,22 +54,25 @@ public class Content {
             Elements contentQuery = doc.select(field.getSelector());
             String normalizeContent = contentQuery.text().replaceAll("[^ЁёА-я\s]", " ").trim();
             Map<String, Integer> lemmas = new HashMap<>(lm.lemmatization(normalizeContent));
-            addLemma(lemmas, page.getId());
+            lemmaEntitys.addAll(addLemma(lemmas, page.getId()));
             rankCalculation(page, lemmas, field.getWeight());
         });
     }
 
-    private void addLemma(Map<String, Integer> lemmas, int pageId) {
+    private List<LemmaEntity> addLemma(Map<String, Integer> lemmas, int pageId) {
+        ArrayList<LemmaEntity> listForSave = new ArrayList<>();
         lemmas.keySet().forEach(lemma -> {
             LemmaEntity lemmaEntity = getLemmaEntity(lemma, pageId);
             if (lemmaEntity.isEmpty()) {
-                lemmaEntity.setId(getLemmaId());
                 lemmaEntity.setLemma(lemma);
                 lemmaEntity.setFrequency(1);
                 lemmaEntity.setPageId(pageId);
-                lemmaEntitys.add(lemmaEntity);
-            } else lemmaEntity.setFrequency(lemmaEntity.getFrequency() + 1);
+            } else {
+                lemmaEntity.setFrequency(lemmaEntity.getFrequency() + 1);
+            }
+            listForSave.add(lemmaEntity);
         });
+        return lsi.saveAll(listForSave);
     }
 
     private LemmaEntity getLemmaEntity(String lemma, int pageId) {
@@ -82,6 +86,7 @@ public class Content {
 
     public void rankCalculation(PageEntity page, Map<String, Integer> lemmas, Float weight) {
         int pageId = page.getId();
+
         lemmas.forEach((k, v) -> {
             int lemmaId = getLemmaEntityId(k);
             IndexEntity indexEntity = getIndexEntity(lemmaId, pageId);
@@ -110,9 +115,5 @@ public class Content {
                 filter(i -> (i.getLemmaId() == lemmaId && i.getPageId() == pageId)).
                 findFirst().
                 orElse(new IndexEntity());
-    }
-
-    private Integer getLemmaId(){
-        return this.lemmaId++;
     }
 }

@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
 @Setter
 public class WebLinkParser {
 
-    private List<PageEntity> listPE = new ArrayList<>();
+    private List<PageEntity> pageEntities = new ArrayList<>();
     private volatile List<String> listIsVisit = new ArrayList<>();
 
     private String link, userAgent, referrer;
@@ -46,7 +46,7 @@ public class WebLinkParser {
     }
 
     public Set<String> parsingPage(String pageUrl) throws IOException, InterruptedException {
-        Thread.sleep(800);
+        Thread.sleep(1000);
         System.out.println(pageUrl);
         Set<String> urls = new HashSet<>();
         Connection.Response response = Jsoup.connect(pageUrl)
@@ -78,7 +78,7 @@ public class WebLinkParser {
     }
 
     private void addListDfu(PageEntity dataFromUrl) {
-        listPE.add(dataFromUrl);
+        pageEntities.add(dataFromUrl);
     }
 
     private boolean isValidToVisit(String currentUrl) {
