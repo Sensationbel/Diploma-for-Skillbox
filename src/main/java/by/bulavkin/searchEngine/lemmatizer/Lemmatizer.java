@@ -7,10 +7,7 @@ import org.apache.lucene.morphology.russian.RussianLuceneMorphology;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -29,18 +26,26 @@ public class Lemmatizer {
         }
     }
 
-    public Map<String, Integer> lemmatization(String text){
+    public Map<String, Integer> getMapWithLemmas(String text){
         Map<String, Integer> numberOfLemm = new HashMap<>();
-        String[] split = text.toLowerCase()
-                .split("(\\-|\\s+)");
-        List<String> listDeleteServiceParts = deleteServiceParts(split);
-        List<List<String>> listsNormalForm = listDeleteServiceParts.stream()
-                .map(lm::getNormalForms).toList();
-        listsNormalForm.forEach(lnf -> {
-            int count = numberOfLemm.getOrDefault(lnf.get(0),0);
-            numberOfLemm.put(lnf.get(0), count + 1);
+        getListWithNormalFormsFromText(text).forEach(lnf -> {
+            int count = numberOfLemm.getOrDefault(lnf,0);
+            numberOfLemm.put(lnf, count + 1);
         });
         return numberOfLemm;
+    }
+
+    public List<String> getListWithNormalFormsFromText(String text){
+        String[] split = text.toLowerCase()
+                .split("(-|\\s+)");
+        List<String> listDeleteServiceParts = deleteServiceParts(split);
+        List<String> listNormalForms = new ArrayList<>();
+        listDeleteServiceParts.
+                stream().
+                map(lm::getNormalForms).
+                forEach(lemma -> listNormalForms.add(lemma.get(0)));
+        return listNormalForms;
+
     }
 
     private List<String> deleteServiceParts(String[] split) {

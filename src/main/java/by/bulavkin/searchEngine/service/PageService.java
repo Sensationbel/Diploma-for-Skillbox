@@ -12,5 +12,5 @@ public interface PageService {
 
     PageEntity findById(Integer pageId);
 
-    List<PageEntity> saveALL(List<PageEntity> listPE);
+    void saveALL(List<PageEntity> listPE);
 }

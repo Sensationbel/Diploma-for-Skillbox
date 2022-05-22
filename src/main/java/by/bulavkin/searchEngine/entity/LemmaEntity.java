@@ -1,11 +1,11 @@
 package by.bulavkin.searchEngine.entity;
 
-import lombok.*;
-import org.hibernate.Hibernate;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "lemmas")

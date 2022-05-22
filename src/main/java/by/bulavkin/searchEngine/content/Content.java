@@ -16,10 +16,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
-import java.util.*;
-
-import static org.springframework.util.ObjectUtils.isEmpty;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -33,15 +33,15 @@ public class Content {
     private final WebLinkParser wlp;
 
     private final ArrayList<IndexEntity> indexes;
-    private final ArrayList<LemmaEntity> lemmaEntitys;
+    private final ArrayList<LemmaEntity> lemmaEntities;
     private List<FieldEntity> fields;
 
-    public void startAddContentToDatabase() throws IOException, InterruptedException {
+    public void startAddContentToDatabase(){
         wlp.start();
         psi.saveALL(wlp.getPageEntities());
         fields = fsi.findAll();
         new ArrayList<>(psi.findAll()).
-                forEach(pageEntity -> normalizeContent(pageEntity));
+                forEach(this::normalizeContent);
         isi.saveAll(indexes);
     }
 
@@ -53,8 +53,8 @@ public class Content {
         fields.forEach(field -> {
             Elements contentQuery = doc.select(field.getSelector());
             String normalizeContent = contentQuery.text().replaceAll("[^ЁёА-я\s]", " ").trim();
-            Map<String, Integer> lemmas = new HashMap<>(lm.lemmatization(normalizeContent));
-            lemmaEntitys.addAll(addLemma(lemmas, page.getId()));
+            Map<String, Integer> lemmas = new HashMap<>(lm.getMapWithLemmas(normalizeContent));
+            lemmaEntities.addAll(addLemma(lemmas, page.getId()));
             rankCalculation(page, lemmas, field.getWeight());
         });
     }
@@ -76,7 +76,7 @@ public class Content {
     }
 
     private LemmaEntity getLemmaEntity(String lemma, int pageId) {
-        return lemmaEntitys.
+        return lemmaEntities.
                 stream().
                 filter(lemmaEntity -> lemmaEntity.getPageId() != pageId).
                 filter(lemmaEntity -> lemmaEntity.getLemma().equals(lemma)).
@@ -102,10 +102,10 @@ public class Content {
     }
 
     private int getLemmaEntityId(String lemma) {
-        return lemmaEntitys.
+        return lemmaEntities.
                 stream().
                 filter(lemmaEntity -> lemmaEntity.getLemma().equals(lemma)).
-                mapToInt(lemmaEntity -> lemmaEntity.getId()).
+                mapToInt(LemmaEntity::getId).
                 findFirst().orElseThrow();
     }
 

@@ -28,7 +28,7 @@ public class IndexEntity {
     @Column(name = "ranks", nullable = false)
     private Float rank;
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return pageId == null &&
                 lemmaId == null &&
                 rank == null;

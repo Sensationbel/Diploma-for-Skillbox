@@ -12,16 +12,17 @@ spring:
       auto-commit: true
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     defer-datasource-initialization: true
-#    properties:
-#      hibernate:
-#        jdbs:
-#          batch_size: 20
-#          order_inserts: true
-#          order_updates: true
-#          batch_versioned_data: true
+    properties:
+      hibernate:
+        generate_statistics: true
+        jdbs:
+          batch_size: 100
+        order_inserts: true
+        order_updates: true
+        batch_versioned_data: true
   sql:
     init:
       mode: always
@@ -32,11 +33,11 @@ app:
   link: https://ipfran.ru/
   user-agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36"
   referrer: "http://www.google.com"
-logging:
-  level:
-    com:
-      zaxxer:
-        hikari: TRACE
-        hicary:
-          HikariConfig: DEBUG
+#logging:
+#  level:
+#    com:
+#      zaxxer:
+#        hikari: TRACE
+#        hicary:
+#          HikariConfig: DEBUG
 

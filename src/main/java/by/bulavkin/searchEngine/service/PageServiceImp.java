@@ -30,7 +30,9 @@ public class PageServiceImp implements PageService{
     }
 
    @Override
-    public List<PageEntity> saveALL(List<PageEntity> listPE) {
-        return pr.saveAll(listPE);
-    }
+    public void saveALL(List<PageEntity> listPE) {
+       pr.saveAll(listPE);
+   }
+
+
 }
