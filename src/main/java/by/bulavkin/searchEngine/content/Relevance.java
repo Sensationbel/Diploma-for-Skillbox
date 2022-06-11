@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -20,7 +21,7 @@ public class Relevance {
     private float relRelevance;
     private int pageId;
 
-    private List<Float> lemmasRank;
+    private List<HashMap<Integer, Float>> lemmasRank;
 
     public List<Relevance> addRelevanceList(List<IndexEntity> indexEntities){
         List<Relevance> relevanceList = new ArrayList<>();
@@ -33,25 +34,33 @@ public class Relevance {
                 tempId = index.getPageId();
                 relevance = new Relevance();
                 relevance.setPageId(index.getPageId());
-                relevance.setLemmasRank(new ArrayList<>());
-                relevance.getLemmasRank().add(index.getRank());
-                relevance.setAbsRelevance(relevance.getAbsRelevance() + index.getRank());
+                relevance.addLemmasRank(relevance, index);
+                relevance.setAbsRelevance(index.getRank());
                 relevanceList.add(relevance);
             } else {
                 if (relevance != null) {
                     relevance.setAbsRelevance(relevance.getAbsRelevance() + index.getRank());
-                    relevance.getLemmasRank().add(index.getRank());
+                    relevance.addLemmasRank(relevance, index);
                 }
             }
             if(relevance != null) {
-                if (relevance.absRelevance > maxAbsRelevance) {
-                    maxAbsRelevance = relevance.absRelevance;
+                if (relevance.getAbsRelevance() > maxAbsRelevance) {
+                    maxAbsRelevance = relevance.getAbsRelevance();
                 }
             }
         }
 
         addRelRelevanceToList(relevanceList, maxAbsRelevance);
         return getSortRelevanceList(relevanceList);
+    }
+
+    private void addLemmasRank(Relevance relevance, IndexEntity index) {
+        if(relevance.getLemmasRank() == null){
+        relevance.setLemmasRank(new ArrayList<>());
+        }
+        HashMap<Integer, Float> map = new HashMap<>();
+        map.put(index.getLemmaId(), index.getRank());
+        relevance.getLemmasRank().add(map);
     }
 
     private void addRelRelevanceToList(List<Relevance> relevanceList, float maxAbsRelevance){
