@@ -88,11 +88,11 @@ public class Content {
         int pageId = page.getId();
 
         lemmas.forEach((k, v) -> {
-            int lemmaId = getLemmaEntityId(k);
-            IndexEntity indexEntity = getIndexEntity(lemmaId, pageId);
+            LemmaEntity lemma = getLemmaEntity(k);
+            IndexEntity indexEntity = getIndexEntity(lemma.getId(), pageId);
             if (indexEntity.isEmpty()) {
-                indexEntity.setPageId(pageId);
-                indexEntity.setLemmaId(lemmaId);
+                indexEntity.setPageEntity(page);
+                indexEntity.setLemmaEntity(lemma);
                 indexEntity.setRank(v * weight);
                 indexes.add(indexEntity);
             } else {
@@ -101,18 +101,17 @@ public class Content {
         });
     }
 
-    private int getLemmaEntityId(String lemma) {
+    private LemmaEntity getLemmaEntity(String lemma) {
         return lemmaEntities.
                 stream().
                 filter(lemmaEntity -> lemmaEntity.getLemma().equals(lemma)).
-                mapToInt(LemmaEntity::getId).
                 findFirst().orElseThrow();
     }
 
     private IndexEntity getIndexEntity(int lemmaId, int pageId) {
         return indexes.
                 stream().
-                filter(i -> (i.getLemmaId() == lemmaId && i.getPageId() == pageId)).
+                filter(i -> (i.getLemmaEntity().getId() == lemmaId && i.getPageEntity().getId() == pageId)).
                 findFirst().
                 orElse(new IndexEntity());
     }

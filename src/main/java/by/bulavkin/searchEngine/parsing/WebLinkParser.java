@@ -46,12 +46,12 @@ public class WebLinkParser {
     }
 
     public Set<String> parsingPage(String pageUrl) throws IOException, InterruptedException {
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
         System.out.println(pageUrl);
         Set<String> urls = new HashSet<>();
         Connection.Response response = Jsoup.connect(pageUrl)
                 .userAgent(userAgent)
-                .timeout(3000)
+                .timeout(6000)
                 .referrer(referrer)
                 .ignoreHttpErrors(true)
                 .execute();
@@ -98,7 +98,7 @@ public class WebLinkParser {
         Pattern fileFilter =
                 Pattern.compile(
                         ".*(\\.(css|js|bmp|gif|jpe?g|JPG|webp|png|tiff?|mid|mp2|mp3|mp4|wav|avi|mov|mpeg|ram|m4v|pdf"
-                                + "|doc|rm|smil|wmv|swf|wma|zip|rar|gz|xls))$");
+                                + "|doc|docx|rm|smil|wmv|swf|wma|zip|rar|gz|xls|ppt))$");
         return fileFilter.matcher(currentUrl).matches();
     }
 }

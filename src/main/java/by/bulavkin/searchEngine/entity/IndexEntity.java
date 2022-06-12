@@ -3,7 +3,6 @@ package by.bulavkin.searchEngine.entity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -11,7 +10,6 @@ import javax.persistence.*;
 @Table(name = "indexes")
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 public class IndexEntity {
 
@@ -19,18 +17,26 @@ public class IndexEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "page_id", nullable = false)
-    private Integer pageId;
+//    @Column(name = "page_id", nullable = false)
+//    private Integer pageId;
 
-    @Column(name = "lemma_id", nullable = false)
-    private Integer lemmaId;
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "page_id", referencedColumnName = "id")
+    private PageEntity pageEntity;
+
+//    @Column(name = "lemma_id", nullable = false)
+//    private Integer lemmaId;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "lemma_id", referencedColumnName = "id")
+    private LemmaEntity lemmaEntity;
 
     @Column(name = "ranks", nullable = false)
     private Float rank;
 
     public boolean isEmpty() {
-        return pageId == null &&
-                lemmaId == null &&
+        return pageEntity == null &&
+                lemmaEntity == null &&
                 rank == null;
     }
 }

@@ -12,14 +12,14 @@ spring:
       auto-commit: true
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: true
     defer-datasource-initialization: true
     properties:
       hibernate:
         generate_statistics: true
         jdbs:
-          batch_size: 100
+          batch_size: 20
         order_inserts: true
         order_updates: true
         batch_versioned_data: true

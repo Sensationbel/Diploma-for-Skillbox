@@ -1,6 +1,8 @@
 package by.bulavkin.searchEngine.service;
 
 import by.bulavkin.searchEngine.entity.IndexEntity;
+import by.bulavkin.searchEngine.entity.LemmaEntity;
+import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.repositoties.IndexRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,17 +21,17 @@ public class IndexServiceImp implements IndexService{
     }
 
     @Override
-    public List<IndexEntity> findByLemmaId(int lemma_id) {
-        return ir.findByLemmaId(lemma_id);
+    public List<IndexEntity> findByLemmaEntity(LemmaEntity lemma) {
+        return ir.findByLemmaEntity(lemma);
     }
 
     @Override
-    public List<IndexEntity> findByPageId(int page_id) {
-        return ir.findByPageId(page_id);
+    public List<IndexEntity> findByPageEntity(PageEntity page) {
+        return ir.findByPageEntity(page);
     }
 
     @Override
-    public IndexEntity findByLemmaIdAndPageId(int lemmaId, int pageId) {
-        return ir.findByLemmaIdAndPageId(lemmaId, pageId);
+    public IndexEntity findByLemmaEntityAndPageEntity(LemmaEntity lemma, PageEntity page) {
+        return ir.findByLemmaEntityAndPageEntity(lemma, page);
     }
 }

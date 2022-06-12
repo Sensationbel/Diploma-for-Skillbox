@@ -17,7 +17,6 @@ import java.util.List;
 public class Request {
 
     private final Lemmatizer lm;
-    private final Relevance rel;
     private final LemmaServiceImp lsi;
     private final IndexServiceImp isi;
 
@@ -43,8 +42,8 @@ public class Request {
 
         lemmaEntities.forEach(lemmaEntity -> {
             if (lemmaEntity.getId().equals(flag)) {
-                indexEntities.addAll(isi.findByLemmaId(lemmaEntity.getId()));
-            } else getIndexEntitiesByNextLemma(lemmaEntity.getId());
+                indexEntities.addAll(isi.findByLemmaEntity(lemmaEntity));
+            } else getIndexEntitiesByNextLemma(lemmaEntity);
         });
         return getSortIndexEntities();
     }
@@ -52,17 +51,23 @@ public class Request {
     private List<IndexEntity> getSortIndexEntities() {
         return indexEntities.
                 stream().
-                sorted(Comparator.
-                        comparingInt(IndexEntity::getPageId)).
+                sorted(((o1, o2) -> {
+                    if(o1.getPageEntity().getId().equals(o2.getPageEntity().getId())){
+                        return o1.getId().compareTo(o2.getId());
+                    }
+                    else if(o1.getPageEntity().getId() > o2.getPageEntity().getId()){
+                        return 1;
+                    }  else return -1;
+                })).
                 toList();
     }
 
-    private void getIndexEntitiesByNextLemma(int lemmaId) {
+    private void getIndexEntitiesByNextLemma(LemmaEntity lemma) {
         List<IndexEntity> indexesList = new ArrayList<>();
 
         indexEntities.forEach(index -> {
             IndexEntity indexEntity;
-            indexEntity = isi.findByLemmaIdAndPageId(lemmaId, index.getPageId());
+            indexEntity = isi.findByLemmaEntityAndPageEntity(lemma, index.getPageEntity());
             if (indexEntity != null) {
                 if(!indexesList.contains(indexEntity)) {
                     indexesList.add(indexEntity);
@@ -72,18 +77,12 @@ public class Request {
         indexEntities.
                 removeIf(entity -> indexesList.
                         stream().
-                        noneMatch(index -> index.getPageId().equals(entity.getPageId())));
+                        noneMatch(index -> index.
+                                getPageEntity().
+                                getId().
+                                equals(entity.
+                                        getPageEntity().
+                                        getId())));
         indexEntities.addAll(indexesList);
     }
-
-//    public void calculationRelevance(){
-//        indexEntities.forEach(index -> {
-//            lemmaEntities.forEach(lemma -> {
-//                IndexEntity indexEntity = isi.findByLemmaIdAndPageId(lemma.getId(), index.getPageId());
-//                PageEntity pageEntity = psi.findById(index.getPageId());
-//                rel.addRelevanceList(pageEntity, lemma, indexEntity);
-//            });
-//        });
-//    }
-
 }

@@ -1,6 +1,8 @@
 package by.bulavkin.searchEngine.service;
 
 import by.bulavkin.searchEngine.entity.IndexEntity;
+import by.bulavkin.searchEngine.entity.LemmaEntity;
+import by.bulavkin.searchEngine.entity.PageEntity;
 
 import java.util.List;
 
@@ -8,10 +10,10 @@ public interface IndexService {
 
     void saveAll(List<IndexEntity> indexes);
 
-    List<IndexEntity> findByLemmaId(int lemma_id);
+    List<IndexEntity> findByLemmaEntity(LemmaEntity lemmaEntity);
 
-    List<IndexEntity> findByPageId(int page_id);
+    List<IndexEntity> findByPageEntity(PageEntity pageEntity);
 
-    IndexEntity findByLemmaIdAndPageId(int lemmaId, int pageId);
+    IndexEntity findByLemmaEntityAndPageEntity(LemmaEntity lemmaEntity, PageEntity pageEntity);
 
 }

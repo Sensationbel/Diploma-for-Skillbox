@@ -40,8 +40,9 @@ public class RequestResult {
             result.setUri(uri + relevance.getPageId());
             title = getTitleFromPageEntity(page);
             result.setTitle(title);
+            result.setRelevance(relevance.getRelRelevance());
             //snippet = getSnippetFromPageEntity(page);
-
+            resultList.add(result);
         });
 
     }

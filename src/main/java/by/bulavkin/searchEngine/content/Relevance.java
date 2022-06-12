@@ -1,6 +1,7 @@
 package by.bulavkin.searchEngine.content;
 
 import by.bulavkin.searchEngine.entity.IndexEntity;
+import by.bulavkin.searchEngine.entity.LemmaEntity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -21,7 +22,7 @@ public class Relevance {
     private float relRelevance;
     private int pageId;
 
-    private List<HashMap<Integer, Float>> lemmasRank;
+    private List<HashMap<LemmaEntity, Float>> lemmasRank;
 
     public List<Relevance> addRelevanceList(List<IndexEntity> indexEntities){
         List<Relevance> relevanceList = new ArrayList<>();
@@ -30,10 +31,10 @@ public class Relevance {
         int tempId = 0;
 
         for (IndexEntity index : indexEntities) {
-            if(tempId != index.getPageId()) {
-                tempId = index.getPageId();
+            if(tempId != index.getPageEntity().getId()) {
+                tempId = index.getPageEntity().getId();
                 relevance = new Relevance();
-                relevance.setPageId(index.getPageId());
+                relevance.setPageId(index.getPageEntity().getId());
                 relevance.addLemmasRank(relevance, index);
                 relevance.setAbsRelevance(index.getRank());
                 relevanceList.add(relevance);
@@ -58,8 +59,8 @@ public class Relevance {
         if(relevance.getLemmasRank() == null){
         relevance.setLemmasRank(new ArrayList<>());
         }
-        HashMap<Integer, Float> map = new HashMap<>();
-        map.put(index.getLemmaId(), index.getRank());
+        HashMap<LemmaEntity, Float> map = new HashMap<>();
+        map.put(index.getLemmaEntity(), index.getRank());
         relevance.getLemmasRank().add(map);
     }
 
