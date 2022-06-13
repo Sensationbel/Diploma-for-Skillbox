@@ -2,6 +2,8 @@ package by.bulavkin.searchEngine.parsing;
 
 import by.bulavkin.searchEngine.entity.PageEntity;
 import lombok.*;
+import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -23,6 +25,7 @@ import java.util.regex.Pattern;
 @ConfigurationProperties(prefix = "app")
 @Getter
 @Setter
+@Log4j2
 public class WebLinkParser {
 
     private List<PageEntity> pageEntities = new ArrayList<>();
@@ -34,9 +37,9 @@ public class WebLinkParser {
     public void start() {
         try {
             try {
-                System.out.println("FJK start");
+                log.info("Pars start");
                 new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(parsingPage(link), this));
-                System.out.println("FJK stop");
+                log.info("Pars stop");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -70,11 +73,11 @@ public class WebLinkParser {
     }
 
     private void createDataFromUrl(String pageUrl, int statusCode, String contentCurrentURL) {
-        PageEntity dfu = new PageEntity();
-        dfu.setPath(pageUrl.replaceAll(link, "/"));
-        dfu.setCode(statusCode);
-        dfu.setContent(contentCurrentURL);
-        addListDfu(dfu);
+        PageEntity pageEntity = new PageEntity();
+        pageEntity.setPath(pageUrl.replaceAll(link, "/"));
+        pageEntity.setCode(statusCode);
+        pageEntity.setContent(contentCurrentURL);
+        addListDfu(pageEntity);
     }
 
     private void addListDfu(PageEntity dataFromUrl) {

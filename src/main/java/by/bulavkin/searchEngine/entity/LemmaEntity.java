@@ -8,7 +8,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "lemmas")
+@Table(name = "lemmas", indexes = @Index(name = "lemma" ,columnList = "lemma"))
 @Getter
 @Setter
 @ToString
@@ -32,6 +32,4 @@ public class LemmaEntity {
         return lemma == null && frequency == null;
     }
 
-//    @ManyToMany(mappedBy = "lemmas", fetch = FetchType.EAGER)
-//    private List<PageEntity> pages;
 }

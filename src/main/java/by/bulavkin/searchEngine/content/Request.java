@@ -52,7 +52,8 @@ public class Request {
         return indexEntities.
                 stream().
                 sorted(((o1, o2) -> {
-                    if(o1.getPageEntity().getId().equals(o2.getPageEntity().getId())){
+                    if(o1.getPageEntity().getId()
+                            .equals(o2.getPageEntity().getId())){
                         return o1.getId().compareTo(o2.getId());
                     }
                     else if(o1.getPageEntity().getId() > o2.getPageEntity().getId()){

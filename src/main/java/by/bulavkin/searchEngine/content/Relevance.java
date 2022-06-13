@@ -74,7 +74,8 @@ public class Relevance {
         return relevanceList.
                 stream().
                 sorted(Comparator.
-                        comparingDouble(Relevance::getRelRelevance).reversed()).
+                        comparingDouble(Relevance::getRelRelevance).
+                        reversed()).
                 toList();
     }
 }
