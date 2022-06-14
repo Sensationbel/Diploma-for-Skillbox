@@ -1,6 +1,7 @@
 package by.bulavkin.searchEngine.parsing;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
 @AllArgsConstructor
+@Log4j2
 public class RecursiveWebLinkParser extends RecursiveAction {
 
     private Set<String> urls;
@@ -30,8 +32,7 @@ public class RecursiveWebLinkParser extends RecursiveAction {
                 task.fork();
                 taskList.add(task);
             } catch (IOException | InterruptedException e) {
-                System.err.println(recUrl);
-                ;
+                log.error(recUrl);
             }
         });
         taskList.forEach(ForkJoinTask::join);

@@ -3,20 +3,18 @@ package by.bulavkin.searchEngine.entity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "lemmas", indexes = @Index(name = "lemma" ,columnList = "lemma"))
+@Table(name = "lemmas", indexes = @Index(name = "id" ,columnList = "id"))
 @Getter
 @Setter
-@ToString
 @RequiredArgsConstructor
 public class LemmaEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
     @Column(nullable = false)
@@ -25,6 +23,10 @@ public class LemmaEntity {
     @Column(nullable = false)
     private Integer frequency;
 
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "site_id", referencedColumnName = "id")
+    private Site site;
+
     @Transient
     private Integer pageId;
 
@@ -32,4 +34,12 @@ public class LemmaEntity {
         return lemma == null && frequency == null;
     }
 
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "id = " + id + ", " +
+                "lemma = " + lemma + ", " +
+                "frequency = " + frequency +
+                "site_id" + site.getId() +")";
+    }
 }

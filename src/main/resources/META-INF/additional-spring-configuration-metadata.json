@@ -14,5 +14,15 @@
       "name": "app.user-agent",
       "type": "java.lang.String",
       "description": "Description for app.user-agent."
+    },
+    {
+      "name": "app.referrer",
+      "type": "java.lang.String",
+      "description": "Description for app.referrer."
+    },
+    {
+      "name": "app.name",
+      "type": "java.lang.String",
+      "description": "Description for app.name."
     }
   ] }

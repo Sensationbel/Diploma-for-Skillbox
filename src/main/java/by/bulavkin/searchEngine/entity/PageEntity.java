@@ -30,6 +30,23 @@ public class PageEntity {
     @Column(columnDefinition = "MEDIUMTEXT", nullable = false)
     private String content;
 
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "site_id", referencedColumnName = "id")
+    private Site site;
+
+    @Override
+    public String toString() {
+        return "PageEntity{" +
+                "Id=" + Id +
+                ", path='" + path + '\'' +
+                ", code=" + code +
+                ", content='" + content + '\'' +
+                ", site_id" + site.getId() +
+                '}';
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -50,18 +50,20 @@ public class WebLinkParser {
 
     public Set<String> parsingPage(String pageUrl) throws IOException, InterruptedException {
 //        Thread.sleep(1000);
-        System.out.println(pageUrl);
         Set<String> urls = new HashSet<>();
+
         Connection.Response response = Jsoup.connect(pageUrl)
                 .userAgent(userAgent)
                 .timeout(6000)
                 .referrer(referrer)
                 .ignoreHttpErrors(true)
                 .execute();
+
         int statusCode = response.statusCode();
         Document doc = response.parse();
         String contentCurrentURL = doc.html();
         createDataFromUrl(pageUrl, statusCode, contentCurrentURL);
+
         for (Element element : doc.select("a")) {
             String currentUrl = element.attr("abs:href");
             if (isValidToVisit(currentUrl)) {

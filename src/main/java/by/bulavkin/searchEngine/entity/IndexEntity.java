@@ -17,17 +17,11 @@ public class IndexEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-//    @Column(name = "page_id", nullable = false)
-//    private Integer pageId;
-
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "page_id", referencedColumnName = "id")
     private PageEntity pageEntity;
 
-//    @Column(name = "lemma_id", nullable = false)
-//    private Integer lemmaId;
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "lemma_id", referencedColumnName = "id")
     private LemmaEntity lemmaEntity;
 
