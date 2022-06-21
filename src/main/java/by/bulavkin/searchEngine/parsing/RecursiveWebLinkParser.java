@@ -32,7 +32,8 @@ public class RecursiveWebLinkParser extends RecursiveAction {
                 task.fork();
                 taskList.add(task);
             } catch (IOException | InterruptedException e) {
-                log.error(recUrl);
+                log.error(e);
+                log.info(recUrl);
             }
         });
         taskList.forEach(ForkJoinTask::join);

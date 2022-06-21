@@ -3,12 +3,10 @@ package by.bulavkin.searchEngine.parsing;
 import by.bulavkin.searchEngine.entity.PageEntity;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
-import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -22,7 +20,7 @@ import java.util.regex.Pattern;
 
 @Service
 @RequiredArgsConstructor
-@ConfigurationProperties(prefix = "app")
+//@ConfigurationProperties(prefix = "app")
 @Getter
 @Setter
 @Log4j2
@@ -31,14 +29,14 @@ public class WebLinkParser {
     private List<PageEntity> pageEntities = new ArrayList<>();
     private volatile List<String> listIsVisit = new ArrayList<>();
 
-    private String link, userAgent, referrer;
+    private final DataToParse dataToParse;
     private static int MAX_TREADS = Runtime.getRuntime().availableProcessors() * 2;
 
     public void start() {
         try {
             try {
                 log.info("Pars start");
-                new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(parsingPage(link), this));
+                new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(parsingPage(dataToParse.getSites().get(0).getUrl()), this));
                 log.info("Pars stop");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -53,9 +51,9 @@ public class WebLinkParser {
         Set<String> urls = new HashSet<>();
 
         Connection.Response response = Jsoup.connect(pageUrl)
-                .userAgent(userAgent)
+                .userAgent(dataToParse.getUserAgent())
                 .timeout(6000)
-                .referrer(referrer)
+                .referrer(dataToParse.getReferrer())
                 .ignoreHttpErrors(true)
                 .execute();
 
@@ -76,18 +74,18 @@ public class WebLinkParser {
 
     private void createDataFromUrl(String pageUrl, int statusCode, String contentCurrentURL) {
         PageEntity pageEntity = new PageEntity();
-        pageEntity.setPath(pageUrl.replaceAll(link, "/"));
+        pageEntity.setPath(pageUrl.replaceAll("(https?|HTTPS?)://.+?/", "/"));
         pageEntity.setCode(statusCode);
         pageEntity.setContent(contentCurrentURL);
-        addListDfu(pageEntity);
+        addListPageEntity(pageEntity);
     }
 
-    private void addListDfu(PageEntity dataFromUrl) {
+    private void addListPageEntity(PageEntity dataFromUrl) {
         pageEntities.add(dataFromUrl);
     }
 
     private boolean isValidToVisit(String currentUrl) {
-        return currentUrl.startsWith(link)
+        return currentUrl.startsWith(dataToParse.getSites().get(0).getUrl())
                 && !isVisit(currentUrl)
                 && !isFileUrl(currentUrl)
                 && !currentUrl.contains("#")
@@ -103,7 +101,7 @@ public class WebLinkParser {
         Pattern fileFilter =
                 Pattern.compile(
                         ".*(\\.(css|js|bmp|gif|jpe?g|JPG|webp|png|tiff?|mid|mp2|mp3|mp4|wav|avi|mov|mpeg|ram|m4v|pdf"
-                                + "|doc|docx|rm|smil|wmv|swf|wma|zip|rar|gz|xls|ppt))$");
+                                + "|doc|docx|rm|smil|wmv|swf|wma|zip|rar|gz|xls|ppt|pptx|xlsx))$");
         return fileFilter.matcher(currentUrl).matches();
     }
 }

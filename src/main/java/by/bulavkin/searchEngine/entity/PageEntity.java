@@ -33,7 +33,7 @@ public class PageEntity {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "site_id", referencedColumnName = "id")
-    private Site site;
+    private Sites site;
 
     @Override
     public String toString() {

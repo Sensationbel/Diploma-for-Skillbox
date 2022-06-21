@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class Request {
+public class ProcessingSearch {
 
     private final Lemmatizer lm;
     private final LemmaServiceImp lsi;

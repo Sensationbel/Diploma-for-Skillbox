@@ -2,29 +2,29 @@ package by.bulavkin.searchEngine.controller;
 
 import by.bulavkin.searchEngine.content.Content;
 import by.bulavkin.searchEngine.content.Relevance;
-import by.bulavkin.searchEngine.content.Request;
+import by.bulavkin.searchEngine.content.ProcessingSearch;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 import java.util.Map;
 
-@RestController
+@Controller
 //@RequiredArgsConstructor
 @Service
-public record SearchController(Content content, Request request, Relevance relevance) {
+public record SearchController(Content content, ProcessingSearch request, Relevance relevance) {
 
-    @GetMapping("/")
-//    @ResponseBody
-    public StringBuilder startAppl(){
-        StringBuilder builder = new StringBuilder();
-        builder.append("{\"sites\": 1}\n").append("{\"pages\": 34}\n").append("{\"lemmas\": 234}\n");
-        builder.append(getStatistic());
-        return builder;
-    }
+   @GetMapping("/")
+   public String showSite() {
+       return "index";
+   }
     /**
      TODO: Метод запускает полную индексацию всех сайтов или полную
      переиндексацию, если они уже проиндексированы.
@@ -44,10 +44,11 @@ public record SearchController(Content content, Request request, Relevance relev
      }
      */
 
-    @GetMapping("/api/start_indexing")
+    @GetMapping("/start_indexing")
+    @ResponseBody
     public Map<String, Boolean> startIndexing() {
-        //content.startAddContentToDatabase();
-        return Map.of("result", true);
+        content.startAddContentToDatabase();
+        return Map.of("result", false);
     }
 
     /**
@@ -140,9 +141,10 @@ public record SearchController(Content content, Request request, Relevance relev
      * }
      */
 
-    @GetMapping("/api/statistics")
-    public String getStatistic(){
-        return "\"result\": true," +
+    @GetMapping("/statistics")
+    @ResponseBody
+    public JsonNode getStatistics() throws JsonProcessingException {
+        String builder = "{\"result\": true," +
                 "\"statistics\": {" +
                 "\"total\": {" +
                 "\"sites\": 10," +
@@ -160,8 +162,12 @@ public record SearchController(Content content, Request request, Relevance relev
                 "страница сайта недоступна\"," +
                 "\"pages\": 5764," +
                 "\"lemmas\": 321115" +
-                "}," +
+                "}" +
                 "]" +
+                "}" +
                 "}";
+    ObjectMapper mapper = new ObjectMapper();
+    JsonNode node = mapper.readTree(builder);
+        return node;
     }
 }

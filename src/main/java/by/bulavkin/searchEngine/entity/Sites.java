@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public class Site {
+public class Sites {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,6 @@ public class Site {
     @Column(nullable = false)
     private Status status;
 
-//    @Temporal(TemporalType.DATE)
     @Column(name = "status_time", nullable = false)
     private LocalDateTime statusTime;
 

@@ -1,18 +1,29 @@
 package by.bulavkin.searchEngine.parsing;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-@RequiredArgsConstructor
 @Getter
 @Setter
-//@ConfigurationProperties(prefix = "app")
+@ConfigurationProperties(prefix = "app")
 public class DataToParse {
 
-    private String link;     // Пока не решил, нужен он мне или нет!!!
+    private String userAgent;
+    private String referrer;
+    private List<DataSites> sites;
+
+    @Getter
+    @Setter
+    public static class DataSites{
+
+        private String url;
+        private String name;
+    }// Пока не решил, нужен он мне или нет!!!
 
 
 }

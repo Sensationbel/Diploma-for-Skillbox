@@ -24,5 +24,10 @@
       "name": "app.name",
       "type": "java.lang.String",
       "description": "Description for app.name."
+    },
+    {
+      "name": "server.context-path",
+      "type": "java.lang.String",
+      "description": "Description for server.context-path."
     }
   ] }

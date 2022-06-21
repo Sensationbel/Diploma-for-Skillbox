@@ -25,7 +25,7 @@ public class LemmaEntity {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "site_id", referencedColumnName = "id")
-    private Site site;
+    private Sites site;
 
     @Transient
     private Integer pageId;
