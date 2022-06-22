@@ -1,15 +1,10 @@
 package by.bulavkin.searchEngine.content;
 
-import by.bulavkin.searchEngine.entity.FieldEntity;
-import by.bulavkin.searchEngine.entity.IndexEntity;
-import by.bulavkin.searchEngine.entity.LemmaEntity;
-import by.bulavkin.searchEngine.entity.PageEntity;
+import by.bulavkin.searchEngine.entity.*;
 import by.bulavkin.searchEngine.lemmatizer.Lemmatizer;
+import by.bulavkin.searchEngine.parsing.DataToParse;
 import by.bulavkin.searchEngine.parsing.WebLinkParser;
-import by.bulavkin.searchEngine.service.FieldServiceIml;
-import by.bulavkin.searchEngine.service.IndexServiceImp;
-import by.bulavkin.searchEngine.service.LemmaServiceImp;
-import by.bulavkin.searchEngine.service.PageServiceImp;
+import by.bulavkin.searchEngine.service.*;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -29,16 +24,39 @@ public class Content {
     private final FieldServiceIml fsi;
     private final LemmaServiceImp lsi;
     private final IndexServiceImp isi;
-    private final Lemmatizer lm;
-    private final WebLinkParser wlp;
+    private final SitesServiceImpl ssi;
+    private final Lemmatizer lemmatizer;
+    private final WebLinkParser linkParser;
+
+    private final DataToParse dataToParse;
 
     private final ArrayList<IndexEntity> indexes;
     private final ArrayList<LemmaEntity> lemmaEntities;
     private List<FieldEntity> fields;
+    private List<Sites> sites;
+
+    public void startIndexingSites(){
+        sites.forEach(s -> {
+
+        });
+    }
+
+    public void addDataToSitesEntity(){
+        List<Sites> list = new ArrayList<>();
+        dataToParse.getSites().forEach(s ->{
+            Sites site = new Sites();
+            site.setName(s.getName());
+            site.setUrl(s.getUrl());
+            site.setStatus(Status.INDEXING);
+            site.setStatusTime(System.currentTimeMillis());
+            list.add(site);
+        });
+        sites = ssi.saveALL(list);
+    }
 
     public void startAddContentToDatabase(){
-        wlp.start();
-        psi.saveALL(wlp.getPageEntities());
+        linkParser.start();
+        psi.saveALL(linkParser.getPageEntities());
         fields = fsi.findAll();
         new ArrayList<>(psi.findAll()).
                 forEach(this::normalizeContent);
@@ -53,7 +71,7 @@ public class Content {
         fields.forEach(field -> {
             Elements contentQuery = doc.select(field.getSelector());
             String normalizeContent = contentQuery.text().replaceAll("[^ЁёА-я\s]", " ").trim();
-            Map<String, Integer> lemmas = new HashMap<>(lm.getMapWithLemmas(normalizeContent));
+            Map<String, Integer> lemmas = new HashMap<>(lemmatizer.getMapWithLemmas(normalizeContent));
             lemmaEntities.addAll(addLemma(lemmas, page.getId()));
             rankCalculation(page, lemmas, field.getWeight());
         });

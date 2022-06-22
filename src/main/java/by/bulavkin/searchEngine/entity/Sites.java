@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @RequiredArgsConstructor
@@ -22,7 +21,7 @@ public class Sites {
     private Status status;
 
     @Column(name = "status_time", nullable = false)
-    private LocalDateTime statusTime;
+    private long statusTime;
 
     @Column(name = "last_error", columnDefinition = "TEXT", nullable = false)
     private String lastError;
