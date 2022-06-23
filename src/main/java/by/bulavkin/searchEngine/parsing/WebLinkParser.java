@@ -1,6 +1,7 @@
 package by.bulavkin.searchEngine.parsing;
 
 import by.bulavkin.searchEngine.entity.PageEntity;
+import by.bulavkin.searchEngine.entity.Sites;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
 import org.jsoup.Connection;
@@ -29,14 +30,18 @@ public class WebLinkParser {
     private List<PageEntity> pageEntities = new ArrayList<>();
     private volatile List<String> listIsVisit = new ArrayList<>();
 
-    private final DataToParse dataToParse;
+
+    private DataToParse dataToParse;
+    private Sites sites;
     private static int MAX_TREADS = Runtime.getRuntime().availableProcessors() * 2;
 
-    public void start() {
+    public void start(Sites sites, DataToParse dataToParse) {
+        this.sites = sites;
+        this.dataToParse = dataToParse;
         try {
             try {
                 log.info("Pars start");
-                new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(parsingPage(dataToParse.getSites().get(0).getUrl()), this));
+                new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(parsingPage(sites.getUrl()), this));
                 log.info("Pars stop");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -47,12 +52,12 @@ public class WebLinkParser {
     }
 
     public Set<String> parsingPage(String pageUrl) throws IOException, InterruptedException {
-//        Thread.sleep(1000);
+        Thread.sleep(1000);
         Set<String> urls = new HashSet<>();
 
         Connection.Response response = Jsoup.connect(pageUrl)
                 .userAgent(dataToParse.getUserAgent())
-                .timeout(6000)
+                .timeout(8000)
                 .referrer(dataToParse.getReferrer())
                 .ignoreHttpErrors(true)
                 .execute();
@@ -77,6 +82,7 @@ public class WebLinkParser {
         pageEntity.setPath(pageUrl.replaceAll("(https?|HTTPS?)://.+?/", "/"));
         pageEntity.setCode(statusCode);
         pageEntity.setContent(contentCurrentURL);
+        pageEntity.setSite(sites);
         addListPageEntity(pageEntity);
     }
 
@@ -85,7 +91,7 @@ public class WebLinkParser {
     }
 
     private boolean isValidToVisit(String currentUrl) {
-        return currentUrl.startsWith(dataToParse.getSites().get(0).getUrl())
+        return currentUrl.startsWith(sites.getUrl())
                 && !isVisit(currentUrl)
                 && !isFileUrl(currentUrl)
                 && !currentUrl.contains("#")

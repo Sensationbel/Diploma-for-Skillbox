@@ -19,12 +19,12 @@ public class RecursiveWebLinkParser extends RecursiveAction {
 
     @Override
     protected void compute() {
-        if (urls == null || urls.isEmpty()) {
-            if (getPool().getQueuedTaskCount() == 0) {
-                getPool().shutdown();
-            }
-            return;
-        }
+//        if (urls == null || urls.isEmpty()) {
+//            if (getPool().getQueuedTaskCount() == 0) {
+//                getPool().shutdown();
+//            }
+//            return;
+//        }
         List<RecursiveWebLinkParser> taskList = new ArrayList<>();
         urls.forEach(recUrl -> {
             try {

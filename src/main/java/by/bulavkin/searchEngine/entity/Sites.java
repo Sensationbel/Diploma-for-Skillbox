@@ -23,7 +23,7 @@ public class Sites {
     @Column(name = "status_time", nullable = false)
     private long statusTime;
 
-    @Column(name = "last_error", columnDefinition = "TEXT", nullable = false)
+    @Column(name = "last_error", columnDefinition = "TEXT")
     private String lastError;
 
     @Column(name = "url", nullable = false)
