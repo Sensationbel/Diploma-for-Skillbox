@@ -2,12 +2,15 @@ package by.bulavkin.searchEngine.parsing;
 
 import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.entity.Sites;
+import by.bulavkin.searchEngine.entity.Status;
+import by.bulavkin.searchEngine.service.SitesServiceImpl;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -17,6 +20,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -27,37 +31,43 @@ import java.util.regex.Pattern;
 @Log4j2
 public class WebLinkParser {
 
-    private List<PageEntity> pageEntities = new ArrayList<>();
+    private SitesServiceImpl ssi;
+
+    private volatile List<PageEntity> pageEntities = new ArrayList<>();
     private volatile List<String> listIsVisit = new ArrayList<>();
 
 
     private DataToParse dataToParse;
-    private Sites sites;
-    private static int MAX_TREADS = Runtime.getRuntime().availableProcessors() * 2;
+    private List<Sites> sitesList;
+    private static int MAX_TREADS = Runtime.getRuntime().availableProcessors();
+    private static String regex = "(https?|HTTPS?)://.+?/";
 
-    public void start(Sites sites, DataToParse dataToParse) {
-        this.sites = sites;
+    public void start(List<Sites> sites, DataToParse dataToParse, SitesServiceImpl ssi) {
+        this.sitesList = sites;
         this.dataToParse = dataToParse;
-        try {
-            try {
-                log.info("Pars start");
-                new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(parsingPage(sites.getUrl()), this));
-                log.info("Pars stop");
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        this.ssi = ssi;
+
+        changeSiteStatus(Status.INDEXED, sites);
+        log.info("Pars start");
+        new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(getUrlSet(), this));
+        log.info("Pars stop");
+        changeSiteStatus(Status.INDEXING, sites);
+    }
+
+    private void changeSiteStatus(Status status, List<Sites> sites) {
+        sites.forEach(s -> {
+            s.setStatus(status);
+            ssi.save(s);
+        });
     }
 
     public Set<String> parsingPage(String pageUrl) throws IOException, InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(500);
         Set<String> urls = new HashSet<>();
 
         Connection.Response response = Jsoup.connect(pageUrl)
                 .userAgent(dataToParse.getUserAgent())
-                .timeout(8000)
+                .timeout(3000)
                 .referrer(dataToParse.getReferrer())
                 .ignoreHttpErrors(true)
                 .execute();
@@ -69,7 +79,7 @@ public class WebLinkParser {
 
         for (Element element : doc.select("a")) {
             String currentUrl = element.attr("abs:href");
-            if (isValidToVisit(currentUrl)) {
+            if (isValidToVisit(pageUrl, currentUrl)) {
                 getListIsVisit().add(currentUrl);
                 urls.add(currentUrl);
             }
@@ -79,19 +89,30 @@ public class WebLinkParser {
 
     private void createDataFromUrl(String pageUrl, int statusCode, String contentCurrentURL) {
         PageEntity pageEntity = new PageEntity();
-        pageEntity.setPath(pageUrl.replaceAll("(https?|HTTPS?)://.+?/", "/"));
+        Sites site = getSiteByPageurl(pageUrl);
+
+
+        if (site.isEmpty()){
+            log.info(pageUrl + " not found!");
+            return;
+        }
+        pageEntity.setPath(pageUrl.replaceAll(regex, "/"));
         pageEntity.setCode(statusCode);
         pageEntity.setContent(contentCurrentURL);
-        pageEntity.setSite(sites);
-        addListPageEntity(pageEntity);
+        pageEntity.setSite(getSiteByPageurl(pageUrl));
+        pageEntities.add(pageEntity);
     }
 
-    private void addListPageEntity(PageEntity dataFromUrl) {
-        pageEntities.add(dataFromUrl);
+    private Sites getSiteByPageurl(String pageUrl) {
+        return sitesList.
+                stream().
+                filter(s -> pageUrl.startsWith(s.getUrl())).
+                findFirst().
+                orElse(new Sites());
     }
 
-    private boolean isValidToVisit(String currentUrl) {
-        return currentUrl.startsWith(sites.getUrl())
+    private boolean isValidToVisit(String pageUrl, String currentUrl) {
+        return currentUrl.startsWith(pageUrl)
                 && !isVisit(currentUrl)
                 && !isFileUrl(currentUrl)
                 && !currentUrl.contains("#")
@@ -109,5 +130,13 @@ public class WebLinkParser {
                         ".*(\\.(css|js|bmp|gif|jpe?g|JPG|webp|png|tiff?|mid|mp2|mp3|mp4|wav|avi|mov|mpeg|ram|m4v|pdf"
                                 + "|doc|docx|rm|smil|wmv|swf|wma|zip|rar|gz|xls|ppt|pptx|xlsx))$");
         return fileFilter.matcher(currentUrl).matches();
+    }
+
+    private Set<String> getUrlSet() {
+        Set<String> urlSet = sitesList.
+                stream().
+                map(s -> s.getUrl()).
+                collect(Collectors.toSet());
+        return urlSet;
     }
 }

@@ -31,4 +31,8 @@ public class Sites {
 
     @Column(nullable = false)
     private String name;
+
+    public boolean isEmpty(){
+        return url == null && name == null;
+    }
 }

@@ -18,4 +18,9 @@ public class SitesServiceImpl implements SitesService{
     public List<Sites> saveALL(List<Sites> sitesList) {
         return sr.saveAll(sitesList);
     }
+
+    @Override
+    public Sites save(Sites site) {
+        return sr.save(site);
+    }
 }

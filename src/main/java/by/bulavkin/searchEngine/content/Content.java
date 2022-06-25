@@ -34,24 +34,19 @@ public class Content {
     private final ArrayList<LemmaEntity> lemmaEntities;
     private List<FieldEntity> fields;
 
-    public void startIndexingSites(){
+    public void startIndexingSites() {
         List<Sites> sites = addDataToSitesEntity();
-        for (Sites s : sites) {
-            Runnable task = () -> {
-                WebLinkParser linkParser = new WebLinkParser();
-                linkParser.start(s, dataToParse);
 
-            };
-            Thread thread = new Thread(task, s.getName());
-            thread.start();
-        }
-//        psi.saveALL(linkParser.getPageEntities());
+        WebLinkParser linkParser = new WebLinkParser();
+        linkParser.start(sites, dataToParse, ssi);
+        psi.saveALL(linkParser.getPageEntities());
+
         startAddContentToDatabase();
     }
 
-     public List<Sites> addDataToSitesEntity(){
+    public List<Sites> addDataToSitesEntity() {
         List<Sites> list = new ArrayList<>();
-        dataToParse.getSites().forEach(s ->{
+        dataToParse.getSites().forEach(s -> {
             Sites site = new Sites();
             site.setName(s.getName());
             site.setUrl(s.getUrl());
@@ -62,7 +57,7 @@ public class Content {
         return ssi.saveALL(list);
     }
 
-    public void startAddContentToDatabase(){
+    public void startAddContentToDatabase() {
 //        linkParser.start(sites, dataToParse);
 //        psi.saveALL(linkParser.getPageEntities());
         fields = fsi.findAll();

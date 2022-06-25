@@ -3,6 +3,8 @@ spring:
     url: jdbc:mysql://localhost:3306/search_engine_schema
     username: root
     password: root
+
+
     hikari:
       connection-timeout: 30000
       minimum-idle: 5
@@ -26,6 +28,7 @@ spring:
   sql:
     init:
       mode: always
+
 #server:
 #  servlet:
 #    context-path: /admin
