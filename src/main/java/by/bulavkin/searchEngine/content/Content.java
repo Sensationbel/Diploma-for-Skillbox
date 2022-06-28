@@ -34,20 +34,24 @@ public class Content {
     private final ArrayList<LemmaEntity> lemmaEntities;
     private List<FieldEntity> fields;
 
-    public void startIndexingSites() {
-        List<Sites> sites = addDataToSitesEntity();
+    public void startParsingSites(){
+        List<SiteEntity> sites = addDataToSitesEntity();
 
-        WebLinkParser linkParser = new WebLinkParser();
-        linkParser.start(sites, dataToParse, ssi);
-        psi.saveALL(linkParser.getPageEntities());
-
+        for (SiteEntity s : sites) {
+            Runnable task = () -> {
+                WebLinkParser linkParser = new WebLinkParser(dataToParse, psi, ssi, s);
+                linkParser.start();
+            };
+            Thread thread = new Thread(task, s.getName());
+            thread.start();
+        }
         startAddContentToDatabase();
     }
 
-    public List<Sites> addDataToSitesEntity() {
-        List<Sites> list = new ArrayList<>();
-        dataToParse.getSites().forEach(s -> {
-            Sites site = new Sites();
+     public List<SiteEntity> addDataToSitesEntity(){
+        List<SiteEntity> list = new ArrayList<>();
+        dataToParse.getSites().forEach(s ->{
+            SiteEntity site = new SiteEntity();
             site.setName(s.getName());
             site.setUrl(s.getUrl());
             site.setStatus(Status.INDEXING);
@@ -57,7 +61,7 @@ public class Content {
         return ssi.saveALL(list);
     }
 
-    public void startAddContentToDatabase() {
+    public void startAddContentToDatabase(){
 //        linkParser.start(sites, dataToParse);
 //        psi.saveALL(linkParser.getPageEntities());
         fields = fsi.findAll();

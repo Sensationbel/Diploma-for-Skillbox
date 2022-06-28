@@ -47,7 +47,7 @@ public record SearchController(Content content, ProcessingSearch request, Releva
     @GetMapping("/start_indexing")
     @ResponseBody
     public Map<String, Boolean> startIndexing() {
-        content.startIndexingSites();
+        content.startParsingSites();
         return Map.of("result", false);
     }
 
