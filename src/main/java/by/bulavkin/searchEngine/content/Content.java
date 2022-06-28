@@ -26,37 +26,44 @@ public class Content {
     private final IndexServiceImp isi;
     private final SitesServiceImpl ssi;
     private final Lemmatizer lemmatizer;
-    private final WebLinkParser linkParser;
+//    private final WebLinkParser linkParser;
 
     private final DataToParse dataToParse;
 
     private final ArrayList<IndexEntity> indexes;
     private final ArrayList<LemmaEntity> lemmaEntities;
     private List<FieldEntity> fields;
-    private List<Sites> sites;
 
-    public void startIndexingSites(){
-        sites.forEach(s -> {
+    public void startParsingSites(){
+        List<SiteEntity> sites = addDataToSitesEntity();
 
-        });
+        for (SiteEntity s : sites) {
+            Runnable task = () -> {
+                WebLinkParser linkParser = new WebLinkParser(dataToParse, psi, ssi, s);
+                linkParser.start();
+            };
+            Thread thread = new Thread(task, s.getName());
+            thread.start();
+        }
+        startAddContentToDatabase();
     }
 
-    public void addDataToSitesEntity(){
-        List<Sites> list = new ArrayList<>();
+     public List<SiteEntity> addDataToSitesEntity(){
+        List<SiteEntity> list = new ArrayList<>();
         dataToParse.getSites().forEach(s ->{
-            Sites site = new Sites();
+            SiteEntity site = new SiteEntity();
             site.setName(s.getName());
             site.setUrl(s.getUrl());
             site.setStatus(Status.INDEXING);
             site.setStatusTime(System.currentTimeMillis());
             list.add(site);
         });
-        sites = ssi.saveALL(list);
+        return ssi.saveALL(list);
     }
 
     public void startAddContentToDatabase(){
-        linkParser.start();
-        psi.saveALL(linkParser.getPageEntities());
+//        linkParser.start(sites, dataToParse);
+//        psi.saveALL(linkParser.getPageEntities());
         fields = fsi.findAll();
         new ArrayList<>(psi.findAll()).
                 forEach(this::normalizeContent);

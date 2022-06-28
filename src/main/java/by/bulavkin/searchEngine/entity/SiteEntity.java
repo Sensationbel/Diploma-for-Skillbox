@@ -10,7 +10,7 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 @Getter
 @Setter
-public class Sites {
+public class SiteEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class Sites {
     @Column(name = "status_time", nullable = false)
     private long statusTime;
 
-    @Column(name = "last_error", columnDefinition = "TEXT", nullable = false)
+    @Column(name = "last_error", columnDefinition = "TEXT")
     private String lastError;
 
     @Column(name = "url", nullable = false)
@@ -31,4 +31,8 @@ public class Sites {
 
     @Column(nullable = false)
     private String name;
+
+    public boolean isEmpty(){
+        return url == null && name == null;
+    }
 }

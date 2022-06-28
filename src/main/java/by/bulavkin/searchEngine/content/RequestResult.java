@@ -34,9 +34,6 @@ public class RequestResult {
         this.psi = psi;
         this.lemmatizer = lemmatizer;
     }
-
-
-
     public void addResultList(List<Relevance> relevanceList, String searchingRequest){
         List<RequestResult> resultList = new ArrayList<>();
 

@@ -31,9 +31,9 @@ public class PageEntity {
     private String content;
 
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "site_id", referencedColumnName = "id")
-    private Sites site;
+    private SiteEntity site;
 
     @Override
     public String toString() {

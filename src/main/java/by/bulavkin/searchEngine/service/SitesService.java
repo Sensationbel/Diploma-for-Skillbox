@@ -1,10 +1,11 @@
 package by.bulavkin.searchEngine.service;
 
-import by.bulavkin.searchEngine.entity.Sites;
+import by.bulavkin.searchEngine.entity.SiteEntity;
 
 import java.util.List;
 
 public interface SitesService {
 
-    List<Sites> saveALL(List<Sites> sitesList);
+    List<SiteEntity> saveALL(List<SiteEntity> siteEntityList);
+    SiteEntity save(SiteEntity site);
 }
