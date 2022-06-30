@@ -5,12 +5,19 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public interface PageRepository extends JpaRepository<PageEntity, Integer> {
 
     PageEntity findByPath(String path);
+    ArrayList<PageEntity> findAll();
+
+    @Query("select p from PageEntity p where p.site.id = ?1")
+    ArrayList<PageEntity> findAllBySiteId(int siteId);
+
+
 //
 //    @Query(value = "select * from PageEntity p" +
 //            " join IndexEntity i on i.page_id=p.id" +

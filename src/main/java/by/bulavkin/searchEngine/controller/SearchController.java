@@ -1,30 +1,26 @@
 package by.bulavkin.searchEngine.controller;
 
-import by.bulavkin.searchEngine.content.Content;
-import by.bulavkin.searchEngine.content.Relevance;
+import by.bulavkin.searchEngine.content.StartingIndexing;
 import by.bulavkin.searchEngine.content.ProcessingSearch;
+import by.bulavkin.searchEngine.content.Relevance;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
-@Controller
-//@RequiredArgsConstructor
+@RestController
 @Service
-public record SearchController(Content content, ProcessingSearch request, Relevance relevance) {
+public record SearchController(StartingIndexing startingIndexing, ProcessingSearch request, Relevance relevance) {
 
-   @GetMapping("/")
-   public String showSite() {
-       return "index";
-   }
+//   @GetMapping("/")
+//
+//   public String showSite() {
+//       return "index";
+//   }
     /**
      TODO: Метод запускает полную индексацию всех сайтов или полную
      переиндексацию, если они уже проиндексированы.
@@ -45,9 +41,9 @@ public record SearchController(Content content, ProcessingSearch request, Releva
      */
 
     @GetMapping("/start_indexing")
-    @ResponseBody
-    public Map<String, Boolean> startIndexing() {
-        content.startParsingSites();
+//    @ResponseBody
+    public Map<String, Boolean> startIndexing() throws InterruptedException {
+        startingIndexing.startParsingSites();
         return Map.of("result", false);
     }
 

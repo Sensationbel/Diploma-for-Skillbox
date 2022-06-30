@@ -5,11 +5,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@RequiredArgsConstructor
 @Getter
 @Setter
+@Table(name = "sites")
 public class SiteEntity {
 
     @Id
@@ -31,6 +32,15 @@ public class SiteEntity {
 
     @Column(nullable = false)
     private String name;
+
+    @OneToMany
+    @JoinColumn(name = "site_id")
+    private List<PageEntity> pageEntities;
+
+    @OneToMany
+    @JoinColumn(name = "site_Id")
+    private List<LemmaEntity> lemmaEntities;
+
 
     public boolean isEmpty(){
         return url == null && name == null;

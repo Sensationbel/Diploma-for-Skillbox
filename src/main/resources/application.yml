@@ -20,10 +20,10 @@ spring:
     properties:
       hibernate:
         jdbc:
-          batch_size:  50
+          batch_size:  100
           batch_versioned_data:  true
         order_updates:  true
-        generate_statistics:  true
+#        generate_statistics:  true
 
   sql:
     init:

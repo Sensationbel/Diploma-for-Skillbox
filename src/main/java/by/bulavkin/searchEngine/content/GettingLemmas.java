@@ -3,12 +3,13 @@ package by.bulavkin.searchEngine.content;
 import by.bulavkin.searchEngine.entity.*;
 import by.bulavkin.searchEngine.lemmatizer.Lemmatizer;
 import by.bulavkin.searchEngine.parsing.DataToParse;
-import by.bulavkin.searchEngine.parsing.WebLinkParser;
 import by.bulavkin.searchEngine.service.*;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,54 +19,39 @@ import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
-public class Content {
+@Slf4j
+@Getter
+@Setter
+public class GettingLemmas {
 
     private final PageServiceImp psi;
-    private final FieldServiceIml fsi;
-    private final LemmaServiceImp lsi;
-    private final IndexServiceImp isi;
-    private final SitesServiceImpl ssi;
-    private final Lemmatizer lemmatizer;
-//    private final WebLinkParser linkParser;
 
-    private final DataToParse dataToParse;
+    private final FieldServiceIml fsi;
+
+    private final LemmaServiceImp lsi;
+
+    private final IndexServiceImp isi;
+
+    private final Lemmatizer lemmatizer;
+
 
     private final ArrayList<IndexEntity> indexes;
+
+
     private final ArrayList<LemmaEntity> lemmaEntities;
+
+    @Autowired(required = false)
     private List<FieldEntity> fields;
 
-    public void startParsingSites(){
-        List<SiteEntity> sites = addDataToSitesEntity();
 
-        for (SiteEntity s : sites) {
-            Runnable task = () -> {
-                WebLinkParser linkParser = new WebLinkParser(dataToParse, psi, ssi, s);
-                linkParser.start();
-            };
-            Thread thread = new Thread(task, s.getName());
-            thread.start();
-        }
-        startAddContentToDatabase();
-    }
+    private SiteEntity site;
 
-     public List<SiteEntity> addDataToSitesEntity(){
-        List<SiteEntity> list = new ArrayList<>();
-        dataToParse.getSites().forEach(s ->{
-            SiteEntity site = new SiteEntity();
-            site.setName(s.getName());
-            site.setUrl(s.getUrl());
-            site.setStatus(Status.INDEXING);
-            site.setStatusTime(System.currentTimeMillis());
-            list.add(site);
-        });
-        return ssi.saveALL(list);
-    }
-
-    public void startAddContentToDatabase(){
-//        linkParser.start(sites, dataToParse);
-//        psi.saveALL(linkParser.getPageEntities());
+    public void startAddContentToDatabase(SiteEntity site) {
+        this.site = site;
+        log.info("Start add content for --->" + site.getName());
         fields = fsi.findAll();
-        new ArrayList<>(psi.findAll()).
+        ArrayList<PageEntity> pageEntities = new ArrayList<>(psi.findAllBySiteId(site.getId()));
+        pageEntities.
                 forEach(this::normalizeContent);
         isi.saveAll(indexes);
     }
@@ -79,19 +65,20 @@ public class Content {
             Elements contentQuery = doc.select(field.getSelector());
             String normalizeContent = contentQuery.text().replaceAll("[^ЁёА-я\s]", " ").trim();
             Map<String, Integer> lemmas = new HashMap<>(lemmatizer.getMapWithLemmas(normalizeContent));
-            lemmaEntities.addAll(addLemma(lemmas, page.getId()));
+            lemmaEntities.addAll(addLemma(lemmas, page));
             rankCalculation(page, lemmas, field.getWeight());
         });
     }
 
-    private List<LemmaEntity> addLemma(Map<String, Integer> lemmas, int pageId) {
+    private List<LemmaEntity> addLemma(Map<String, Integer> lemmas, PageEntity page) {
         ArrayList<LemmaEntity> listForSave = new ArrayList<>();
         lemmas.keySet().forEach(lemma -> {
-            LemmaEntity lemmaEntity = getLemmaEntity(lemma, pageId);
+            LemmaEntity lemmaEntity = getLemmaEntity(lemma, page.getId());
             if (lemmaEntity.isEmpty()) {
                 lemmaEntity.setLemma(lemma);
                 lemmaEntity.setFrequency(1);
-                lemmaEntity.setPageId(pageId);
+                lemmaEntity.setPageId(page.getId());
+                lemmaEntity.setSite(page.getSite());
             } else {
                 lemmaEntity.setFrequency(lemmaEntity.getFrequency() + 1);
             }
@@ -103,8 +90,8 @@ public class Content {
     private LemmaEntity getLemmaEntity(String lemma, int pageId) {
         return lemmaEntities.
                 stream().
-                filter(lemmaEntity -> lemmaEntity.getPageId() != pageId).
-                filter(lemmaEntity -> lemmaEntity.getLemma().equals(lemma)).
+//                filter(lemmaEntity ->   lemmaEntity.getPageId() != pageId).
+        filter(lemmaEntity -> lemmaEntity.getLemma().equals(lemma)).
                 findFirst().
                 orElse(new LemmaEntity());
     }

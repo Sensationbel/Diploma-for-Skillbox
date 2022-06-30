@@ -1,5 +1,6 @@
 package by.bulavkin.searchEngine.parsing;
 
+import by.bulavkin.searchEngine.content.GettingLemmas;
 import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.entity.SiteEntity;
 import by.bulavkin.searchEngine.entity.Status;
@@ -14,6 +15,7 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -27,41 +29,46 @@ import java.util.regex.Pattern;
 
 @Service
 @RequiredArgsConstructor
-//@ConfigurationProperties(prefix = "app")
 @Getter
 @Setter
 @Log4j2
 public class WebLinkParser {
 
+    private GettingLemmas gettingLemmas;
 
     private DataToParse dataToParse;
     private PageServiceImp psi;
 
     private SitesServiceImpl ssi;
+
     private SiteEntity siteEntity;
 
     private List<PageEntity> pageEntities;
-    private volatile List<String> listIsVisit;
 
-    public WebLinkParser(DataToParse dataToParse, PageServiceImp psi, SitesServiceImpl ssi, SiteEntity siteEntity) {
+
+    private List<String> listIsVisit;
+    private static int MAX_TREADS = Runtime.getRuntime().availableProcessors();
+    private static String regex = "(https?|HTTPS?)://.+?/";
+
+    @Autowired
+    public WebLinkParser(DataToParse dataToParse, PageServiceImp psi, SitesServiceImpl ssi, GettingLemmas gettingLemmas) {
         this.dataToParse = dataToParse;
         this.psi = psi;
         this.ssi = ssi;
-        this.siteEntity = siteEntity;
+        this.gettingLemmas = gettingLemmas;
         this.pageEntities = new ArrayList<>();
         this.listIsVisit = new ArrayList<>();
     }
 
-    private static int MAX_TREADS = Runtime.getRuntime().availableProcessors();
-    private static String regex = "(https?|HTTPS?)://.+?/";
-
-    public void start() {
+    public void start(SiteEntity siteEntity) {
+        this.siteEntity = siteEntity;
         try {
             log.info("Pars start");
             new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(parsingPage(siteEntity.getUrl()), this));
             log.info("Pars stop");
             psi.saveALL(pageEntities);
-        } catch (InterruptedException | IOException e){
+            gettingLemmas.startAddContentToDatabase(siteEntity);
+        } catch (InterruptedException | IOException e) {
             log.error(e);
         }
 
