@@ -15,7 +15,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create-drop
-    show-sql: true
+#    show-sql: true
     defer-datasource-initialization: true
     properties:
       hibernate:
@@ -34,12 +34,12 @@ spring:
 #    context-path: /admin
 app:
   sites:
+#    -
+#      url:  https://dombulgakova.ru/
+#      name:  DomBulgakova
     -
-      url:   https://nikoartgallery.com/
-      name:  ArtGallery
-    -
-      url:  https://dombulgakova.ru/
-      name:  DomBulgakova
+      url: https://nikoartgallery.com/
+      name: ArtGallery
   user-agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36"
   referrer: "http://www.google.com"
 #logging:

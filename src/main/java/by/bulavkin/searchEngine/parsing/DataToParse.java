@@ -14,7 +14,9 @@ import java.util.List;
 public class DataToParse {
 
     private String userAgent;
+
     private String referrer;
+
     private List<DataSites> sites;
 
     @Getter
@@ -23,7 +25,7 @@ public class DataToParse {
 
         private String url;
         private String name;
-    }// Пока не решил, нужен он мне или нет!!!
+    }
 
 
 }

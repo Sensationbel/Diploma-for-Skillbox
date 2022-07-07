@@ -1,4 +1,4 @@
-package by.bulavkin.searchEngine.content;
+package by.bulavkin.searchEngine.content.start;
 
 import by.bulavkin.searchEngine.entity.*;
 import by.bulavkin.searchEngine.lemmatizer.Lemmatizer;
@@ -34,9 +34,7 @@ public class GettingLemmas {
 
     private final Lemmatizer lemmatizer;
 
-
     private final ArrayList<IndexEntity> indexes;
-
 
     private final ArrayList<LemmaEntity> lemmaEntities;
 
@@ -77,7 +75,7 @@ public class GettingLemmas {
             if (lemmaEntity.isEmpty()) {
                 lemmaEntity.setLemma(lemma);
                 lemmaEntity.setFrequency(1);
-                lemmaEntity.setPageId(page.getId());
+//                lemmaEntity.setPageId(page.getId());
                 lemmaEntity.setSite(page.getSite());
             } else {
                 lemmaEntity.setFrequency(lemmaEntity.getFrequency() + 1);
@@ -90,8 +88,7 @@ public class GettingLemmas {
     private LemmaEntity getLemmaEntity(String lemma, int pageId) {
         return lemmaEntities.
                 stream().
-//                filter(lemmaEntity ->   lemmaEntity.getPageId() != pageId).
-        filter(lemmaEntity -> lemmaEntity.getLemma().equals(lemma)).
+                filter(lemmaEntity -> lemmaEntity.getLemma().equals(lemma)).
                 findFirst().
                 orElse(new LemmaEntity());
     }

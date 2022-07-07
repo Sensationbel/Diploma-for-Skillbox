@@ -3,6 +3,8 @@ package by.bulavkin.searchEngine.service;
 import by.bulavkin.searchEngine.entity.LemmaEntity;
 import by.bulavkin.searchEngine.repositoties.LemmaRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.Synchronized;
+import org.hibernate.annotations.Synchronize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +17,7 @@ public class LemmaServiceImp implements LemmaService{
     private final LemmaRepository lr;
 
     @Override
+    @Synchronized
     public List<LemmaEntity> saveAll(List<LemmaEntity> lemmaEntities) {
         return lr.saveAll(lemmaEntities);
     }

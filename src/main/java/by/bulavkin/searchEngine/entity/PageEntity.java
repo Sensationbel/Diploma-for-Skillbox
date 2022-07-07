@@ -16,7 +16,7 @@ import java.util.Objects;
 public class PageEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
     @Column(nullable = false)

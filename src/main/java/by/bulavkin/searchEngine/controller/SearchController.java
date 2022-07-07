@@ -1,11 +1,13 @@
 package by.bulavkin.searchEngine.controller;
 
-import by.bulavkin.searchEngine.content.StartingIndexing;
-import by.bulavkin.searchEngine.content.ProcessingSearch;
-import by.bulavkin.searchEngine.content.Relevance;
+import by.bulavkin.searchEngine.content.start.StartingIndexing;
+import by.bulavkin.searchEngine.content.search.ProcessingSearch;
+import by.bulavkin.searchEngine.content.search.Relevance;
+import by.bulavkin.searchEngine.content.statistics.ResultIndexing;
+import by.bulavkin.searchEngine.content.statistics.Statistics;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,37 +16,46 @@ import java.util.Map;
 
 @RestController
 @Service
-public record SearchController(StartingIndexing startingIndexing, ProcessingSearch request, Relevance relevance) {
+public record SearchController(StartingIndexing startingIndexing,
+                               ProcessingSearch request,
+                               Relevance relevance,
+                               Statistics statistic) {
 
 //   @GetMapping("/")
 //
 //   public String showSite() {
 //       return "index";
 //   }
+
     /**
-     TODO: Метод запускает полную индексацию всех сайтов или полную
-     переиндексацию, если они уже проиндексированы.
-     19
-     Если в настоящий момент индексация или переиндексация уже
-     запущена, метод возвращает соответствующее сообщение об ошибке.
-     Параметры:
-     Метод без параметров
-     Формат ответа в случае успеха:
-     {
-     'result': true
-     }
-     Формат ответа в случае ошибки:
-     {
-     'result': false,
-     'error': "Индексация уже запущена"
-     }
+     * TODO: Метод запускает полную индексацию всех сайтов или полную
+     * переиндексацию, если они уже проиндексированы.
+     * 19
+     * Если в настоящий момент индексация или переиндексация уже
+     * запущена, метод возвращает соответствующее сообщение об ошибке.
+     * Параметры:
+     * Метод без параметров
+     * Формат ответа в случае успеха:
+     * {
+     * 'result': true
+     * }
+     * Формат ответа в случае ошибки:
+     * {
+     * 'result': false,
+     * 'error': "Индексация уже запущена"
+     * }
      */
 
-    @GetMapping("/start_indexing")
+    @GetMapping("/startIndexing")
 //    @ResponseBody
-    public Map<String, Boolean> startIndexing() throws InterruptedException {
-        startingIndexing.startParsingSites();
-        return Map.of("result", false);
+    public ResponseEntity<?> startIndexing() {
+        try {
+            startingIndexing.startIndexing();
+            return ResponseEntity.ok().body(new ResultIndexing());
+        }catch (Exception e){
+            return ResponseEntity.ok().body(new ResultIndexing("Индексация уже запущена").getResult());
+        }
+
     }
 
     /**
@@ -65,10 +76,10 @@ public record SearchController(StartingIndexing startingIndexing, ProcessingSear
      * }
      */
 
-    @GetMapping("/api/stop_indexing")
+    @GetMapping("/stopIndexing")
     public Map<String, Boolean> stopIndexing() {
         //content.startAddContentToDatabase();
-        return Map.of("result", true);
+        return Map.of("result", false);
     }
 
     @GetMapping("/api/search")
@@ -100,8 +111,8 @@ public record SearchController(StartingIndexing startingIndexing, ProcessingSear
      */
 
     @PostMapping("/api/indexPage")
-//    @ResponseBody
-    public boolean indexPages(@RequestParam String url){
+    @ResponseBody
+    public boolean indexPages(@RequestParam String url) {
         return true;
     }
 
@@ -139,31 +150,13 @@ public record SearchController(StartingIndexing startingIndexing, ProcessingSear
 
     @GetMapping("/statistics")
     @ResponseBody
-    public JsonNode getStatistics() throws JsonProcessingException {
-        String builder = "{\"result\": true," +
-                "\"statistics\": {" +
-                "\"total\": {" +
-                "\"sites\": 10," +
-                "\"pages\": 436423," +
-                "\"lemmas\": 5127891," +
-                "\"isIndexing\": true" +
-                "}," +
-                "\"detailed\": [" +
-                "{" +
-                "\"url\": \"http://www.site.com\"," +
-                "\"name\": \"Имя сайта\"," +
-                "\"status\": \"INDEXED\"," +
-                "\"statusTime\": 1600160357," +
-                "\"error\": \"Ошибка индексации: главная" +
-                "страница сайта недоступна\"," +
-                "\"pages\": 5764," +
-                "\"lemmas\": 321115" +
-                "}" +
-                "]" +
-                "}" +
-                "}";
-    ObjectMapper mapper = new ObjectMapper();
-    JsonNode node = mapper.readTree(builder);
-        return node;
+    public ResponseEntity<?> statistics() {
+        try {
+            return ResponseEntity.ok().body(statistic.getStatistics());
+        }catch (Exception e){
+            return ResponseEntity.ok().body(new ResultIndexing("При построении статистики произошла ошибка"
+                    +  System.lineSeparator()
+                    + e.getMessage()).getResult());
+        }
     }
 }

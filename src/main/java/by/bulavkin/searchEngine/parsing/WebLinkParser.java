@@ -1,6 +1,6 @@
 package by.bulavkin.searchEngine.parsing;
 
-import by.bulavkin.searchEngine.content.GettingLemmas;
+import by.bulavkin.searchEngine.content.start.GettingLemmas;
 import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.entity.SiteEntity;
 import by.bulavkin.searchEngine.entity.Status;
@@ -35,18 +35,14 @@ import java.util.regex.Pattern;
 public class WebLinkParser {
 
     private GettingLemmas gettingLemmas;
-
     private DataToParse dataToParse;
     private PageServiceImp psi;
-
     private SitesServiceImpl ssi;
-
     private SiteEntity siteEntity;
 
     private List<PageEntity> pageEntities;
-
-
     private List<String> listIsVisit;
+
     private static int MAX_TREADS = Runtime.getRuntime().availableProcessors();
     private static String regex = "(https?|HTTPS?)://.+?/";
 
@@ -65,9 +61,9 @@ public class WebLinkParser {
         try {
             log.info("Pars start");
             new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(parsingPage(siteEntity.getUrl()), this));
-            log.info("Pars stop");
             psi.saveALL(pageEntities);
             gettingLemmas.startAddContentToDatabase(siteEntity);
+            log.info("Pars stop");
         } catch (InterruptedException | IOException e) {
             log.error(e);
         }
@@ -112,7 +108,7 @@ public class WebLinkParser {
     private Connection.Response getResponse(String pageUrl) throws IOException {
         return Jsoup.connect(pageUrl)
                 .userAgent(dataToParse.getUserAgent())
-                .timeout(10000)
+//                .timeout(10000)
                 .referrer(dataToParse.getReferrer())
                 .ignoreHttpErrors(true)
                 .execute();

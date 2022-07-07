@@ -24,9 +24,6 @@ public class LemmaEntity {
     @ManyToOne
     private SiteEntity site;
 
-    @Transient
-    private Integer pageId;
-
     public boolean isEmpty(){
         return lemma == null && frequency == null;
     }
