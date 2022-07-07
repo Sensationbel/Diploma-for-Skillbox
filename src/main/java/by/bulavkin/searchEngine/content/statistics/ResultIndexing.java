@@ -15,12 +15,20 @@ public class ResultIndexing{
         this.error = error;
     }
 
-    public String getResult(){
+    public String getResultForStatistics(){
         if(error != null){
             return String.format("{\"result\": %b, " +
                     "\"error\": \"%s\"}", result, error);
         }
         return String.format("{\"result\": %b, ", result);
+    }
+
+    public String getResult(){
+        if(error != null){
+            return String.format("{\"result\": %b, " +
+                    "\"error\": \"%s\"}", result, error);
+        }
+        return String.format("{\"result\": %b}", result);
     }
 
 }

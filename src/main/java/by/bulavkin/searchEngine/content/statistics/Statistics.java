@@ -73,7 +73,7 @@ public class Statistics {
     private StringBuilder addDetailed(StringBuilder builder) {
         ArrayList<Detailed> detailed = addDetailedList();
         ResultIndexing result = new ResultIndexing();
-        builder.append(result.getResult()).
+        builder.append(result.getResultForStatistics()).
                 append("\"statistics\": ").
                 append(addTotal().toString()).
                 append("\"detailed\": [");
@@ -85,6 +85,4 @@ public class Statistics {
         }
         return builder;
     }
-
-
 }
