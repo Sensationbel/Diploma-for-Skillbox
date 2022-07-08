@@ -1,9 +1,7 @@
 package by.bulavkin.searchEngine.entity;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -11,8 +9,6 @@ import javax.persistence.*;
 @Table(name = "fields")
 @Getter
 @Setter
-@ToString
-@RequiredArgsConstructor
 public class FieldEntity {
 
     @Id

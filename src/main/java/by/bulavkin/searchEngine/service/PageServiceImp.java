@@ -6,10 +6,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class PageServiceImp implements PageService{
 
@@ -22,7 +22,7 @@ public class PageServiceImp implements PageService{
     }
 
     @Override
-    public List<PageEntity> findAll() {
+    public ArrayList<PageEntity> findAll() {
         return pr.findAll();
     }
 
@@ -31,7 +31,12 @@ public class PageServiceImp implements PageService{
         return pr.getById(pageId);
     }
 
-   @Override
+    @Override
+    public ArrayList<PageEntity> findAllBySiteId(int siteId) {
+        return pr.findAllBySiteId(siteId);
+    }
+
+    @Override
     public void saveALL(List<PageEntity> listPE) {
        pr.saveAll(listPE);
    }

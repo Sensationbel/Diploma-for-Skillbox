@@ -1,4 +1,4 @@
-package by.bulavkin.searchEngine.content;
+package by.bulavkin.searchEngine.content.search;
 
 import by.bulavkin.searchEngine.entity.IndexEntity;
 import by.bulavkin.searchEngine.entity.LemmaEntity;

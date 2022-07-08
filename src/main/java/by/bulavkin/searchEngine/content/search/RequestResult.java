@@ -1,4 +1,4 @@
-package by.bulavkin.searchEngine.content;
+package by.bulavkin.searchEngine.content.search;
 
 import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.lemmatizer.Lemmatizer;
