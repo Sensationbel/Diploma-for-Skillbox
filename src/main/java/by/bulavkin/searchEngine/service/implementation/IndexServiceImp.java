@@ -1,9 +1,10 @@
-package by.bulavkin.searchEngine.service;
+package by.bulavkin.searchEngine.service.implementation;
 
 import by.bulavkin.searchEngine.entity.IndexEntity;
 import by.bulavkin.searchEngine.entity.LemmaEntity;
 import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.repositoties.IndexRepository;
+import by.bulavkin.searchEngine.service.interfeises.IndexService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class IndexServiceImp implements IndexService{
+public class IndexServiceImp implements IndexService {
 
     private final IndexRepository ir;
 

@@ -3,8 +3,8 @@ package by.bulavkin.searchEngine.content.search;
 import by.bulavkin.searchEngine.entity.IndexEntity;
 import by.bulavkin.searchEngine.entity.LemmaEntity;
 import by.bulavkin.searchEngine.lemmatizer.Lemmatizer;
-import by.bulavkin.searchEngine.service.IndexServiceImp;
-import by.bulavkin.searchEngine.service.LemmaServiceImp;
+import by.bulavkin.searchEngine.service.implementation.IndexServiceImp;
+import by.bulavkin.searchEngine.service.implementation.LemmaServiceImp;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

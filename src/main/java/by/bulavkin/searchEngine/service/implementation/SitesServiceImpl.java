@@ -1,7 +1,8 @@
-package by.bulavkin.searchEngine.service;
+package by.bulavkin.searchEngine.service.implementation;
 
 import by.bulavkin.searchEngine.entity.SiteEntity;
 import by.bulavkin.searchEngine.repositoties.SitesRepository;
+import by.bulavkin.searchEngine.service.interfeises.SitesService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +13,7 @@ import java.util.List;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class SitesServiceImpl implements SitesService{
+public class SitesServiceImpl implements SitesService {
 
     private final SitesRepository sr;
 
@@ -29,5 +30,10 @@ public class SitesServiceImpl implements SitesService{
     @Override
     public ArrayList<SiteEntity> findAll() {
         return sr.findAll();
+    }
+
+    @Override
+    public void deleteAll() {
+        sr.deleteAll();
     }
 }

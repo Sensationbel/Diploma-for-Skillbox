@@ -16,7 +16,7 @@ public class Total{
 
     @Override
     public String toString() {
-        return "{\"total\": {\"sites\": " + sites +
+        return "{\"sites\": " + sites +
                 ", \"pages\": " + pages +
                 ", \"lemmas\": " + lemmas +
                 ", \"isIndexing\": " + isIndexing +

@@ -2,8 +2,10 @@ package by.bulavkin.searchEngine.content.start;
 
 import by.bulavkin.searchEngine.entity.*;
 import by.bulavkin.searchEngine.lemmatizer.Lemmatizer;
-import by.bulavkin.searchEngine.parsing.DataToParse;
-import by.bulavkin.searchEngine.service.*;
+import by.bulavkin.searchEngine.service.implementation.FieldServiceIml;
+import by.bulavkin.searchEngine.service.implementation.IndexServiceImp;
+import by.bulavkin.searchEngine.service.implementation.LemmaServiceImp;
+import by.bulavkin.searchEngine.service.implementation.PageServiceImp;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;

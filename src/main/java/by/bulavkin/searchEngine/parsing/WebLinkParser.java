@@ -4,8 +4,8 @@ import by.bulavkin.searchEngine.content.start.GettingLemmas;
 import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.entity.SiteEntity;
 import by.bulavkin.searchEngine.entity.Status;
-import by.bulavkin.searchEngine.service.PageServiceImp;
-import by.bulavkin.searchEngine.service.SitesServiceImpl;
+import by.bulavkin.searchEngine.service.implementation.PageServiceImp;
+import by.bulavkin.searchEngine.service.implementation.SitesServiceImpl;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -59,11 +59,11 @@ public class WebLinkParser {
     public void start(SiteEntity siteEntity) {
         this.siteEntity = siteEntity;
         try {
-            log.info("Pars start");
+            log.info("Start parsing: " + siteEntity.getName());
             new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(parsingPage(siteEntity.getUrl()), this));
             psi.saveALL(pageEntities);
             gettingLemmas.startAddContentToDatabase(siteEntity);
-            log.info("Pars stop");
+            log.info("Stop Parsing: " + siteEntity.getName());
         } catch (InterruptedException | IOException e) {
             log.error(e);
         }

@@ -1,18 +1,17 @@
-package by.bulavkin.searchEngine.service;
+package by.bulavkin.searchEngine.service.implementation;
 
 import by.bulavkin.searchEngine.entity.LemmaEntity;
 import by.bulavkin.searchEngine.repositoties.LemmaRepository;
+import by.bulavkin.searchEngine.service.interfeises.LemmaService;
 import lombok.RequiredArgsConstructor;
 import lombok.Synchronized;
-import org.hibernate.annotations.Synchronize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-public class LemmaServiceImp implements LemmaService{
+public class LemmaServiceImp implements LemmaService {
 
     private final LemmaRepository lr;
 

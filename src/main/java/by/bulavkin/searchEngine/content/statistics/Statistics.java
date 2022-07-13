@@ -1,38 +1,59 @@
 package by.bulavkin.searchEngine.content.statistics;
 
+import by.bulavkin.searchEngine.content.start.StartingIndexing;
 import by.bulavkin.searchEngine.content.statistics.detailed.Detailed;
 import by.bulavkin.searchEngine.content.statistics.detailed.Total;
 import by.bulavkin.searchEngine.entity.SiteEntity;
-import by.bulavkin.searchEngine.service.SitesServiceImpl;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import by.bulavkin.searchEngine.service.implementation.SitesServiceImpl;
+import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Getter
 @Setter
+@Slf4j
 @RequiredArgsConstructor
 public class Statistics {
 
-    private final SitesServiceImpl ssi;
-    private ArrayList<SiteEntity> siteList;
-
-    public StringBuilder getStatistics() {
-        StringBuilder builder = new StringBuilder();
-        siteList = new ArrayList<>(ssi.findAll());
-
-        if (siteList.isEmpty()) {
-            ResultIndexing result = new ResultIndexing("Индексация не запущена");
-            builder.append(result.getResult());
-            return builder;
-        } else return addDetailed(builder);
+    @Autowired
+    private StartingIndexing startingIndexing;
+    private Total total;
+    @Autowired
+    private SitesServiceImpl ssi;
+    private List<Detailed> detailed;
+    public Statistics(Total total, List<Detailed> detailed) {
+        this.total = total;
+        this.detailed = detailed;
     }
 
-    private Total addTotal() {
+    public StringBuilder getStatistics() {
+        ResultIndexing resultIndexing;
+        StringBuilder statistic = new StringBuilder();
+        List<SiteEntity> siteList = new ArrayList<>(ssi.findAll());
+
+        if (siteList.isEmpty()) {
+            resultIndexing = new ResultIndexing("База данных не заполнена");
+            return statistic.append(resultIndexing.getResultForStatistics() );
+
+        } else {
+            List<ResultIndexing> resultIndexingList = startingIndexing.getResultFromFuture();
+                resultIndexingList.
+                        stream().
+                        filter(r -> !r.isResult()).
+                        forEach(r -> log.info("Результат индексирования сайта" + r.getResults()));
+            resultIndexing = new ResultIndexing();
+            return statistic.
+                    append(resultIndexing.getResultForStatistics()).
+                    append(addDetailed(siteList));
+        }
+    }
+
+    private Total addTotal(List<SiteEntity> siteList) {
         Total total = new Total();
         total.setSites(siteList.size());
 
@@ -42,7 +63,6 @@ public class Statistics {
                         stream()).
                 count();
         total.setPages(countP);
-
         int countL = (int) siteList.
                 stream().
                 flatMap(s -> s.getLemmaEntities().
@@ -53,7 +73,7 @@ public class Statistics {
         return total;
     }
 
-    private ArrayList<Detailed> addDetailedList() {
+    private ArrayList<Detailed> addDetailedList(List<SiteEntity> siteList) {
         ArrayList<Detailed> detailed = new ArrayList<>();
 
         siteList.forEach(s -> {
@@ -70,19 +90,17 @@ public class Statistics {
         return detailed;
     }
 
-    private StringBuilder addDetailed(StringBuilder builder) {
-        ArrayList<Detailed> detailed = addDetailedList();
-        ResultIndexing result = new ResultIndexing();
-        builder.append(result.getResultForStatistics()).
-                append("\"statistics\": ").
-                append(addTotal().toString()).
-                append("\"detailed\": [");
+    private Statistics addDetailed(List<SiteEntity> siteList) {
+        ArrayList<Detailed> detailed = addDetailedList(siteList);
+        Total total = addTotal(siteList);
+        return new Statistics(total, detailed);
+    }
 
-        for (int i = 0; i < detailed.size(); i++) {
-            if (i != (detailed.size() - 1)) {
-                builder.append(detailed.get(i).toString()).append(", ");
-            } else builder.append(detailed.get(i).toString()).append("]}}");
-        }
-        return builder;
+    @Override
+    public String toString() {
+        return "\"statistics\": {" +
+                "\"total\": " + total +
+                "\"detailed\": " + detailed +
+                "}}";
     }
 }

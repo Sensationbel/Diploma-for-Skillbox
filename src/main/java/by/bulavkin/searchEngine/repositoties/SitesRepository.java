@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
-@Repository
 public interface SitesRepository extends JpaRepository<SiteEntity, Integer> {
 
     ArrayList<SiteEntity> findAll();
+    void deleteAll();
 }

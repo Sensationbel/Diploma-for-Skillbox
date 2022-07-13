@@ -1,4 +1,4 @@
-package by.bulavkin.searchEngine.service;
+package by.bulavkin.searchEngine.service.interfeises;
 
 import by.bulavkin.searchEngine.entity.SiteEntity;
 
@@ -10,4 +10,5 @@ public interface SitesService {
     List<SiteEntity> saveALL(List<SiteEntity> siteEntityList);
     SiteEntity save(SiteEntity site);
     ArrayList<SiteEntity> findAll();
+    void deleteAll();
 }

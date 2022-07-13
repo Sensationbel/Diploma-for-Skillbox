@@ -5,27 +5,24 @@ import by.bulavkin.searchEngine.content.search.Relevance;
 import by.bulavkin.searchEngine.content.start.StartingIndexing;
 import by.bulavkin.searchEngine.content.statistics.ResultIndexing;
 import by.bulavkin.searchEngine.content.statistics.Statistics;
-import lombok.extern.log4j.Log4j2;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@Service
 @Slf4j
 public record SearchController(StartingIndexing startingIndexing,
                                ProcessingSearch request,
                                Relevance relevance,
                                Statistics statistic) {
 
-//    @GetMapping("/")
-////    @ResponseBody
+//    @GetMapping("/admin")
+//    @ResponseBody
 //    public String showSite() {
-//       statistics();
+//
 //       return "index";
 //    }
 
@@ -50,16 +47,8 @@ public record SearchController(StartingIndexing startingIndexing,
 
     @GetMapping("/startIndexing")
     @ResponseBody
-    public ResponseEntity<?> startIndexing() {
-        log.info("startIndexing -> " + Thread.currentThread().getName());
-//        while ()
-//        ResponseEntity.
-//                ok().
-//                body(new ResultIndexing("Идет индексирование"));
-
-        return ResponseEntity.
-                ok().
-                body(startingIndexing.startIndexing());
+    public String startIndexing() {
+        return startingIndexing.startIndexing();
     }
 
     /**
@@ -82,7 +71,6 @@ public record SearchController(StartingIndexing startingIndexing,
 
     @GetMapping("/stopIndexing")
     public Map<String, Boolean> stopIndexing() {
-        log.info("stopIndexing -> " + Thread.currentThread().getName());
         //content.startAddContentToDatabase();
         return Map.of("result", false);
     }
@@ -156,6 +144,12 @@ public record SearchController(StartingIndexing startingIndexing,
     @GetMapping("/statistics")
     @ResponseBody
     public ResponseEntity<?> statistics() {
-        return ResponseEntity.ok().body(statistic.getStatistics());
+        try {
+            return ResponseEntity.ok().body(statistic.getStatistics());
+        } catch (Exception e) {
+            return ResponseEntity.ok().body(new ResultIndexing("При построении статистики произошла ошибка"
+                    + System.lineSeparator()
+                    + e.getMessage()).getResults());
+        }
     }
 }

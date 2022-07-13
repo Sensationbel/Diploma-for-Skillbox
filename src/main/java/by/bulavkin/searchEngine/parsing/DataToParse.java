@@ -14,7 +14,6 @@ import java.util.List;
 public class DataToParse {
 
     private String userAgent;
-
     private String referrer;
 
     private List<DataSites> sites;

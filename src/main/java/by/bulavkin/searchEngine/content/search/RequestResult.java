@@ -2,7 +2,7 @@ package by.bulavkin.searchEngine.content.search;
 
 import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.lemmatizer.Lemmatizer;
-import by.bulavkin.searchEngine.service.PageServiceImp;
+import by.bulavkin.searchEngine.service.implementation.PageServiceImp;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,17 +1,17 @@
-package by.bulavkin.searchEngine.service;
+package by.bulavkin.searchEngine.service.implementation;
 
 import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.repositoties.PageRepository;
+import by.bulavkin.searchEngine.service.interfeises.PageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class PageServiceImp implements PageService{
+public class PageServiceImp implements PageService {
 
     private final PageRepository pr;
 

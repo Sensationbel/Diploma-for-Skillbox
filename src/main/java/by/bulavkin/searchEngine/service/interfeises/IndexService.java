@@ -1,4 +1,4 @@
-package by.bulavkin.searchEngine.service;
+package by.bulavkin.searchEngine.service.interfeises;
 
 import by.bulavkin.searchEngine.entity.IndexEntity;
 import by.bulavkin.searchEngine.entity.LemmaEntity;

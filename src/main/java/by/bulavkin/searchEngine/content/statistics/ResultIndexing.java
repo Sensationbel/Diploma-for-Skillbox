@@ -1,6 +1,8 @@
 package by.bulavkin.searchEngine.content.statistics;
 
+import lombok.Getter;
 
+@Getter
 public class ResultIndexing{
 
     private boolean result;
@@ -23,7 +25,7 @@ public class ResultIndexing{
         return String.format("{\"result\": %b, ", result);
     }
 
-    public String getResult(){
+    public String getResults(){
         if(error != null){
             return String.format("{\"result\": %b, " +
                     "\"error\": \"%s\"}", result, error);
