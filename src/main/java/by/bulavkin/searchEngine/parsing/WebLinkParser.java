@@ -1,11 +1,12 @@
 package by.bulavkin.searchEngine.parsing;
 
-import by.bulavkin.searchEngine.content.start.GettingLemmas;
+import by.bulavkin.searchEngine.contentService.startIndexing.GettingLemmas;
+import by.bulavkin.searchEngine.dataService.mySingletone.MyForkJoinPool;
 import by.bulavkin.searchEngine.entity.PageEntity;
 import by.bulavkin.searchEngine.entity.SiteEntity;
 import by.bulavkin.searchEngine.entity.Status;
-import by.bulavkin.searchEngine.service.implementation.PageServiceImp;
-import by.bulavkin.searchEngine.service.implementation.SitesServiceImpl;
+import by.bulavkin.searchEngine.dataService.implementation.PageServiceImp;
+import by.bulavkin.searchEngine.dataService.implementation.SitesServiceImpl;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -15,15 +16,12 @@ import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.ForkJoinPool;
 import java.util.regex.Pattern;
 
 
@@ -34,35 +32,26 @@ import java.util.regex.Pattern;
 @Log4j2
 public class WebLinkParser {
 
-    private GettingLemmas gettingLemmas;
-    private DataToParse dataToParse;
-    private PageServiceImp psi;
-    private SitesServiceImpl ssi;
+    private final GettingLemmas gettingLemmas;
+    private final DataToParse dataToParse;
+    private final PageServiceImp psi;
+    private final SitesServiceImpl ssi;
     private SiteEntity siteEntity;
 
-    private List<PageEntity> pageEntities;
-    private List<String> listIsVisit;
+    private final List<PageEntity> pageEntities;
+    private final List<String> listIsVisit;
 
     private static int MAX_TREADS = Runtime.getRuntime().availableProcessors();
     private static String regex = "(https?|HTTPS?)://.+?/";
 
-    @Autowired
-    public WebLinkParser(DataToParse dataToParse, PageServiceImp psi, SitesServiceImpl ssi, GettingLemmas gettingLemmas) {
-        this.dataToParse = dataToParse;
-        this.psi = psi;
-        this.ssi = ssi;
-        this.gettingLemmas = gettingLemmas;
-        this.pageEntities = new ArrayList<>();
-        this.listIsVisit = new ArrayList<>();
-    }
+    private boolean stop = false;
 
     public void start(SiteEntity siteEntity) {
         this.siteEntity = siteEntity;
         try {
             log.info("Start parsing: " + siteEntity.getName());
-            new ForkJoinPool(MAX_TREADS).invoke(new RecursiveWebLinkParser(parsingPage(siteEntity.getUrl()), this));
+            MyForkJoinPool.getMyForkJoinPool().invoke(new RecursiveWebLinkParser(parsingPage(siteEntity.getUrl()), this));
             psi.saveALL(pageEntities);
-            gettingLemmas.startAddContentToDatabase(siteEntity);
             log.info("Stop Parsing: " + siteEntity.getName());
         } catch (InterruptedException | IOException e) {
             log.error(e);
@@ -73,6 +62,9 @@ public class WebLinkParser {
     public Set<String> parsingPage(String pageUrl) throws IOException, InterruptedException {
 
         Set<String> urls = new HashSet<>();
+        if(stop){
+            return urls;
+        }
 
         Connection.Response response = getResponse(pageUrl);
 
@@ -80,7 +72,7 @@ public class WebLinkParser {
         changeStatusCode(pageUrl, response, statusCode);
         Document doc = response.parse();
         String contentCurrentURL = doc.html();
-        createDataFromUrl(pageUrl, statusCode, contentCurrentURL);
+        createPageEntityFromUrl(pageUrl, statusCode, contentCurrentURL);
 
         for (Element element : doc.select("a")) {
             String currentUrl = element.attr("abs:href");
@@ -114,17 +106,13 @@ public class WebLinkParser {
                 .execute();
     }
 
-    private void createDataFromUrl(String pageUrl, int statusCode, String contentCurrentURL) {
+    private void createPageEntityFromUrl(String pageUrl, int statusCode, String contentCurrentURL) {
         PageEntity pageEntity = new PageEntity();
         pageEntity.setPath(pageUrl.replaceAll(regex, "/"));
         pageEntity.setCode(statusCode);
         pageEntity.setContent(contentCurrentURL);
         pageEntity.setSite(siteEntity);
-        addListPageEntity(pageEntity);
-    }
-
-    private void addListPageEntity(PageEntity dataFromUrl) {
-        pageEntities.add(dataFromUrl);
+        pageEntities.add(pageEntity);
     }
 
     private boolean isValidToVisit(String currentUrl) {

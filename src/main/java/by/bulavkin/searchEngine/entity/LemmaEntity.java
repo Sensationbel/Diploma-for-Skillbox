@@ -6,7 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "lemmas")
+@Table(name = "lemmas", indexes = @Index(name = "lemma", columnList = "lemma"))
 @Getter
 @Setter
 public class LemmaEntity {

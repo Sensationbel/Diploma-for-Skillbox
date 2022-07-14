@@ -1,10 +1,11 @@
 package by.bulavkin.searchEngine.controller;
 
-import by.bulavkin.searchEngine.content.search.ProcessingSearch;
-import by.bulavkin.searchEngine.content.search.Relevance;
-import by.bulavkin.searchEngine.content.start.StartingIndexing;
-import by.bulavkin.searchEngine.content.statistics.ResultIndexing;
-import by.bulavkin.searchEngine.content.statistics.Statistics;
+import by.bulavkin.searchEngine.contentService.search.ProcessingSearch;
+import by.bulavkin.searchEngine.contentService.search.Relevance;
+import by.bulavkin.searchEngine.contentService.startIndexing.StartingIndexing;
+import by.bulavkin.searchEngine.contentService.statistics.ResultIndexing;
+import by.bulavkin.searchEngine.contentService.statistics.Statistics;
+import by.bulavkin.searchEngine.contentService.stopIndexing.StoppingIndexing;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,8 @@ import java.util.Map;
 
 @RestController
 @Slf4j
-public record SearchController(StartingIndexing startingIndexing,
+public record SearchController(StoppingIndexing stop,
+                               StartingIndexing start,
                                ProcessingSearch request,
                                Relevance relevance,
                                Statistics statistic) {
@@ -48,7 +50,7 @@ public record SearchController(StartingIndexing startingIndexing,
     @GetMapping("/startIndexing")
     @ResponseBody
     public String startIndexing() {
-        return startingIndexing.startIndexing();
+        return start.startIndexing();
     }
 
     /**
@@ -70,9 +72,9 @@ public record SearchController(StartingIndexing startingIndexing,
      */
 
     @GetMapping("/stopIndexing")
-    public Map<String, Boolean> stopIndexing() {
-        //content.startAddContentToDatabase();
-        return Map.of("result", false);
+    public Map<String, Boolean> stopIndexing() throws InterruptedException {
+        boolean res = stop.stopIndexing();
+        return Map.of("result", res);
     }
 
     @GetMapping("/api/search")
@@ -145,11 +147,11 @@ public record SearchController(StartingIndexing startingIndexing,
     @ResponseBody
     public ResponseEntity<?> statistics() {
         try {
-            return ResponseEntity.ok().body(statistic.getStatistics());
+            return ResponseEntity.ok().body(statistic.getALLStatistics());
         } catch (Exception e) {
             return ResponseEntity.ok().body(new ResultIndexing("При построении статистики произошла ошибка"
                     + System.lineSeparator()
-                    + e.getMessage()).getResults());
+                    + e.getMessage()));
         }
     }
 }
