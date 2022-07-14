@@ -1,0 +1,4 @@
+dataBaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create-fields-table.yaml
+  

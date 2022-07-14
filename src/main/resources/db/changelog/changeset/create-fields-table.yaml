@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-fields
+      author: DBulaukin
+      changes:
+        - createTable:
+            tableName: field
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: false
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(250)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: selector
+                  type: varchar(250)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: weight
+                  type: FLOAT
+                  constraints:
+                    nullable: false
