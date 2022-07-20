@@ -2,17 +2,20 @@ package by.bulavkin.searchEngine.entity;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.SQLInsert;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "lemmas", indexes = @Index(name = "lemma", columnList = "lemma"))
+@Table(name = "lemma")
+@SQLInsert(sql = "INSERT INTO Lemma (id, lemms, frequency, site_id) VALUES (?,?,?) AS new(a, b, c, d)" +
+        "ON DUPLICATE KEY UPDATE frequency=frequency+new.c")
 @Getter
 @Setter
 public class LemmaEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)

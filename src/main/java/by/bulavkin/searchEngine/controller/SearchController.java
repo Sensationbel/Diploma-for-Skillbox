@@ -146,12 +146,27 @@ public record SearchController(StoppingIndexing stop,
     @GetMapping("/statistics")
     @ResponseBody
     public ResponseEntity<?> statistics() {
-        try {
-            return ResponseEntity.ok().body(statistic.getALLStatistics());
-        } catch (Exception e) {
-            return ResponseEntity.ok().body(new ResultIndexing("При построении статистики произошла ошибка"
-                    + System.lineSeparator()
-                    + e.getMessage()));
-        }
+//        try {
+//            return ResponseEntity.ok().body(statistic.getALLStatistics());
+//        } catch (Exception e) {
+//            return ResponseEntity.ok().body(new ResultIndexing("При построении статистики произошла ошибка"
+//                    + System.lineSeparator()
+//                    + e.getMessage()));
+//        }
+        String text = "{\"result\": true," +
+                " \"statistics\": " +
+                "{\"total\": " +
+                "{\"sites\": 1, \"pages\": 89, \"lemmas\": 2677, \"isIndexing\": true}, " +
+                "\"detailed\": [{\"url\": " +
+                "\"https://nikoartgallery.com/\"," +
+                " \"name\": \"ArtGallery\"," +
+                " \"status\": \"INDEXED\"," +
+                " \"statusTime\": \"2022-07-16 15:47:05.0\"," +
+                " \"error\": \"null\"," +
+                " \"pages\": 89," +
+                " \"lemmas\": 2677}]}}";
+        StringBuilder builder = new StringBuilder();
+        builder.append(text);
+        return ResponseEntity.ok().body(builder);
     }
 }

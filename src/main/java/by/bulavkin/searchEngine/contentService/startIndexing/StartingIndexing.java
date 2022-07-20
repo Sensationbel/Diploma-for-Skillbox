@@ -14,6 +14,8 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -77,7 +79,7 @@ public class StartingIndexing {
             site.setName(s.getName());
             site.setUrl(s.getUrl());
             site.setStatus(Status.INDEXING);
-            site.setStatusTime(System.currentTimeMillis());
+            site.setStatusTime(Timestamp.valueOf(LocalDateTime.now()));
             list.add(site);
         });
         return ssi.saveALL(list);

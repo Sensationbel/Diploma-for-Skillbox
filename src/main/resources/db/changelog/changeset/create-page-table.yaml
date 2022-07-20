@@ -5,27 +5,31 @@ databaseChangeLog:
       comment: Created the table field
       changes:
         - createTable:
-            tableName: field
+            tableName: page
             columns:
               - column:
                   name: id
                   type: INT
+                  autoIncrement: true
                   constraints:
+                    nullable: false
                     primaryKey: true
-                    nullable: false
               - column:
-                  name: name
-                  type: varchar(250)
+                  name: path
+                  type: TEXT
                   constraints:
                     nullable: false
               - column:
-                  name: selector
-                  type: varchar(250)
+                  name: code
+                  type: INT
                   constraints:
                     nullable: false
               - column:
-                  name: weight
-                  type: FLOAT
+                  name: content
+                  type: MEDIUMTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
                   constraints:
                     nullable: false
+              - column:
+                  name: site_id
+                  type: INT
 

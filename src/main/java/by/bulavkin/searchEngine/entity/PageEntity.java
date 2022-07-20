@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "pages", indexes = @Index(name = "path" ,columnList = "path"))
+@Table(name = "page")
 @Getter
 @Setter
 public class PageEntity {
@@ -19,10 +19,10 @@ public class PageEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "TEXT", nullable = false)
     private String path;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private Integer code;
 
     @Column(columnDefinition = "MEDIUMTEXT", nullable = false)

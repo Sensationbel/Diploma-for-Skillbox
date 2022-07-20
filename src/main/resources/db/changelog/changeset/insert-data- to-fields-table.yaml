@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: my
+      author: DBulaukin
+      comment: added the data in the table field
+      changes:
+        - insert:
+            tableName: field
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: title
+              - column:
+                  name: selector
+                  value: title
+              - column:
+                  name: weight
+                  value: 1.0
+        - insert:
+            tableName: field
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: name
+                  value: body
+              - column:
+                  name: selector
+                  value: body
+              - column:
+                  name: weight
+                  value: 0.8

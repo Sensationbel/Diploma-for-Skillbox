@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - changeSet:
+      id: my
+      author: DBulaukin
+      comment: Created the index in the table lemma
+      changes:
+        - createIndex:
+            clustered: false
+            column:
+              descending: true
+              name: lemma(10)
+            indexName: idx_lemma
+            schemaName: search_engine
+            tableName: lemma
+
+

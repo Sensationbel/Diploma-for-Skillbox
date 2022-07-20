@@ -2,30 +2,28 @@ databaseChangeLog:
   - changeSet:
       id: my
       author: DBulaukin
-      comment: Created the table field
+      comment: Created the table lemma
       changes:
         - createTable:
-            tableName: field
+            tableName: lemma
             columns:
               - column:
                   name: id
                   type: INT
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
-                  type: varchar(250)
+                  name: lemma
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:
-                  name: selector
-                  type: varchar(250)
+                  name: frequency
+                  type: INT
                   constraints:
                     nullable: false
               - column:
-                  name: weight
-                  type: FLOAT
-                  constraints:
-                    nullable: false
-
+                  name: site_id
+                  type: INT

@@ -4,22 +4,15 @@ spring:
 #    change-log: db/changelog/db.changelog-master.yaml
 
   datasource:
-    url: jdbc:mysql://localhost:3306/search_engine_schema
+    url: jdbc:mysql://localhost:3306/search_engine
     username: root
     password: root
 
-    hikari:
-      connection-timeout: 30000
-      minimum-idle: 5
-      maximum-pool-size: 10
-      idle-timeout: 10000
-      max-lifetime: 30000
-      auto-commit: true
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
 #    show-sql: true
-    defer-datasource-initialization: true
+#    defer-datasource-initialization: true
     properties:
       hibernate:
         jdbc:
@@ -28,9 +21,9 @@ spring:
         order_updates:  true
 #        generate_statistics:  true
 
-  sql:
-    init:
-      mode: always
+#  sql:
+#    init:
+#      mode: always
 
 #server:
 #  servlet:

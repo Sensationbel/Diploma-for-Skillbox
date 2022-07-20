@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: my
+      author: DBulaukin
+      comment: Created uniqueConstraint for the table lemma
+      changes:
+        - addUniqueConstraint:
+            columnNames: lemma, site_id
+            constraintName: const-lemma
+            schemaName: search_engine
+            tableName: lemma
+            validate: true

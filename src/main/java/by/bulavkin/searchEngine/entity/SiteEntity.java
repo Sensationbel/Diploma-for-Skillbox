@@ -5,12 +5,13 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "sites")
+@Table(name = "site")
 public class SiteEntity {
 
     @Id
@@ -18,11 +19,11 @@ public class SiteEntity {
     private Integer id;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(columnDefinition = "ENUM", nullable = false)
     private Status status;
 
     @Column(name = "status_time", nullable = false)
-    private long statusTime;
+    private Timestamp statusTime;
 
     @Column(name = "last_error", columnDefinition = "TEXT")
     private String lastError;
@@ -38,7 +39,7 @@ public class SiteEntity {
     private List<PageEntity> pageEntities;
 
     @OneToMany
-    @JoinColumn(name = "site_Id")
+    @JoinColumn(name = "site_id")
     private List<LemmaEntity> lemmaEntities;
 
 

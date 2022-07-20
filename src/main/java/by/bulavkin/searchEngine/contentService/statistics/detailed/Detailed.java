@@ -2,13 +2,15 @@ package by.bulavkin.searchEngine.contentService.statistics.detailed;
 
 import lombok.Setter;
 
+import java.sql.Timestamp;
+
 @Setter
 public class Detailed{
 
     private String url;
     private String name;
     private Enum status;
-    private long statusTime;
+    private Timestamp statusTime;
     private String error;
     private int pages;
     private int lemmas;
@@ -18,7 +20,8 @@ public class Detailed{
         return "{\"url\": \"" + url +
                 "\", \"name\": \"" + name +
                 "\", \"status\": \"" + status +
-                "\", \"statusTime\": " + statusTime +
+                "\", \"statusTime\": " +
+                "\"" + statusTime + "\"" +
                 ", \"error\": \"" + error +
                 "\", \"pages\": " + pages +
                 ", \"lemmas\": " + lemmas +

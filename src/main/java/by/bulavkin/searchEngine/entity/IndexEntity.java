@@ -23,7 +23,7 @@ public class IndexEntity {
     @JoinColumn(name = "lemma_id", referencedColumnName = "id")
     private LemmaEntity lemmaEntity;
 
-    @Column(name = "ranks", nullable = false)
+    @Column(name = "ranks")
     private Float rank;
 
     public boolean isEmpty() {

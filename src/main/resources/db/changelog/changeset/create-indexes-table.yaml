@@ -2,30 +2,30 @@ databaseChangeLog:
   - changeSet:
       id: my
       author: DBulaukin
-      comment: Created the table field
+      comment: Created the table index
       changes:
         - createTable:
-            tableName: field
+            tableName: indexes
             columns:
               - column:
                   name: id
                   type: INT
+                  autoIncrement: true
                   constraints:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
-                  type: varchar(250)
+                  name: page_id
+                  type: INT
                   constraints:
                     nullable: false
               - column:
-                  name: selector
-                  type: varchar(250)
+                  name: lemma_id
+                  type: INT
                   constraints:
                     nullable: false
               - column:
-                  name: weight
+                  name: ranks
                   type: FLOAT
                   constraints:
                     nullable: false
-
