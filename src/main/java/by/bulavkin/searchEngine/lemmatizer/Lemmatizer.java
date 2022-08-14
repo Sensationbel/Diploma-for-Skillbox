@@ -2,29 +2,23 @@ package by.bulavkin.searchEngine.lemmatizer;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.apache.lucene.morphology.LuceneMorphology;
 import org.apache.lucene.morphology.russian.RussianLuceneMorphology;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@Data
-@NoArgsConstructor
-@Component
+@RequiredArgsConstructor
+@Service
 public class Lemmatizer {
 
-    private LuceneMorphology lm;
+    private final LuceneMorphology lm;
 
-    {
-        try {
-            lm = new RussianLuceneMorphology();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public Map<String, Integer> getMapWithLemmas(String text){
         Map<String, Integer> numberOfLemm = new HashMap<>();

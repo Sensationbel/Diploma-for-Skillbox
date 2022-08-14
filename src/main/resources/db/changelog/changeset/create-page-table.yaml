@@ -16,7 +16,7 @@ databaseChangeLog:
                     primaryKey: true
               - column:
                   name: path
-                  type: TEXT
+                  type: varchar(255)
                   constraints:
                     nullable: false
               - column:

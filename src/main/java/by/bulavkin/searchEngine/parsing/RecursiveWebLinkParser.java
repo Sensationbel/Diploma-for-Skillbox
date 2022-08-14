@@ -12,7 +12,6 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ForkJoinTask;
 import java.util.concurrent.RecursiveAction;
 
-@Service
 @AllArgsConstructor
 @Log4j2
 public class RecursiveWebLinkParser extends RecursiveAction {
@@ -25,10 +24,10 @@ public class RecursiveWebLinkParser extends RecursiveAction {
     protected void compute() {
 
         if (urls == null || urls.isEmpty()) {
-            if(getPool().getQueuedTaskCount() == 0){
-                getPool().shutdown();
-            }
-            return;
+//            if(getPool().getQueuedTaskCount() == 0){
+//                getPool().shutdown();
+//            }
+//            return;
         }
         List<RecursiveWebLinkParser> taskList = new ArrayList<>();
         urls.forEach(recUrl -> {

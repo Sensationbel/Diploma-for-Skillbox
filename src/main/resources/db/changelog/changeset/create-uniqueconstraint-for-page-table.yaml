@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: my
+      author: DBulaukin
+      comment: Created uniqueConstraint for the table page
+      changes:
+        - addUniqueConstraint:
+            columnNames: path, site_id
+            constraintName: const-page
+            schemaName: search_engine
+            tableName: page
+            validate: true

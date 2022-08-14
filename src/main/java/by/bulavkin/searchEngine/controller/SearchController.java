@@ -1,11 +1,11 @@
 package by.bulavkin.searchEngine.controller;
 
-import by.bulavkin.searchEngine.contentService.search.ProcessingSearch;
-import by.bulavkin.searchEngine.contentService.search.Relevance;
-import by.bulavkin.searchEngine.contentService.startIndexing.StartingIndexing;
-import by.bulavkin.searchEngine.contentService.statistics.ResultIndexing;
-import by.bulavkin.searchEngine.contentService.statistics.Statistics;
-import by.bulavkin.searchEngine.contentService.stopIndexing.StoppingIndexing;
+import by.bulavkin.searchEngine.dto.errors.StatisticErrors;
+import by.bulavkin.searchEngine.services.contentServices.search.ProcessingSearch;
+import by.bulavkin.searchEngine.services.contentServices.search.Relevance;
+import by.bulavkin.searchEngine.services.contentServices.startIndexing.StartingIndexingService;
+import by.bulavkin.searchEngine.services.contentServices.statistics.StatisticsService;
+import by.bulavkin.searchEngine.services.contentServices.stopIndexing.StoppingIndexingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,14 +15,13 @@ import java.util.Map;
 
 @RestController
 @Slf4j
-public record SearchController(StoppingIndexing stop,
-                               StartingIndexing start,
+public record SearchController(StoppingIndexingService stop,
+                               StartingIndexingService start,
                                ProcessingSearch request,
                                Relevance relevance,
-                               Statistics statistic) {
+                               StatisticsService statistic) {
 
-//    @GetMapping("/admin")
-//    @ResponseBody
+//    @GetMapping("/")
 //    public String showSite() {
 //
 //       return "index";
@@ -48,9 +47,8 @@ public record SearchController(StoppingIndexing stop,
      */
 
     @GetMapping("/startIndexing")
-    @ResponseBody
-    public String startIndexing() {
-        return start.startIndexing();
+    public ResponseEntity<?> startIndexing() {
+        return ResponseEntity.ok().body(start.startIndexing());
     }
 
     /**
@@ -146,27 +144,12 @@ public record SearchController(StoppingIndexing stop,
     @GetMapping("/statistics")
     @ResponseBody
     public ResponseEntity<?> statistics() {
-//        try {
-//            return ResponseEntity.ok().body(statistic.getALLStatistics());
-//        } catch (Exception e) {
-//            return ResponseEntity.ok().body(new ResultIndexing("При построении статистики произошла ошибка"
-//                    + System.lineSeparator()
-//                    + e.getMessage()));
-//        }
-        String text = "{\"result\": true," +
-                " \"statistics\": " +
-                "{\"total\": " +
-                "{\"sites\": 1, \"pages\": 89, \"lemmas\": 2677, \"isIndexing\": true}, " +
-                "\"detailed\": [{\"url\": " +
-                "\"https://nikoartgallery.com/\"," +
-                " \"name\": \"ArtGallery\"," +
-                " \"status\": \"INDEXED\"," +
-                " \"statusTime\": \"2022-07-16 15:47:05.0\"," +
-                " \"error\": \"null\"," +
-                " \"pages\": 89," +
-                " \"lemmas\": 2677}]}}";
-        StringBuilder builder = new StringBuilder();
-        builder.append(text);
-        return ResponseEntity.ok().body(builder);
+        try {
+            return ResponseEntity.ok().body(statistic.getALLStatistics());
+        } catch (Exception e) {
+            return ResponseEntity.ok().body(new StatisticErrors("При построении статистики произошла ошибка"
+                    + System.lineSeparator()
+                    + e.getMessage()));
+        }
     }
 }

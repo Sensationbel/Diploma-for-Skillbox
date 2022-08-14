@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: my
+      author: DBulaukin
+      comment: Created uniqueConstraint for the table site
+      changes:
+        - addUniqueConstraint:
+            columnNames: url, name
+            constraintName: cost-site
+            schemaName: search_engine
+            tableName: site
+            validate: true
