@@ -5,6 +5,7 @@ import by.bulavkin.searchEngine.repositoties.LemmaRepository;
 import by.bulavkin.searchEngine.services.dataService.interfeises.LemmaService;
 import lombok.RequiredArgsConstructor;
 import lombok.Synchronized;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Transactional
+@Slf4j
 public class LemmaServiceImp implements LemmaService {
 
     private final LemmaRepository lr;
@@ -21,6 +23,7 @@ public class LemmaServiceImp implements LemmaService {
     @Override
     @Synchronized
     public List<LemmaEntity> saveAll(ArrayList<LemmaEntity> lemmaEntities) {
+        log.info("Start to save LemmaEntity");
         return lr.saveAll(lemmaEntities);
     }
 
@@ -35,7 +38,17 @@ public class LemmaServiceImp implements LemmaService {
     }
 
     @Override
-    public LemmaEntity findById(Integer id) {
-        return lr.getById(id);
+    public void deleteAllBySiteId(int siteId) {
+        lr.deleteAllBySiteId(siteId);
+    }
+
+    @Override
+    public LemmaEntity findById(int id) {
+        return lr.findById(id);
+    }
+
+    @Override
+    public Integer countAllBySiteId(int siteId) {
+        return lr.countAllBySiteId(siteId);
     }
 }

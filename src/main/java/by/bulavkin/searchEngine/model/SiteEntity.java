@@ -14,14 +14,14 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "site")
-@SQLInsert(sql = "INSERT INTO site ( last_error, `name`,`status`, status_time, url)" +
-        " VALUES (?,?,?,?,?)" +
+@SQLInsert(sql = "INSERT INTO site ( last_error, `name`,`status`, status_time, url, id)" +
+        " VALUES (?,?,?,?,?,?)" +
         " ON DUPLICATE KEY UPDATE `status`=`status`")
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class SiteEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @Enumerated(EnumType.STRING)
@@ -40,11 +40,11 @@ public class SiteEntity {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "site")
-    private List<PageEntity> pageEntities;
-
-    @OneToMany(mappedBy="site")
-    private List<LemmaEntity> lemmaEntities;
+//    @OneToMany(mappedBy = "site")
+//    private List<PageEntity> pageEntities;
+//
+//    @OneToMany(mappedBy="site", cascade = CascadeType.REFRESH)
+//    private List<LemmaEntity> lemmaEntities;
 
     public boolean isEmpty(){
         return url == null && name == null;

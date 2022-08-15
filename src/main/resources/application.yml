@@ -1,18 +1,19 @@
-
+server:
+  port: 8085
 spring:
   liquibase:
     enabled: true
-#    change-log: db/changelog/db.changelog-master.yaml
 
   datasource:
     url: jdbc:mysql://localhost:3306/search_engine
     username: root
     password: root
+#    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
 
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+#    show-sql: true
 #    defer-datasource-initialization: true
 #    properties:
 #      hibernate:
@@ -39,16 +40,15 @@ app:
       name: ArtGallery
   user-agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.75 Safari/537.36"
   referrer: "http://www.google.com"
-logging:
-  level:
-    org:
-#      springframework:
-#        boot: error
-      hibernate: trace
+#logging:
+#  level:
+#    org:
+##      springframework:
+##        boot: error
+#      hibernate: trace
 #    com:
 #      zaxxer:
 #        hikari: TRACE
 #        hicary:
 #          HikariConfig: DEBUG
-server:
-  port: 8089
+

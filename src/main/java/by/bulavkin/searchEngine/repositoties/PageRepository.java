@@ -17,6 +17,8 @@ public interface PageRepository extends JpaRepository<PageEntity, Integer> {
     ArrayList<PageEntity> findAllBySiteId(int siteId);
     void deleteAllBySiteId(int siteId);
 
+    Integer countAllBySiteId(int siteId);
+
 
 
 

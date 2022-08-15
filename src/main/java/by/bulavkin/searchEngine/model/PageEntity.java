@@ -15,13 +15,13 @@ import javax.persistence.*;
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@SQLInsert(sql = "INSERT INTO `page`(`code`, content, `path`, site_id)" +
-        " VALUES(?, ?, ?, ?)" +
+@SQLInsert(sql = "INSERT INTO `page`(`code`, content, `path`, site_id, id)" +
+        " VALUES(?, ?, ?, ?, ?)" +
         " ON DUPLICATE KEY UPDATE content=content")
 public class PageEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
     //    @Column(columnDefinition = "TEXT", nullable = false)

@@ -57,5 +57,10 @@ public class PageServiceImp implements PageService {
         log.info("deleteAll from pagelist");
     }
 
+    @Override
+    public Integer countAllBySiteId(int siteId) {
+        return pr.countAllBySiteId(siteId);
+    }
+
 
 }

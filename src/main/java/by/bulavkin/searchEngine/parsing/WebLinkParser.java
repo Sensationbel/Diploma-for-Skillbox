@@ -56,8 +56,6 @@ public class WebLinkParser {
             InstanceForkJoinPool.getMyForkJoinPool().invoke(new RecursiveWebLinkParser(parsingPage(siteEntity.getUrl()), this));
             log.info("Stop Parsing: " + siteEntity.getName() + " pageList size: " + pageEntities.size());
             savePageEntitiesToDB();
-
-
         } catch (InterruptedException | IOException e) {
             log.error(e);
         }

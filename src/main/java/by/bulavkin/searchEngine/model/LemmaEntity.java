@@ -27,7 +27,7 @@ public class LemmaEntity {
     @Column(nullable = false)
     private Integer frequency;
 
-    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "site_id")
     private SiteEntity site;
 

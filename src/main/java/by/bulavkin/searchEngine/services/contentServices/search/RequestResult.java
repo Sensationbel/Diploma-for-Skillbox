@@ -3,6 +3,7 @@ package by.bulavkin.searchEngine.services.contentServices.search;
 import by.bulavkin.searchEngine.model.PageEntity;
 import by.bulavkin.searchEngine.lemmatizer.Lemmatizer;
 import by.bulavkin.searchEngine.services.dataService.implementation.PageServiceImp;
+import by.bulavkin.searchEngine.services.dataService.interfeises.PageService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,7 +23,7 @@ import java.util.TreeSet;
 @Setter
 public class RequestResult {
 
-    private PageServiceImp psi;
+    private PageService psi;
     private LuceneMorphology luceneMorphology;
 
     private String uri = "/path/to/page/";

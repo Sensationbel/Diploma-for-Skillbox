@@ -26,10 +26,10 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: content
-                  type: MEDIUMTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
+                  type: MEDIUMTEXT
                   constraints:
                     nullable: false
               - column:
                   name: site_id
                   type: INT
-
+                  #CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci

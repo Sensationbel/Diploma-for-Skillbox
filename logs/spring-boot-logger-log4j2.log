@@ -1,5 +1,1526 @@
-2022-06-16 10:45:47,276 WARN c.z.h.p.HikariPool$HouseKeeper [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20h39m23s244ms162µs900ns).
-2022-06-16 11:04:27,589 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-06-16 11:04:27,589 INFO o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl [SpringApplicationShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2022-06-16 11:04:27,739 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2022-06-16 11:04:27,739 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2022-08-15 15:45:26,078 INFO o.s.b.StartupInfoLogger [restartedMain] Starting SearchEngineApplication using Java 18.0.2 on SensationBel with PID 2316 (D:\Java applications\searchEngine\target\classes started by Sensationbel in D:\Java applications\searchEngine)
+2022-08-15 15:45:26,083 DEBUG o.s.b.StartupInfoLogger [restartedMain] Running with Spring Boot v2.7.2, Spring v5.3.22
+2022-08-15 15:45:26,084 INFO o.s.b.SpringApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-08-15 15:45:26,121 INFO o.s.b.l.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-15 15:45:26,121 INFO o.s.b.l.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-15 15:45:26,615 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-15 15:45:26,666 INFO o.s.d.r.c.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 44 ms. Found 5 JPA repository interfaces.
+2022-08-15 15:45:27,113 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8085 (http)
+2022-08-15 15:45:27,126 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8085"]
+2022-08-15 15:45:27,127 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-08-15 15:45:27,127 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-15 15:45:27,183 INFO o.a.j.l.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-08-15 15:45:27,183 INFO o.s.b.w.s.c.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1061 ms
+2022-08-15 15:45:27,350 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-08-15 15:45:27,592 INFO c.z.h.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-08-15 15:45:27,808 INFO l.l.c.JavaLogger [restartedMain] Successfully acquired change log lock
+2022-08-15 15:45:28,035 INFO l.l.c.JavaLogger [restartedMain] Reading from search_engine.DATABASECHANGELOG
+2022-08-15 15:45:28,108 INFO l.l.c.JavaLogger [restartedMain] Successfully released change log lock
+2022-08-15 15:45:28,171 INFO o.h.j.i.u.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-08-15 15:45:28,207 INFO o.h.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-08-15 15:45:28,328 INFO o.h.a.c.r.j.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-15 15:45:28,416 INFO o.h.d.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-08-15 15:45:28,948 INFO o.h.e.t.j.p.i.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-15 15:45:28,957 INFO o.s.o.j.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-15 15:45:29,705 WARN o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-08-15 15:45:29,818 INFO o.s.b.a.w.s.WelcomePageHandlerMapping [restartedMain] Adding welcome page template: index
+2022-08-15 15:45:29,984 INFO o.s.b.d.a.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-08-15 15:45:29,999 INFO o.a.j.l.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8085"]
+2022-08-15 15:45:30,016 INFO o.s.b.w.e.t.TomcatWebServer [restartedMain] Tomcat started on port(s): 8085 (http) with context path ''
+2022-08-15 15:45:30,025 INFO o.s.b.StartupInfoLogger [restartedMain] Started SearchEngineApplication in 4.365 seconds (JVM running for 5.139)
+2022-08-15 15:45:33,258 INFO o.a.j.l.DirectJDKLog [http-nio-8085-exec-3] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-15 15:45:33,258 INFO o.s.w.s.FrameworkServlet [http-nio-8085-exec-3] Initializing Servlet 'dispatcherServlet'
+2022-08-15 15:45:33,259 INFO o.s.w.s.FrameworkServlet [http-nio-8085-exec-3] Completed initialization in 1 ms
+2022-08-15 15:45:33,600 INFO b.b.s.s.c.s.StatisticsService [http-nio-8085-exec-5] DB is empty
+2022-08-15 15:45:36,083 INFO b.b.s.s.c.s.StartingIndexingService [http-nio-8085-exec-1] Running parsing
+2022-08-15 15:45:36,097 INFO b.b.s.s.c.s.StartingIndexingService [http-nio-8085-exec-1] Adding site: ArtGallery
+2022-08-15 15:45:36,120 INFO b.b.s.p.WebLinkParser [ForkJoinPool-1-worker-1] Start parsing: ArtGallery
+2022-08-15 15:45:39,934 INFO b.b.s.p.WebLinkParser [ForkJoinPool-1-worker-1] Stop Parsing: ArtGallery pageList size: 93
+2022-08-15 15:45:40,511 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] Start add content for --->ArtGallery
+2022-08-15 15:45:40,516 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] get fields
+2022-08-15 15:45:41,301 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] delete lemmas 
+2022-08-15 15:45:41,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] find site by Id: 1
+2022-08-15 15:45:41,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 2
+2022-08-15 15:45:41,374 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 before normalizeContent 
+2022-08-15 15:45:41,374 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 in normalizeContent 
+2022-08-15 15:45:41,377 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:41,377 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 before lemmatizer
+2022-08-15 15:45:41,377 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 in addLemma
+2022-08-15 15:45:41,377 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 after addLemma
+2022-08-15 15:45:41,378 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,393 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 after lemmatizer
+2022-08-15 15:45:41,394 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 after ranCCalculate
+2022-08-15 15:45:41,399 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:41,399 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 before lemmatizer
+2022-08-15 15:45:41,399 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 in addLemma
+2022-08-15 15:45:41,399 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 after addLemma
+2022-08-15 15:45:41,400 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,472 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 after lemmatizer
+2022-08-15 15:45:41,473 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 after ranCCalculate
+2022-08-15 15:45:41,473 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:41,473 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 2 after normalizeContent 
+2022-08-15 15:45:41,473 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 3
+2022-08-15 15:45:41,474 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 before normalizeContent 
+2022-08-15 15:45:41,474 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 in normalizeContent 
+2022-08-15 15:45:41,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:41,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 before lemmatizer
+2022-08-15 15:45:41,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 in addLemma
+2022-08-15 15:45:41,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 after addLemma
+2022-08-15 15:45:41,476 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,480 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 after lemmatizer
+2022-08-15 15:45:41,481 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 after ranCCalculate
+2022-08-15 15:45:41,484 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:41,484 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 before lemmatizer
+2022-08-15 15:45:41,485 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 in addLemma
+2022-08-15 15:45:41,485 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 after addLemma
+2022-08-15 15:45:41,485 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,552 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 after lemmatizer
+2022-08-15 15:45:41,553 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 after ranCCalculate
+2022-08-15 15:45:41,554 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:41,554 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 3 after normalizeContent 
+2022-08-15 15:45:41,554 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 4
+2022-08-15 15:45:41,554 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 before normalizeContent 
+2022-08-15 15:45:41,554 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 in normalizeContent 
+2022-08-15 15:45:41,555 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:41,555 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 before lemmatizer
+2022-08-15 15:45:41,555 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 in addLemma
+2022-08-15 15:45:41,555 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 after addLemma
+2022-08-15 15:45:41,556 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,563 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 after lemmatizer
+2022-08-15 15:45:41,564 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 after ranCCalculate
+2022-08-15 15:45:41,566 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:41,566 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 before lemmatizer
+2022-08-15 15:45:41,566 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 in addLemma
+2022-08-15 15:45:41,566 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 after addLemma
+2022-08-15 15:45:41,567 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,633 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 after lemmatizer
+2022-08-15 15:45:41,635 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 after ranCCalculate
+2022-08-15 15:45:41,635 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:41,636 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 4 after normalizeContent 
+2022-08-15 15:45:41,636 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 5
+2022-08-15 15:45:41,636 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 before normalizeContent 
+2022-08-15 15:45:41,636 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 in normalizeContent 
+2022-08-15 15:45:41,637 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:41,637 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 before lemmatizer
+2022-08-15 15:45:41,637 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 in addLemma
+2022-08-15 15:45:41,637 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 after addLemma
+2022-08-15 15:45:41,638 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,644 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 after lemmatizer
+2022-08-15 15:45:41,644 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 after ranCCalculate
+2022-08-15 15:45:41,646 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:41,647 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 before lemmatizer
+2022-08-15 15:45:41,647 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 in addLemma
+2022-08-15 15:45:41,647 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 after addLemma
+2022-08-15 15:45:41,648 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,745 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 after lemmatizer
+2022-08-15 15:45:41,748 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 after ranCCalculate
+2022-08-15 15:45:41,748 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:41,749 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 5 after normalizeContent 
+2022-08-15 15:45:41,749 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 6
+2022-08-15 15:45:41,749 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 before normalizeContent 
+2022-08-15 15:45:41,749 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 in normalizeContent 
+2022-08-15 15:45:41,749 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:41,749 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 before lemmatizer
+2022-08-15 15:45:41,750 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 in addLemma
+2022-08-15 15:45:41,750 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 after addLemma
+2022-08-15 15:45:41,751 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,752 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 after lemmatizer
+2022-08-15 15:45:41,752 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 after ranCCalculate
+2022-08-15 15:45:41,754 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:41,754 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 before lemmatizer
+2022-08-15 15:45:41,754 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 in addLemma
+2022-08-15 15:45:41,754 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 after addLemma
+2022-08-15 15:45:41,755 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,775 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 after lemmatizer
+2022-08-15 15:45:41,776 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 after ranCCalculate
+2022-08-15 15:45:41,776 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:41,776 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 6 after normalizeContent 
+2022-08-15 15:45:41,776 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 7
+2022-08-15 15:45:41,776 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 before normalizeContent 
+2022-08-15 15:45:41,777 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 in normalizeContent 
+2022-08-15 15:45:41,778 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:41,778 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 before lemmatizer
+2022-08-15 15:45:41,778 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 in addLemma
+2022-08-15 15:45:41,778 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 after addLemma
+2022-08-15 15:45:41,779 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,780 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 after lemmatizer
+2022-08-15 15:45:41,780 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 after ranCCalculate
+2022-08-15 15:45:41,781 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:41,781 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 before lemmatizer
+2022-08-15 15:45:41,781 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 in addLemma
+2022-08-15 15:45:41,781 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 after addLemma
+2022-08-15 15:45:41,782 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,797 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 after lemmatizer
+2022-08-15 15:45:41,798 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 after ranCCalculate
+2022-08-15 15:45:41,798 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:41,798 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 7 after normalizeContent 
+2022-08-15 15:45:41,798 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 8
+2022-08-15 15:45:41,798 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 before normalizeContent 
+2022-08-15 15:45:41,798 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 in normalizeContent 
+2022-08-15 15:45:41,799 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:41,799 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 before lemmatizer
+2022-08-15 15:45:41,799 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 in addLemma
+2022-08-15 15:45:41,799 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 after addLemma
+2022-08-15 15:45:41,800 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,801 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 after lemmatizer
+2022-08-15 15:45:41,801 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 after ranCCalculate
+2022-08-15 15:45:41,802 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:41,802 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 before lemmatizer
+2022-08-15 15:45:41,802 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 in addLemma
+2022-08-15 15:45:41,802 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 after addLemma
+2022-08-15 15:45:41,803 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,804 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 after lemmatizer
+2022-08-15 15:45:41,804 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 after ranCCalculate
+2022-08-15 15:45:41,804 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:41,804 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 8 after normalizeContent 
+2022-08-15 15:45:41,804 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 9
+2022-08-15 15:45:41,804 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 before normalizeContent 
+2022-08-15 15:45:41,805 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 in normalizeContent 
+2022-08-15 15:45:41,806 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:41,806 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 before lemmatizer
+2022-08-15 15:45:41,806 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 in addLemma
+2022-08-15 15:45:41,806 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 after addLemma
+2022-08-15 15:45:41,806 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,812 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 after lemmatizer
+2022-08-15 15:45:41,813 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 after ranCCalculate
+2022-08-15 15:45:41,818 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:41,818 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 before lemmatizer
+2022-08-15 15:45:41,818 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 in addLemma
+2022-08-15 15:45:41,818 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 after addLemma
+2022-08-15 15:45:41,819 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,888 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 after lemmatizer
+2022-08-15 15:45:41,891 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 after ranCCalculate
+2022-08-15 15:45:41,891 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:41,891 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 9 after normalizeContent 
+2022-08-15 15:45:41,891 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 10
+2022-08-15 15:45:41,891 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 before normalizeContent 
+2022-08-15 15:45:41,891 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 in normalizeContent 
+2022-08-15 15:45:41,893 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:41,893 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 before lemmatizer
+2022-08-15 15:45:41,893 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 in addLemma
+2022-08-15 15:45:41,893 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 after addLemma
+2022-08-15 15:45:41,894 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:41,898 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 after lemmatizer
+2022-08-15 15:45:41,898 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 after ranCCalculate
+2022-08-15 15:45:41,914 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:41,914 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 before lemmatizer
+2022-08-15 15:45:41,914 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 in addLemma
+2022-08-15 15:45:41,914 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 after addLemma
+2022-08-15 15:45:41,915 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,323 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 after lemmatizer
+2022-08-15 15:45:42,372 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 after ranCCalculate
+2022-08-15 15:45:42,372 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:42,372 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 10 after normalizeContent 
+2022-08-15 15:45:42,372 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 11
+2022-08-15 15:45:42,372 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 before normalizeContent 
+2022-08-15 15:45:42,372 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 in normalizeContent 
+2022-08-15 15:45:42,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:42,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 before lemmatizer
+2022-08-15 15:45:42,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 in addLemma
+2022-08-15 15:45:42,374 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 after addLemma
+2022-08-15 15:45:42,374 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,380 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 after lemmatizer
+2022-08-15 15:45:42,381 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 after ranCCalculate
+2022-08-15 15:45:42,383 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:42,383 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 before lemmatizer
+2022-08-15 15:45:42,383 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 in addLemma
+2022-08-15 15:45:42,384 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 after addLemma
+2022-08-15 15:45:42,384 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,462 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 after lemmatizer
+2022-08-15 15:45:42,473 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 after ranCCalculate
+2022-08-15 15:45:42,474 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:42,474 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 11 after normalizeContent 
+2022-08-15 15:45:42,474 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 12
+2022-08-15 15:45:42,474 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 before normalizeContent 
+2022-08-15 15:45:42,474 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 in normalizeContent 
+2022-08-15 15:45:42,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:42,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 before lemmatizer
+2022-08-15 15:45:42,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 in addLemma
+2022-08-15 15:45:42,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 after addLemma
+2022-08-15 15:45:42,476 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,479 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 after lemmatizer
+2022-08-15 15:45:42,479 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 after ranCCalculate
+2022-08-15 15:45:42,481 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:42,481 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 before lemmatizer
+2022-08-15 15:45:42,481 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 in addLemma
+2022-08-15 15:45:42,481 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 after addLemma
+2022-08-15 15:45:42,482 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,526 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 after lemmatizer
+2022-08-15 15:45:42,533 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 after ranCCalculate
+2022-08-15 15:45:42,533 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:42,533 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 12 after normalizeContent 
+2022-08-15 15:45:42,533 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 13
+2022-08-15 15:45:42,533 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 before normalizeContent 
+2022-08-15 15:45:42,533 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 in normalizeContent 
+2022-08-15 15:45:42,534 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:42,534 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 before lemmatizer
+2022-08-15 15:45:42,534 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 in addLemma
+2022-08-15 15:45:42,534 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 after addLemma
+2022-08-15 15:45:42,535 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,537 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 after lemmatizer
+2022-08-15 15:45:42,537 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 after ranCCalculate
+2022-08-15 15:45:42,538 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:42,538 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 before lemmatizer
+2022-08-15 15:45:42,539 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 in addLemma
+2022-08-15 15:45:42,539 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 after addLemma
+2022-08-15 15:45:42,539 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,559 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 after lemmatizer
+2022-08-15 15:45:42,561 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 after ranCCalculate
+2022-08-15 15:45:42,561 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:42,561 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 13 after normalizeContent 
+2022-08-15 15:45:42,561 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 14
+2022-08-15 15:45:42,561 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 before normalizeContent 
+2022-08-15 15:45:42,561 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 in normalizeContent 
+2022-08-15 15:45:42,562 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:42,563 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 before lemmatizer
+2022-08-15 15:45:42,563 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 in addLemma
+2022-08-15 15:45:42,563 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 after addLemma
+2022-08-15 15:45:42,563 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,567 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 after lemmatizer
+2022-08-15 15:45:42,567 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 after ranCCalculate
+2022-08-15 15:45:42,572 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:42,572 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 before lemmatizer
+2022-08-15 15:45:42,572 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 in addLemma
+2022-08-15 15:45:42,572 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 after addLemma
+2022-08-15 15:45:42,572 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,732 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 after lemmatizer
+2022-08-15 15:45:42,761 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 after ranCCalculate
+2022-08-15 15:45:42,761 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:42,761 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 14 after normalizeContent 
+2022-08-15 15:45:42,761 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 15
+2022-08-15 15:45:42,761 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 before normalizeContent 
+2022-08-15 15:45:42,761 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 in normalizeContent 
+2022-08-15 15:45:42,762 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:42,762 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 before lemmatizer
+2022-08-15 15:45:42,762 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 in addLemma
+2022-08-15 15:45:42,762 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 after addLemma
+2022-08-15 15:45:42,762 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,768 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 after lemmatizer
+2022-08-15 15:45:42,769 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 after ranCCalculate
+2022-08-15 15:45:42,771 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:42,771 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 before lemmatizer
+2022-08-15 15:45:42,771 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 in addLemma
+2022-08-15 15:45:42,771 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 after addLemma
+2022-08-15 15:45:42,772 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,853 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 after lemmatizer
+2022-08-15 15:45:42,866 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 after ranCCalculate
+2022-08-15 15:45:42,866 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:42,866 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 15 after normalizeContent 
+2022-08-15 15:45:42,866 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 16
+2022-08-15 15:45:42,866 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 before normalizeContent 
+2022-08-15 15:45:42,866 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 in normalizeContent 
+2022-08-15 15:45:42,867 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:42,867 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 before lemmatizer
+2022-08-15 15:45:42,867 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 in addLemma
+2022-08-15 15:45:42,867 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 after addLemma
+2022-08-15 15:45:42,867 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,871 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 after lemmatizer
+2022-08-15 15:45:42,872 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 after ranCCalculate
+2022-08-15 15:45:42,874 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:42,874 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 before lemmatizer
+2022-08-15 15:45:42,874 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 in addLemma
+2022-08-15 15:45:42,874 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 after addLemma
+2022-08-15 15:45:42,875 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,952 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 after lemmatizer
+2022-08-15 15:45:42,967 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 after ranCCalculate
+2022-08-15 15:45:42,967 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:42,967 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 16 after normalizeContent 
+2022-08-15 15:45:42,967 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 17
+2022-08-15 15:45:42,967 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 before normalizeContent 
+2022-08-15 15:45:42,967 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 in normalizeContent 
+2022-08-15 15:45:42,968 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:42,968 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 before lemmatizer
+2022-08-15 15:45:42,968 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 in addLemma
+2022-08-15 15:45:42,968 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 after addLemma
+2022-08-15 15:45:42,970 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:42,975 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 after lemmatizer
+2022-08-15 15:45:42,976 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 after ranCCalculate
+2022-08-15 15:45:42,978 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:42,979 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 before lemmatizer
+2022-08-15 15:45:42,979 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 in addLemma
+2022-08-15 15:45:42,979 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 after addLemma
+2022-08-15 15:45:42,979 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,067 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 after lemmatizer
+2022-08-15 15:45:43,082 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 after ranCCalculate
+2022-08-15 15:45:43,082 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:43,082 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 17 after normalizeContent 
+2022-08-15 15:45:43,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 18
+2022-08-15 15:45:43,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 before normalizeContent 
+2022-08-15 15:45:43,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 in normalizeContent 
+2022-08-15 15:45:43,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:43,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 before lemmatizer
+2022-08-15 15:45:43,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 in addLemma
+2022-08-15 15:45:43,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 after addLemma
+2022-08-15 15:45:43,084 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,084 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 after lemmatizer
+2022-08-15 15:45:43,084 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 after ranCCalculate
+2022-08-15 15:45:43,085 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:43,085 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 before lemmatizer
+2022-08-15 15:45:43,085 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 in addLemma
+2022-08-15 15:45:43,085 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 after addLemma
+2022-08-15 15:45:43,086 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,105 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 after lemmatizer
+2022-08-15 15:45:43,107 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 after ranCCalculate
+2022-08-15 15:45:43,107 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:43,107 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 18 after normalizeContent 
+2022-08-15 15:45:43,107 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 19
+2022-08-15 15:45:43,107 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 before normalizeContent 
+2022-08-15 15:45:43,107 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 in normalizeContent 
+2022-08-15 15:45:43,109 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:43,109 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 before lemmatizer
+2022-08-15 15:45:43,109 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 in addLemma
+2022-08-15 15:45:43,109 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 after addLemma
+2022-08-15 15:45:43,109 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,113 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 after lemmatizer
+2022-08-15 15:45:43,113 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 after ranCCalculate
+2022-08-15 15:45:43,116 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:43,116 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 before lemmatizer
+2022-08-15 15:45:43,116 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 in addLemma
+2022-08-15 15:45:43,116 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 after addLemma
+2022-08-15 15:45:43,117 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,181 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 after lemmatizer
+2022-08-15 15:45:43,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 after ranCCalculate
+2022-08-15 15:45:43,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:43,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 19 after normalizeContent 
+2022-08-15 15:45:43,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 20
+2022-08-15 15:45:43,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 before normalizeContent 
+2022-08-15 15:45:43,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 in normalizeContent 
+2022-08-15 15:45:43,196 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:43,196 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 before lemmatizer
+2022-08-15 15:45:43,196 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 in addLemma
+2022-08-15 15:45:43,196 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 after addLemma
+2022-08-15 15:45:43,197 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,202 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 after lemmatizer
+2022-08-15 15:45:43,202 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 after ranCCalculate
+2022-08-15 15:45:43,207 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:43,207 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 before lemmatizer
+2022-08-15 15:45:43,207 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 in addLemma
+2022-08-15 15:45:43,207 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 after addLemma
+2022-08-15 15:45:43,208 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,376 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 after lemmatizer
+2022-08-15 15:45:43,426 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 after ranCCalculate
+2022-08-15 15:45:43,426 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:43,426 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 20 after normalizeContent 
+2022-08-15 15:45:43,426 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 21
+2022-08-15 15:45:43,426 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 before normalizeContent 
+2022-08-15 15:45:43,426 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 in normalizeContent 
+2022-08-15 15:45:43,426 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:43,427 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 before lemmatizer
+2022-08-15 15:45:43,427 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 in addLemma
+2022-08-15 15:45:43,427 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 after addLemma
+2022-08-15 15:45:43,427 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,433 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 after lemmatizer
+2022-08-15 15:45:43,434 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 after ranCCalculate
+2022-08-15 15:45:43,436 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:43,436 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 before lemmatizer
+2022-08-15 15:45:43,436 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 in addLemma
+2022-08-15 15:45:43,436 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 after addLemma
+2022-08-15 15:45:43,437 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,507 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 after lemmatizer
+2022-08-15 15:45:43,518 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 after ranCCalculate
+2022-08-15 15:45:43,518 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:43,518 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 21 after normalizeContent 
+2022-08-15 15:45:43,518 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 22
+2022-08-15 15:45:43,518 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 before normalizeContent 
+2022-08-15 15:45:43,518 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 in normalizeContent 
+2022-08-15 15:45:43,519 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:43,519 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 before lemmatizer
+2022-08-15 15:45:43,519 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 in addLemma
+2022-08-15 15:45:43,519 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 after addLemma
+2022-08-15 15:45:43,520 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,524 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 after lemmatizer
+2022-08-15 15:45:43,525 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 after ranCCalculate
+2022-08-15 15:45:43,530 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:43,530 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 before lemmatizer
+2022-08-15 15:45:43,530 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 in addLemma
+2022-08-15 15:45:43,530 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 after addLemma
+2022-08-15 15:45:43,531 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,606 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 after lemmatizer
+2022-08-15 15:45:43,622 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 after ranCCalculate
+2022-08-15 15:45:43,622 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:43,622 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 22 after normalizeContent 
+2022-08-15 15:45:43,622 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 23
+2022-08-15 15:45:43,622 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 before normalizeContent 
+2022-08-15 15:45:43,622 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 in normalizeContent 
+2022-08-15 15:45:43,623 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:43,623 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 before lemmatizer
+2022-08-15 15:45:43,623 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 in addLemma
+2022-08-15 15:45:43,623 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 after addLemma
+2022-08-15 15:45:43,623 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,626 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 after lemmatizer
+2022-08-15 15:45:43,627 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 after ranCCalculate
+2022-08-15 15:45:43,630 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:43,630 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 before lemmatizer
+2022-08-15 15:45:43,630 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 in addLemma
+2022-08-15 15:45:43,630 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 after addLemma
+2022-08-15 15:45:43,630 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,720 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 after lemmatizer
+2022-08-15 15:45:43,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 after ranCCalculate
+2022-08-15 15:45:43,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:43,740 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 23 after normalizeContent 
+2022-08-15 15:45:43,740 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 24
+2022-08-15 15:45:43,740 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 before normalizeContent 
+2022-08-15 15:45:43,740 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 in normalizeContent 
+2022-08-15 15:45:43,740 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:43,740 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 before lemmatizer
+2022-08-15 15:45:43,740 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 in addLemma
+2022-08-15 15:45:43,740 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 after addLemma
+2022-08-15 15:45:43,740 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,744 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 after lemmatizer
+2022-08-15 15:45:43,744 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 after ranCCalculate
+2022-08-15 15:45:43,746 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:43,746 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 before lemmatizer
+2022-08-15 15:45:43,746 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 in addLemma
+2022-08-15 15:45:43,746 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 after addLemma
+2022-08-15 15:45:43,748 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,813 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 after lemmatizer
+2022-08-15 15:45:43,829 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 after ranCCalculate
+2022-08-15 15:45:43,829 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:43,829 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 24 after normalizeContent 
+2022-08-15 15:45:43,829 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 25
+2022-08-15 15:45:43,829 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 before normalizeContent 
+2022-08-15 15:45:43,829 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 in normalizeContent 
+2022-08-15 15:45:43,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:43,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 before lemmatizer
+2022-08-15 15:45:43,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 in addLemma
+2022-08-15 15:45:43,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 after addLemma
+2022-08-15 15:45:43,830 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 after lemmatizer
+2022-08-15 15:45:43,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 after ranCCalculate
+2022-08-15 15:45:43,831 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:43,831 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 before lemmatizer
+2022-08-15 15:45:43,831 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 in addLemma
+2022-08-15 15:45:43,831 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 after addLemma
+2022-08-15 15:45:43,831 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,832 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 after lemmatizer
+2022-08-15 15:45:43,832 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 after ranCCalculate
+2022-08-15 15:45:43,832 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:43,832 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 25 after normalizeContent 
+2022-08-15 15:45:43,832 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 26
+2022-08-15 15:45:43,832 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 before normalizeContent 
+2022-08-15 15:45:43,832 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 in normalizeContent 
+2022-08-15 15:45:43,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:43,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 before lemmatizer
+2022-08-15 15:45:43,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 in addLemma
+2022-08-15 15:45:43,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 after addLemma
+2022-08-15 15:45:43,834 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,838 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 after lemmatizer
+2022-08-15 15:45:43,839 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 after ranCCalculate
+2022-08-15 15:45:43,841 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:43,841 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 before lemmatizer
+2022-08-15 15:45:43,841 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 in addLemma
+2022-08-15 15:45:43,841 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 after addLemma
+2022-08-15 15:45:43,842 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,905 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 after lemmatizer
+2022-08-15 15:45:43,919 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 after ranCCalculate
+2022-08-15 15:45:43,919 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:43,919 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 26 after normalizeContent 
+2022-08-15 15:45:43,919 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 27
+2022-08-15 15:45:43,919 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 before normalizeContent 
+2022-08-15 15:45:43,919 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 in normalizeContent 
+2022-08-15 15:45:43,920 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:43,920 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 before lemmatizer
+2022-08-15 15:45:43,920 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 in addLemma
+2022-08-15 15:45:43,920 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 after addLemma
+2022-08-15 15:45:43,920 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,926 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 after lemmatizer
+2022-08-15 15:45:43,927 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 after ranCCalculate
+2022-08-15 15:45:43,930 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:43,930 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 before lemmatizer
+2022-08-15 15:45:43,930 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 in addLemma
+2022-08-15 15:45:43,930 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 after addLemma
+2022-08-15 15:45:43,930 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:43,994 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 after lemmatizer
+2022-08-15 15:45:44,011 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 after ranCCalculate
+2022-08-15 15:45:44,011 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:44,011 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 27 after normalizeContent 
+2022-08-15 15:45:44,011 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 28
+2022-08-15 15:45:44,011 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 before normalizeContent 
+2022-08-15 15:45:44,011 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 in normalizeContent 
+2022-08-15 15:45:44,012 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:44,012 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 before lemmatizer
+2022-08-15 15:45:44,012 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 in addLemma
+2022-08-15 15:45:44,012 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 after addLemma
+2022-08-15 15:45:44,013 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,016 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 after lemmatizer
+2022-08-15 15:45:44,017 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 after ranCCalculate
+2022-08-15 15:45:44,017 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:44,017 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 before lemmatizer
+2022-08-15 15:45:44,017 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 in addLemma
+2022-08-15 15:45:44,017 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 after addLemma
+2022-08-15 15:45:44,018 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,034 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 after lemmatizer
+2022-08-15 15:45:44,037 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 after ranCCalculate
+2022-08-15 15:45:44,037 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:44,037 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 28 after normalizeContent 
+2022-08-15 15:45:44,037 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 29
+2022-08-15 15:45:44,037 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 before normalizeContent 
+2022-08-15 15:45:44,037 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 in normalizeContent 
+2022-08-15 15:45:44,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:44,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 before lemmatizer
+2022-08-15 15:45:44,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 in addLemma
+2022-08-15 15:45:44,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 after addLemma
+2022-08-15 15:45:44,038 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,042 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 after lemmatizer
+2022-08-15 15:45:44,043 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 after ranCCalculate
+2022-08-15 15:45:44,045 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:44,045 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 before lemmatizer
+2022-08-15 15:45:44,045 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 in addLemma
+2022-08-15 15:45:44,045 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 after addLemma
+2022-08-15 15:45:44,046 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,157 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 after lemmatizer
+2022-08-15 15:45:44,186 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 after ranCCalculate
+2022-08-15 15:45:44,186 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:44,186 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 29 after normalizeContent 
+2022-08-15 15:45:44,186 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 30
+2022-08-15 15:45:44,186 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 before normalizeContent 
+2022-08-15 15:45:44,186 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 in normalizeContent 
+2022-08-15 15:45:44,187 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:44,187 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 before lemmatizer
+2022-08-15 15:45:44,187 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 in addLemma
+2022-08-15 15:45:44,187 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 after addLemma
+2022-08-15 15:45:44,188 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,188 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 after lemmatizer
+2022-08-15 15:45:44,188 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 after ranCCalculate
+2022-08-15 15:45:44,189 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:44,189 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 before lemmatizer
+2022-08-15 15:45:44,189 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 in addLemma
+2022-08-15 15:45:44,189 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 after addLemma
+2022-08-15 15:45:44,190 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,209 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 after lemmatizer
+2022-08-15 15:45:44,213 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 after ranCCalculate
+2022-08-15 15:45:44,213 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:44,213 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 30 after normalizeContent 
+2022-08-15 15:45:44,213 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 31
+2022-08-15 15:45:44,213 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 before normalizeContent 
+2022-08-15 15:45:44,213 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 in normalizeContent 
+2022-08-15 15:45:44,214 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:44,214 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 before lemmatizer
+2022-08-15 15:45:44,214 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 in addLemma
+2022-08-15 15:45:44,214 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 after addLemma
+2022-08-15 15:45:44,214 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,214 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 after lemmatizer
+2022-08-15 15:45:44,214 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 after ranCCalculate
+2022-08-15 15:45:44,215 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:44,215 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 before lemmatizer
+2022-08-15 15:45:44,215 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 in addLemma
+2022-08-15 15:45:44,215 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 after addLemma
+2022-08-15 15:45:44,216 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,234 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 after lemmatizer
+2022-08-15 15:45:44,238 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 after ranCCalculate
+2022-08-15 15:45:44,238 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:44,238 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 31 after normalizeContent 
+2022-08-15 15:45:44,238 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 32
+2022-08-15 15:45:44,238 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 before normalizeContent 
+2022-08-15 15:45:44,238 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 in normalizeContent 
+2022-08-15 15:45:44,238 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:44,238 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 before lemmatizer
+2022-08-15 15:45:44,238 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 in addLemma
+2022-08-15 15:45:44,238 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 after addLemma
+2022-08-15 15:45:44,239 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,244 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 after lemmatizer
+2022-08-15 15:45:44,245 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 after ranCCalculate
+2022-08-15 15:45:44,248 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:44,248 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 before lemmatizer
+2022-08-15 15:45:44,248 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 in addLemma
+2022-08-15 15:45:44,248 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 after addLemma
+2022-08-15 15:45:44,248 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,355 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 after lemmatizer
+2022-08-15 15:45:44,386 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 after ranCCalculate
+2022-08-15 15:45:44,386 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:44,386 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 32 after normalizeContent 
+2022-08-15 15:45:44,386 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 33
+2022-08-15 15:45:44,386 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 before normalizeContent 
+2022-08-15 15:45:44,386 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 in normalizeContent 
+2022-08-15 15:45:44,388 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:44,388 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 before lemmatizer
+2022-08-15 15:45:44,388 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 in addLemma
+2022-08-15 15:45:44,388 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 after addLemma
+2022-08-15 15:45:44,388 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,391 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 after lemmatizer
+2022-08-15 15:45:44,391 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 after ranCCalculate
+2022-08-15 15:45:44,395 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:44,395 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 before lemmatizer
+2022-08-15 15:45:44,395 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 in addLemma
+2022-08-15 15:45:44,395 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 after addLemma
+2022-08-15 15:45:44,395 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,508 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 after lemmatizer
+2022-08-15 15:45:44,540 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 after ranCCalculate
+2022-08-15 15:45:44,540 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:44,540 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 33 after normalizeContent 
+2022-08-15 15:45:44,540 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 34
+2022-08-15 15:45:44,540 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 before normalizeContent 
+2022-08-15 15:45:44,540 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 in normalizeContent 
+2022-08-15 15:45:44,541 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:44,541 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 before lemmatizer
+2022-08-15 15:45:44,541 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 in addLemma
+2022-08-15 15:45:44,541 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 after addLemma
+2022-08-15 15:45:44,541 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,545 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 after lemmatizer
+2022-08-15 15:45:44,546 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 after ranCCalculate
+2022-08-15 15:45:44,548 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:44,548 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 before lemmatizer
+2022-08-15 15:45:44,548 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 in addLemma
+2022-08-15 15:45:44,548 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 after addLemma
+2022-08-15 15:45:44,549 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,649 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 after lemmatizer
+2022-08-15 15:45:44,678 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 after ranCCalculate
+2022-08-15 15:45:44,678 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:44,678 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 34 after normalizeContent 
+2022-08-15 15:45:44,678 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 35
+2022-08-15 15:45:44,678 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 before normalizeContent 
+2022-08-15 15:45:44,678 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 in normalizeContent 
+2022-08-15 15:45:44,680 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:44,680 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 before lemmatizer
+2022-08-15 15:45:44,680 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 in addLemma
+2022-08-15 15:45:44,680 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 after addLemma
+2022-08-15 15:45:44,680 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,684 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 after lemmatizer
+2022-08-15 15:45:44,684 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 after ranCCalculate
+2022-08-15 15:45:44,687 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:44,687 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 before lemmatizer
+2022-08-15 15:45:44,687 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 in addLemma
+2022-08-15 15:45:44,687 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 after addLemma
+2022-08-15 15:45:44,687 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,795 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 after lemmatizer
+2022-08-15 15:45:44,829 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 after ranCCalculate
+2022-08-15 15:45:44,829 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:44,829 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 35 after normalizeContent 
+2022-08-15 15:45:44,829 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 36
+2022-08-15 15:45:44,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 before normalizeContent 
+2022-08-15 15:45:44,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 in normalizeContent 
+2022-08-15 15:45:44,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:44,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 before lemmatizer
+2022-08-15 15:45:44,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 in addLemma
+2022-08-15 15:45:44,830 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 after addLemma
+2022-08-15 15:45:44,831 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,835 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 after lemmatizer
+2022-08-15 15:45:44,836 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 after ranCCalculate
+2022-08-15 15:45:44,839 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:44,839 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 before lemmatizer
+2022-08-15 15:45:44,839 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 in addLemma
+2022-08-15 15:45:44,839 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 after addLemma
+2022-08-15 15:45:44,839 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,906 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 after lemmatizer
+2022-08-15 15:45:44,923 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 after ranCCalculate
+2022-08-15 15:45:44,923 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:44,923 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 36 after normalizeContent 
+2022-08-15 15:45:44,923 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 37
+2022-08-15 15:45:44,923 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 before normalizeContent 
+2022-08-15 15:45:44,923 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 in normalizeContent 
+2022-08-15 15:45:44,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:44,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 before lemmatizer
+2022-08-15 15:45:44,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 in addLemma
+2022-08-15 15:45:44,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 after addLemma
+2022-08-15 15:45:44,924 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:44,929 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 after lemmatizer
+2022-08-15 15:45:44,930 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 after ranCCalculate
+2022-08-15 15:45:44,933 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:44,933 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 before lemmatizer
+2022-08-15 15:45:44,933 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 in addLemma
+2022-08-15 15:45:44,933 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 after addLemma
+2022-08-15 15:45:44,933 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,010 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 after lemmatizer
+2022-08-15 15:45:45,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 after ranCCalculate
+2022-08-15 15:45:45,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:45,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 37 after normalizeContent 
+2022-08-15 15:45:45,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 38
+2022-08-15 15:45:45,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 before normalizeContent 
+2022-08-15 15:45:45,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 in normalizeContent 
+2022-08-15 15:45:45,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:45,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 before lemmatizer
+2022-08-15 15:45:45,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 in addLemma
+2022-08-15 15:45:45,038 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 after addLemma
+2022-08-15 15:45:45,038 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,039 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 after lemmatizer
+2022-08-15 15:45:45,039 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 after ranCCalculate
+2022-08-15 15:45:45,040 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:45,040 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 before lemmatizer
+2022-08-15 15:45:45,040 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 in addLemma
+2022-08-15 15:45:45,040 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 after addLemma
+2022-08-15 15:45:45,041 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,064 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 after lemmatizer
+2022-08-15 15:45:45,069 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 after ranCCalculate
+2022-08-15 15:45:45,069 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:45,069 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 38 after normalizeContent 
+2022-08-15 15:45:45,069 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 39
+2022-08-15 15:45:45,069 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 before normalizeContent 
+2022-08-15 15:45:45,069 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 in normalizeContent 
+2022-08-15 15:45:45,069 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:45,069 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 before lemmatizer
+2022-08-15 15:45:45,069 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 in addLemma
+2022-08-15 15:45:45,069 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 after addLemma
+2022-08-15 15:45:45,071 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,075 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 after lemmatizer
+2022-08-15 15:45:45,076 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 after ranCCalculate
+2022-08-15 15:45:45,080 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:45,080 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 before lemmatizer
+2022-08-15 15:45:45,080 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 in addLemma
+2022-08-15 15:45:45,080 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 after addLemma
+2022-08-15 15:45:45,081 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,281 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 after lemmatizer
+2022-08-15 15:45:45,344 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 after ranCCalculate
+2022-08-15 15:45:45,344 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:45,344 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 39 after normalizeContent 
+2022-08-15 15:45:45,344 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 40
+2022-08-15 15:45:45,344 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 before normalizeContent 
+2022-08-15 15:45:45,344 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 in normalizeContent 
+2022-08-15 15:45:45,345 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:45,345 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 before lemmatizer
+2022-08-15 15:45:45,345 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 in addLemma
+2022-08-15 15:45:45,345 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 after addLemma
+2022-08-15 15:45:45,345 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,349 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 after lemmatizer
+2022-08-15 15:45:45,350 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 after ranCCalculate
+2022-08-15 15:45:45,352 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:45,352 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 before lemmatizer
+2022-08-15 15:45:45,352 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 in addLemma
+2022-08-15 15:45:45,352 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 after addLemma
+2022-08-15 15:45:45,353 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,448 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 after lemmatizer
+2022-08-15 15:45:45,483 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 after ranCCalculate
+2022-08-15 15:45:45,483 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:45,483 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 40 after normalizeContent 
+2022-08-15 15:45:45,483 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 41
+2022-08-15 15:45:45,483 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 before normalizeContent 
+2022-08-15 15:45:45,483 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 in normalizeContent 
+2022-08-15 15:45:45,485 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:45,485 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 before lemmatizer
+2022-08-15 15:45:45,485 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 in addLemma
+2022-08-15 15:45:45,485 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 after addLemma
+2022-08-15 15:45:45,485 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,485 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 after lemmatizer
+2022-08-15 15:45:45,486 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 after ranCCalculate
+2022-08-15 15:45:45,486 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:45,487 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 before lemmatizer
+2022-08-15 15:45:45,487 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 in addLemma
+2022-08-15 15:45:45,487 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 after addLemma
+2022-08-15 15:45:45,487 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,509 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 after lemmatizer
+2022-08-15 15:45:45,514 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 after ranCCalculate
+2022-08-15 15:45:45,514 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:45,514 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 41 after normalizeContent 
+2022-08-15 15:45:45,514 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 42
+2022-08-15 15:45:45,514 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 before normalizeContent 
+2022-08-15 15:45:45,514 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 in normalizeContent 
+2022-08-15 15:45:45,515 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:45,515 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 before lemmatizer
+2022-08-15 15:45:45,515 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 in addLemma
+2022-08-15 15:45:45,515 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 after addLemma
+2022-08-15 15:45:45,516 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,519 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 after lemmatizer
+2022-08-15 15:45:45,520 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 after ranCCalculate
+2022-08-15 15:45:45,521 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:45,521 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 before lemmatizer
+2022-08-15 15:45:45,522 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 in addLemma
+2022-08-15 15:45:45,522 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 after addLemma
+2022-08-15 15:45:45,523 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,595 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 after lemmatizer
+2022-08-15 15:45:45,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 after ranCCalculate
+2022-08-15 15:45:45,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:45,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 42 after normalizeContent 
+2022-08-15 15:45:45,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 43
+2022-08-15 15:45:45,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 before normalizeContent 
+2022-08-15 15:45:45,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 in normalizeContent 
+2022-08-15 15:45:45,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:45,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 before lemmatizer
+2022-08-15 15:45:45,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 in addLemma
+2022-08-15 15:45:45,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 after addLemma
+2022-08-15 15:45:45,617 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,623 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 after lemmatizer
+2022-08-15 15:45:45,625 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 after ranCCalculate
+2022-08-15 15:45:45,628 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:45,628 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 before lemmatizer
+2022-08-15 15:45:45,628 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 in addLemma
+2022-08-15 15:45:45,628 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 after addLemma
+2022-08-15 15:45:45,628 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,682 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 after lemmatizer
+2022-08-15 15:45:45,698 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 after ranCCalculate
+2022-08-15 15:45:45,698 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:45,698 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 43 after normalizeContent 
+2022-08-15 15:45:45,698 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 44
+2022-08-15 15:45:45,698 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 before normalizeContent 
+2022-08-15 15:45:45,698 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 in normalizeContent 
+2022-08-15 15:45:45,698 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:45,698 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 before lemmatizer
+2022-08-15 15:45:45,698 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 in addLemma
+2022-08-15 15:45:45,698 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 after addLemma
+2022-08-15 15:45:45,700 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,703 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 after lemmatizer
+2022-08-15 15:45:45,704 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 after ranCCalculate
+2022-08-15 15:45:45,707 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:45,707 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 before lemmatizer
+2022-08-15 15:45:45,707 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 in addLemma
+2022-08-15 15:45:45,707 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 after addLemma
+2022-08-15 15:45:45,707 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,805 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 after lemmatizer
+2022-08-15 15:45:45,832 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 after ranCCalculate
+2022-08-15 15:45:45,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:45,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 44 after normalizeContent 
+2022-08-15 15:45:45,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 45
+2022-08-15 15:45:45,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 before normalizeContent 
+2022-08-15 15:45:45,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 in normalizeContent 
+2022-08-15 15:45:45,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:45,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 before lemmatizer
+2022-08-15 15:45:45,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 in addLemma
+2022-08-15 15:45:45,833 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 after addLemma
+2022-08-15 15:45:45,834 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,839 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 after lemmatizer
+2022-08-15 15:45:45,840 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 after ranCCalculate
+2022-08-15 15:45:45,842 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:45,843 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 before lemmatizer
+2022-08-15 15:45:45,843 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 in addLemma
+2022-08-15 15:45:45,843 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 after addLemma
+2022-08-15 15:45:45,843 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,920 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 after lemmatizer
+2022-08-15 15:45:45,940 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 after ranCCalculate
+2022-08-15 15:45:45,940 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:45,940 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 45 after normalizeContent 
+2022-08-15 15:45:45,940 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 46
+2022-08-15 15:45:45,940 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 before normalizeContent 
+2022-08-15 15:45:45,940 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 in normalizeContent 
+2022-08-15 15:45:45,942 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:45,942 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 before lemmatizer
+2022-08-15 15:45:45,942 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 in addLemma
+2022-08-15 15:45:45,942 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 after addLemma
+2022-08-15 15:45:45,942 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,943 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 after lemmatizer
+2022-08-15 15:45:45,943 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 after ranCCalculate
+2022-08-15 15:45:45,944 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:45,944 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 before lemmatizer
+2022-08-15 15:45:45,944 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 in addLemma
+2022-08-15 15:45:45,944 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 after addLemma
+2022-08-15 15:45:45,944 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,966 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 after lemmatizer
+2022-08-15 15:45:45,972 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 after ranCCalculate
+2022-08-15 15:45:45,972 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:45,972 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 46 after normalizeContent 
+2022-08-15 15:45:45,972 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 47
+2022-08-15 15:45:45,972 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 before normalizeContent 
+2022-08-15 15:45:45,972 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 in normalizeContent 
+2022-08-15 15:45:45,973 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:45,973 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 before lemmatizer
+2022-08-15 15:45:45,973 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 in addLemma
+2022-08-15 15:45:45,973 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 after addLemma
+2022-08-15 15:45:45,973 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,978 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 after lemmatizer
+2022-08-15 15:45:45,978 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 after ranCCalculate
+2022-08-15 15:45:45,979 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:45,979 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 before lemmatizer
+2022-08-15 15:45:45,979 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 in addLemma
+2022-08-15 15:45:45,979 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 after addLemma
+2022-08-15 15:45:45,981 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:45,998 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 after lemmatizer
+2022-08-15 15:45:46,003 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 after ranCCalculate
+2022-08-15 15:45:46,003 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,003 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 47 after normalizeContent 
+2022-08-15 15:45:46,003 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 48
+2022-08-15 15:45:46,003 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 before normalizeContent 
+2022-08-15 15:45:46,003 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 in normalizeContent 
+2022-08-15 15:45:46,004 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,004 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 before lemmatizer
+2022-08-15 15:45:46,004 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 in addLemma
+2022-08-15 15:45:46,004 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 after addLemma
+2022-08-15 15:45:46,004 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,005 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 after lemmatizer
+2022-08-15 15:45:46,005 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 after ranCCalculate
+2022-08-15 15:45:46,006 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,006 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 before lemmatizer
+2022-08-15 15:45:46,006 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 in addLemma
+2022-08-15 15:45:46,006 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 after addLemma
+2022-08-15 15:45:46,007 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,007 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 after lemmatizer
+2022-08-15 15:45:46,007 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 after ranCCalculate
+2022-08-15 15:45:46,007 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,007 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 48 after normalizeContent 
+2022-08-15 15:45:46,007 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 49
+2022-08-15 15:45:46,007 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 before normalizeContent 
+2022-08-15 15:45:46,007 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 in normalizeContent 
+2022-08-15 15:45:46,009 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,009 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 before lemmatizer
+2022-08-15 15:45:46,009 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 in addLemma
+2022-08-15 15:45:46,009 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 after addLemma
+2022-08-15 15:45:46,009 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,015 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 after lemmatizer
+2022-08-15 15:45:46,017 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 after ranCCalculate
+2022-08-15 15:45:46,020 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,020 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 before lemmatizer
+2022-08-15 15:45:46,020 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 in addLemma
+2022-08-15 15:45:46,020 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 after addLemma
+2022-08-15 15:45:46,020 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,096 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 after lemmatizer
+2022-08-15 15:45:46,125 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 after ranCCalculate
+2022-08-15 15:45:46,125 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,126 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 49 after normalizeContent 
+2022-08-15 15:45:46,126 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 50
+2022-08-15 15:45:46,126 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 before normalizeContent 
+2022-08-15 15:45:46,126 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 in normalizeContent 
+2022-08-15 15:45:46,126 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,126 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 before lemmatizer
+2022-08-15 15:45:46,126 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 in addLemma
+2022-08-15 15:45:46,126 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 after addLemma
+2022-08-15 15:45:46,127 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,133 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 after lemmatizer
+2022-08-15 15:45:46,134 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 after ranCCalculate
+2022-08-15 15:45:46,136 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,138 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 before lemmatizer
+2022-08-15 15:45:46,138 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 in addLemma
+2022-08-15 15:45:46,138 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 after addLemma
+2022-08-15 15:45:46,138 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,220 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 after lemmatizer
+2022-08-15 15:45:46,251 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 after ranCCalculate
+2022-08-15 15:45:46,251 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,251 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 50 after normalizeContent 
+2022-08-15 15:45:46,251 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 51
+2022-08-15 15:45:46,252 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 before normalizeContent 
+2022-08-15 15:45:46,252 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 in normalizeContent 
+2022-08-15 15:45:46,252 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,252 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 before lemmatizer
+2022-08-15 15:45:46,252 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 in addLemma
+2022-08-15 15:45:46,252 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 after addLemma
+2022-08-15 15:45:46,253 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,256 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 after lemmatizer
+2022-08-15 15:45:46,257 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 after ranCCalculate
+2022-08-15 15:45:46,260 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,260 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 before lemmatizer
+2022-08-15 15:45:46,260 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 in addLemma
+2022-08-15 15:45:46,260 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 after addLemma
+2022-08-15 15:45:46,260 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,343 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 after lemmatizer
+2022-08-15 15:45:46,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 after ranCCalculate
+2022-08-15 15:45:46,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 51 after normalizeContent 
+2022-08-15 15:45:46,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 52
+2022-08-15 15:45:46,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 before normalizeContent 
+2022-08-15 15:45:46,373 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 in normalizeContent 
+2022-08-15 15:45:46,374 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,374 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 before lemmatizer
+2022-08-15 15:45:46,374 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 in addLemma
+2022-08-15 15:45:46,374 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 after addLemma
+2022-08-15 15:45:46,374 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,379 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 after lemmatizer
+2022-08-15 15:45:46,380 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 after ranCCalculate
+2022-08-15 15:45:46,383 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,383 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 before lemmatizer
+2022-08-15 15:45:46,383 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 in addLemma
+2022-08-15 15:45:46,383 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 after addLemma
+2022-08-15 15:45:46,383 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,466 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 after lemmatizer
+2022-08-15 15:45:46,497 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 after ranCCalculate
+2022-08-15 15:45:46,497 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,497 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 52 after normalizeContent 
+2022-08-15 15:45:46,497 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 53
+2022-08-15 15:45:46,497 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 before normalizeContent 
+2022-08-15 15:45:46,497 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 in normalizeContent 
+2022-08-15 15:45:46,499 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,499 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 before lemmatizer
+2022-08-15 15:45:46,499 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 in addLemma
+2022-08-15 15:45:46,499 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 after addLemma
+2022-08-15 15:45:46,500 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,502 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 after lemmatizer
+2022-08-15 15:45:46,502 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 after ranCCalculate
+2022-08-15 15:45:46,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 before lemmatizer
+2022-08-15 15:45:46,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 in addLemma
+2022-08-15 15:45:46,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 after addLemma
+2022-08-15 15:45:46,506 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,589 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 after lemmatizer
+2022-08-15 15:45:46,623 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 after ranCCalculate
+2022-08-15 15:45:46,623 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,623 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 53 after normalizeContent 
+2022-08-15 15:45:46,623 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 54
+2022-08-15 15:45:46,624 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 before normalizeContent 
+2022-08-15 15:45:46,624 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 in normalizeContent 
+2022-08-15 15:45:46,624 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,624 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 before lemmatizer
+2022-08-15 15:45:46,624 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 in addLemma
+2022-08-15 15:45:46,624 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 after addLemma
+2022-08-15 15:45:46,624 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,628 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 after lemmatizer
+2022-08-15 15:45:46,628 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 after ranCCalculate
+2022-08-15 15:45:46,630 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,630 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 before lemmatizer
+2022-08-15 15:45:46,630 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 in addLemma
+2022-08-15 15:45:46,630 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 after addLemma
+2022-08-15 15:45:46,632 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,706 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 after lemmatizer
+2022-08-15 15:45:46,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 after ranCCalculate
+2022-08-15 15:45:46,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 54 after normalizeContent 
+2022-08-15 15:45:46,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 55
+2022-08-15 15:45:46,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 before normalizeContent 
+2022-08-15 15:45:46,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 in normalizeContent 
+2022-08-15 15:45:46,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 before lemmatizer
+2022-08-15 15:45:46,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 in addLemma
+2022-08-15 15:45:46,738 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 after addLemma
+2022-08-15 15:45:46,740 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,740 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 after lemmatizer
+2022-08-15 15:45:46,740 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 after ranCCalculate
+2022-08-15 15:45:46,741 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,741 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 before lemmatizer
+2022-08-15 15:45:46,741 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 in addLemma
+2022-08-15 15:45:46,741 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 after addLemma
+2022-08-15 15:45:46,741 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,760 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 after lemmatizer
+2022-08-15 15:45:46,766 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 after ranCCalculate
+2022-08-15 15:45:46,766 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,766 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 55 after normalizeContent 
+2022-08-15 15:45:46,766 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 56
+2022-08-15 15:45:46,766 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 before normalizeContent 
+2022-08-15 15:45:46,766 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 in normalizeContent 
+2022-08-15 15:45:46,768 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,768 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 before lemmatizer
+2022-08-15 15:45:46,768 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 in addLemma
+2022-08-15 15:45:46,768 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 after addLemma
+2022-08-15 15:45:46,768 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,771 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 after lemmatizer
+2022-08-15 15:45:46,772 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 after ranCCalculate
+2022-08-15 15:45:46,775 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,775 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 before lemmatizer
+2022-08-15 15:45:46,775 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 in addLemma
+2022-08-15 15:45:46,775 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 after addLemma
+2022-08-15 15:45:46,775 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,861 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 after lemmatizer
+2022-08-15 15:45:46,896 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 after ranCCalculate
+2022-08-15 15:45:46,896 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,896 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 56 after normalizeContent 
+2022-08-15 15:45:46,896 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 57
+2022-08-15 15:45:46,896 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 before normalizeContent 
+2022-08-15 15:45:46,896 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 in normalizeContent 
+2022-08-15 15:45:46,897 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,897 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 before lemmatizer
+2022-08-15 15:45:46,897 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 in addLemma
+2022-08-15 15:45:46,897 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 after addLemma
+2022-08-15 15:45:46,897 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,898 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 after lemmatizer
+2022-08-15 15:45:46,898 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 after ranCCalculate
+2022-08-15 15:45:46,899 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,899 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 before lemmatizer
+2022-08-15 15:45:46,899 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 in addLemma
+2022-08-15 15:45:46,899 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 after addLemma
+2022-08-15 15:45:46,900 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,918 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 after lemmatizer
+2022-08-15 15:45:46,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 after ranCCalculate
+2022-08-15 15:45:46,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:46,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 57 after normalizeContent 
+2022-08-15 15:45:46,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 58
+2022-08-15 15:45:46,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 before normalizeContent 
+2022-08-15 15:45:46,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 in normalizeContent 
+2022-08-15 15:45:46,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:46,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 before lemmatizer
+2022-08-15 15:45:46,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 in addLemma
+2022-08-15 15:45:46,924 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 after addLemma
+2022-08-15 15:45:46,926 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,929 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 after lemmatizer
+2022-08-15 15:45:46,930 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 after ranCCalculate
+2022-08-15 15:45:46,933 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:46,933 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 before lemmatizer
+2022-08-15 15:45:46,933 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 in addLemma
+2022-08-15 15:45:46,933 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 after addLemma
+2022-08-15 15:45:46,933 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:46,991 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 after lemmatizer
+2022-08-15 15:45:47,021 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 after ranCCalculate
+2022-08-15 15:45:47,021 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,021 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 58 after normalizeContent 
+2022-08-15 15:45:47,021 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 59
+2022-08-15 15:45:47,021 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 before normalizeContent 
+2022-08-15 15:45:47,021 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 in normalizeContent 
+2022-08-15 15:45:47,021 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,021 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 before lemmatizer
+2022-08-15 15:45:47,021 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 in addLemma
+2022-08-15 15:45:47,021 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 after addLemma
+2022-08-15 15:45:47,022 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,026 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 after lemmatizer
+2022-08-15 15:45:47,027 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 after ranCCalculate
+2022-08-15 15:45:47,028 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,028 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 before lemmatizer
+2022-08-15 15:45:47,028 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 in addLemma
+2022-08-15 15:45:47,028 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 after addLemma
+2022-08-15 15:45:47,030 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,067 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 after lemmatizer
+2022-08-15 15:45:47,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 after ranCCalculate
+2022-08-15 15:45:47,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 59 after normalizeContent 
+2022-08-15 15:45:47,083 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 60
+2022-08-15 15:45:47,084 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 before normalizeContent 
+2022-08-15 15:45:47,084 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 in normalizeContent 
+2022-08-15 15:45:47,084 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,084 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 before lemmatizer
+2022-08-15 15:45:47,084 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 in addLemma
+2022-08-15 15:45:47,084 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 after addLemma
+2022-08-15 15:45:47,084 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,091 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 after lemmatizer
+2022-08-15 15:45:47,092 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 after ranCCalculate
+2022-08-15 15:45:47,094 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,094 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 before lemmatizer
+2022-08-15 15:45:47,094 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 in addLemma
+2022-08-15 15:45:47,094 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 after addLemma
+2022-08-15 15:45:47,095 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,148 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 after lemmatizer
+2022-08-15 15:45:47,167 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 after ranCCalculate
+2022-08-15 15:45:47,167 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,167 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 60 after normalizeContent 
+2022-08-15 15:45:47,167 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 61
+2022-08-15 15:45:47,167 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 before normalizeContent 
+2022-08-15 15:45:47,167 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 in normalizeContent 
+2022-08-15 15:45:47,168 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,168 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 before lemmatizer
+2022-08-15 15:45:47,168 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 in addLemma
+2022-08-15 15:45:47,168 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 after addLemma
+2022-08-15 15:45:47,168 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,173 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 after lemmatizer
+2022-08-15 15:45:47,173 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 after ranCCalculate
+2022-08-15 15:45:47,177 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,177 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 before lemmatizer
+2022-08-15 15:45:47,177 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 in addLemma
+2022-08-15 15:45:47,177 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 after addLemma
+2022-08-15 15:45:47,177 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,277 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 after lemmatizer
+2022-08-15 15:45:47,324 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 after ranCCalculate
+2022-08-15 15:45:47,324 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,324 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 61 after normalizeContent 
+2022-08-15 15:45:47,324 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 62
+2022-08-15 15:45:47,324 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 before normalizeContent 
+2022-08-15 15:45:47,324 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 in normalizeContent 
+2022-08-15 15:45:47,326 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,326 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 before lemmatizer
+2022-08-15 15:45:47,326 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 in addLemma
+2022-08-15 15:45:47,326 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 after addLemma
+2022-08-15 15:45:47,326 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,333 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 after lemmatizer
+2022-08-15 15:45:47,335 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 after ranCCalculate
+2022-08-15 15:45:47,337 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,337 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 before lemmatizer
+2022-08-15 15:45:47,337 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 in addLemma
+2022-08-15 15:45:47,337 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 after addLemma
+2022-08-15 15:45:47,338 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,427 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 after lemmatizer
+2022-08-15 15:45:47,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 after ranCCalculate
+2022-08-15 15:45:47,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 62 after normalizeContent 
+2022-08-15 15:45:47,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 63
+2022-08-15 15:45:47,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 before normalizeContent 
+2022-08-15 15:45:47,475 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 in normalizeContent 
+2022-08-15 15:45:47,476 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,476 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 before lemmatizer
+2022-08-15 15:45:47,476 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 in addLemma
+2022-08-15 15:45:47,476 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 after addLemma
+2022-08-15 15:45:47,476 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,477 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 after lemmatizer
+2022-08-15 15:45:47,477 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 after ranCCalculate
+2022-08-15 15:45:47,478 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,478 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 before lemmatizer
+2022-08-15 15:45:47,478 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 in addLemma
+2022-08-15 15:45:47,478 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 after addLemma
+2022-08-15 15:45:47,478 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,498 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 after lemmatizer
+2022-08-15 15:45:47,505 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 after ranCCalculate
+2022-08-15 15:45:47,505 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,505 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 63 after normalizeContent 
+2022-08-15 15:45:47,505 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 64
+2022-08-15 15:45:47,505 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 before normalizeContent 
+2022-08-15 15:45:47,505 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 in normalizeContent 
+2022-08-15 15:45:47,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 before lemmatizer
+2022-08-15 15:45:47,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 in addLemma
+2022-08-15 15:45:47,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 after addLemma
+2022-08-15 15:45:47,507 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,510 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 after lemmatizer
+2022-08-15 15:45:47,512 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 after ranCCalculate
+2022-08-15 15:45:47,512 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,512 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 before lemmatizer
+2022-08-15 15:45:47,512 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 in addLemma
+2022-08-15 15:45:47,512 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 after addLemma
+2022-08-15 15:45:47,514 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,566 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 after lemmatizer
+2022-08-15 15:45:47,588 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 after ranCCalculate
+2022-08-15 15:45:47,588 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,588 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 64 after normalizeContent 
+2022-08-15 15:45:47,588 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 65
+2022-08-15 15:45:47,588 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 before normalizeContent 
+2022-08-15 15:45:47,588 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 in normalizeContent 
+2022-08-15 15:45:47,590 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,590 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 before lemmatizer
+2022-08-15 15:45:47,590 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 in addLemma
+2022-08-15 15:45:47,590 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 after addLemma
+2022-08-15 15:45:47,591 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,591 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 after lemmatizer
+2022-08-15 15:45:47,591 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 after ranCCalculate
+2022-08-15 15:45:47,591 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,591 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 before lemmatizer
+2022-08-15 15:45:47,591 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 in addLemma
+2022-08-15 15:45:47,591 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 after addLemma
+2022-08-15 15:45:47,592 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,605 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 after lemmatizer
+2022-08-15 15:45:47,611 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 after ranCCalculate
+2022-08-15 15:45:47,611 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,611 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 65 after normalizeContent 
+2022-08-15 15:45:47,611 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 66
+2022-08-15 15:45:47,611 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 before normalizeContent 
+2022-08-15 15:45:47,611 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 in normalizeContent 
+2022-08-15 15:45:47,612 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,612 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 before lemmatizer
+2022-08-15 15:45:47,612 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 in addLemma
+2022-08-15 15:45:47,612 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 after addLemma
+2022-08-15 15:45:47,612 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,615 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 after lemmatizer
+2022-08-15 15:45:47,616 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 after ranCCalculate
+2022-08-15 15:45:47,618 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,618 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 before lemmatizer
+2022-08-15 15:45:47,618 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 in addLemma
+2022-08-15 15:45:47,618 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 after addLemma
+2022-08-15 15:45:47,618 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,632 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 after lemmatizer
+2022-08-15 15:45:47,637 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 after ranCCalculate
+2022-08-15 15:45:47,637 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,638 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 66 after normalizeContent 
+2022-08-15 15:45:47,638 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 67
+2022-08-15 15:45:47,638 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 before normalizeContent 
+2022-08-15 15:45:47,638 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 in normalizeContent 
+2022-08-15 15:45:47,638 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,638 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 before lemmatizer
+2022-08-15 15:45:47,638 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 in addLemma
+2022-08-15 15:45:47,638 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 after addLemma
+2022-08-15 15:45:47,638 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,643 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 after lemmatizer
+2022-08-15 15:45:47,644 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 after ranCCalculate
+2022-08-15 15:45:47,647 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,647 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 before lemmatizer
+2022-08-15 15:45:47,647 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 in addLemma
+2022-08-15 15:45:47,647 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 after addLemma
+2022-08-15 15:45:47,647 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,729 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 after lemmatizer
+2022-08-15 15:45:47,774 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 after ranCCalculate
+2022-08-15 15:45:47,774 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,774 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 67 after normalizeContent 
+2022-08-15 15:45:47,774 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 68
+2022-08-15 15:45:47,774 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 before normalizeContent 
+2022-08-15 15:45:47,774 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 in normalizeContent 
+2022-08-15 15:45:47,776 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,776 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 before lemmatizer
+2022-08-15 15:45:47,776 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 in addLemma
+2022-08-15 15:45:47,776 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 after addLemma
+2022-08-15 15:45:47,776 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,780 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 after lemmatizer
+2022-08-15 15:45:47,780 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 after ranCCalculate
+2022-08-15 15:45:47,783 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,783 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 before lemmatizer
+2022-08-15 15:45:47,783 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 in addLemma
+2022-08-15 15:45:47,783 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 after addLemma
+2022-08-15 15:45:47,784 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,854 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 after lemmatizer
+2022-08-15 15:45:47,886 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 after ranCCalculate
+2022-08-15 15:45:47,886 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,886 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 68 after normalizeContent 
+2022-08-15 15:45:47,886 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 69
+2022-08-15 15:45:47,886 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 before normalizeContent 
+2022-08-15 15:45:47,886 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 in normalizeContent 
+2022-08-15 15:45:47,887 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,887 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 before lemmatizer
+2022-08-15 15:45:47,887 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 in addLemma
+2022-08-15 15:45:47,887 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 after addLemma
+2022-08-15 15:45:47,887 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,891 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 after lemmatizer
+2022-08-15 15:45:47,892 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 after ranCCalculate
+2022-08-15 15:45:47,895 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,895 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 before lemmatizer
+2022-08-15 15:45:47,895 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 in addLemma
+2022-08-15 15:45:47,895 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 after addLemma
+2022-08-15 15:45:47,895 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,965 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 after lemmatizer
+2022-08-15 15:45:47,996 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 after ranCCalculate
+2022-08-15 15:45:47,996 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:47,996 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 69 after normalizeContent 
+2022-08-15 15:45:47,996 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 70
+2022-08-15 15:45:47,996 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 before normalizeContent 
+2022-08-15 15:45:47,996 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 in normalizeContent 
+2022-08-15 15:45:47,997 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:47,997 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 before lemmatizer
+2022-08-15 15:45:47,997 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 in addLemma
+2022-08-15 15:45:47,997 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 after addLemma
+2022-08-15 15:45:47,997 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,998 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 after lemmatizer
+2022-08-15 15:45:47,998 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 after ranCCalculate
+2022-08-15 15:45:47,998 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:47,998 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 before lemmatizer
+2022-08-15 15:45:47,998 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 in addLemma
+2022-08-15 15:45:47,998 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 after addLemma
+2022-08-15 15:45:47,999 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:47,999 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 after lemmatizer
+2022-08-15 15:45:48,000 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 after ranCCalculate
+2022-08-15 15:45:48,000 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:48,000 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 70 after normalizeContent 
+2022-08-15 15:45:48,000 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 71
+2022-08-15 15:45:48,000 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 before normalizeContent 
+2022-08-15 15:45:48,000 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 in normalizeContent 
+2022-08-15 15:45:48,000 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:48,000 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 before lemmatizer
+2022-08-15 15:45:48,000 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 in addLemma
+2022-08-15 15:45:48,000 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 after addLemma
+2022-08-15 15:45:48,001 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,006 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 after lemmatizer
+2022-08-15 15:45:48,008 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 after ranCCalculate
+2022-08-15 15:45:48,010 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:48,010 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 before lemmatizer
+2022-08-15 15:45:48,010 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 in addLemma
+2022-08-15 15:45:48,010 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 after addLemma
+2022-08-15 15:45:48,011 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,096 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 after lemmatizer
+2022-08-15 15:45:48,140 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 after ranCCalculate
+2022-08-15 15:45:48,140 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:48,140 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 71 after normalizeContent 
+2022-08-15 15:45:48,140 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 72
+2022-08-15 15:45:48,140 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 72 before normalizeContent 
+2022-08-15 15:45:48,140 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 72 after normalizeContent 
+2022-08-15 15:45:48,140 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 73
+2022-08-15 15:45:48,140 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 before normalizeContent 
+2022-08-15 15:45:48,140 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 in normalizeContent 
+2022-08-15 15:45:48,141 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:48,141 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 before lemmatizer
+2022-08-15 15:45:48,141 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 in addLemma
+2022-08-15 15:45:48,141 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 after addLemma
+2022-08-15 15:45:48,141 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,145 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 after lemmatizer
+2022-08-15 15:45:48,145 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 after ranCCalculate
+2022-08-15 15:45:48,146 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:48,146 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 before lemmatizer
+2022-08-15 15:45:48,146 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 in addLemma
+2022-08-15 15:45:48,146 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 after addLemma
+2022-08-15 15:45:48,147 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,160 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 after lemmatizer
+2022-08-15 15:45:48,166 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 after ranCCalculate
+2022-08-15 15:45:48,166 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:48,166 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 73 after normalizeContent 
+2022-08-15 15:45:48,166 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 74
+2022-08-15 15:45:48,166 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 before normalizeContent 
+2022-08-15 15:45:48,166 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 in normalizeContent 
+2022-08-15 15:45:48,166 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:48,167 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 before lemmatizer
+2022-08-15 15:45:48,167 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 in addLemma
+2022-08-15 15:45:48,167 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 after addLemma
+2022-08-15 15:45:48,167 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,168 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 after lemmatizer
+2022-08-15 15:45:48,168 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 after ranCCalculate
+2022-08-15 15:45:48,169 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:48,169 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 before lemmatizer
+2022-08-15 15:45:48,169 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 in addLemma
+2022-08-15 15:45:48,169 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 after addLemma
+2022-08-15 15:45:48,169 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,188 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 after lemmatizer
+2022-08-15 15:45:48,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 after ranCCalculate
+2022-08-15 15:45:48,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:48,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 74 after normalizeContent 
+2022-08-15 15:45:48,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 75
+2022-08-15 15:45:48,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 before normalizeContent 
+2022-08-15 15:45:48,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 in normalizeContent 
+2022-08-15 15:45:48,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:48,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 before lemmatizer
+2022-08-15 15:45:48,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 in addLemma
+2022-08-15 15:45:48,195 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 after addLemma
+2022-08-15 15:45:48,196 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,203 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 after lemmatizer
+2022-08-15 15:45:48,205 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 after ranCCalculate
+2022-08-15 15:45:48,206 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:48,206 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 before lemmatizer
+2022-08-15 15:45:48,206 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 in addLemma
+2022-08-15 15:45:48,206 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 after addLemma
+2022-08-15 15:45:48,207 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,260 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 after lemmatizer
+2022-08-15 15:45:48,280 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 after ranCCalculate
+2022-08-15 15:45:48,280 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:48,280 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 75 after normalizeContent 
+2022-08-15 15:45:48,280 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 76
+2022-08-15 15:45:48,280 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 before normalizeContent 
+2022-08-15 15:45:48,280 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 in normalizeContent 
+2022-08-15 15:45:48,280 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:48,280 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 before lemmatizer
+2022-08-15 15:45:48,280 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 in addLemma
+2022-08-15 15:45:48,280 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 after addLemma
+2022-08-15 15:45:48,281 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,282 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 after lemmatizer
+2022-08-15 15:45:48,282 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 after ranCCalculate
+2022-08-15 15:45:48,282 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:48,283 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 before lemmatizer
+2022-08-15 15:45:48,283 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 in addLemma
+2022-08-15 15:45:48,283 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 after addLemma
+2022-08-15 15:45:48,283 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,300 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 after lemmatizer
+2022-08-15 15:45:48,307 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 after ranCCalculate
+2022-08-15 15:45:48,307 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:48,307 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 76 after normalizeContent 
+2022-08-15 15:45:48,307 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 77
+2022-08-15 15:45:48,307 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 before normalizeContent 
+2022-08-15 15:45:48,307 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 in normalizeContent 
+2022-08-15 15:45:48,308 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:48,308 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 before lemmatizer
+2022-08-15 15:45:48,308 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 in addLemma
+2022-08-15 15:45:48,308 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 after addLemma
+2022-08-15 15:45:48,309 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,309 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 after lemmatizer
+2022-08-15 15:45:48,309 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 after ranCCalculate
+2022-08-15 15:45:48,310 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:48,310 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 before lemmatizer
+2022-08-15 15:45:48,310 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 in addLemma
+2022-08-15 15:45:48,310 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 after addLemma
+2022-08-15 15:45:48,311 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,329 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 after lemmatizer
+2022-08-15 15:45:48,336 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 after ranCCalculate
+2022-08-15 15:45:48,336 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:48,336 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 77 after normalizeContent 
+2022-08-15 15:45:48,336 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 78
+2022-08-15 15:45:48,336 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 before normalizeContent 
+2022-08-15 15:45:48,336 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 in normalizeContent 
+2022-08-15 15:45:48,337 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:48,337 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 before lemmatizer
+2022-08-15 15:45:48,337 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 in addLemma
+2022-08-15 15:45:48,337 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 after addLemma
+2022-08-15 15:45:48,338 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,344 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 after lemmatizer
+2022-08-15 15:45:48,346 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 after ranCCalculate
+2022-08-15 15:45:48,347 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:48,347 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 before lemmatizer
+2022-08-15 15:45:48,347 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 in addLemma
+2022-08-15 15:45:48,347 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 after addLemma
+2022-08-15 15:45:48,348 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,396 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 after lemmatizer
+2022-08-15 15:45:48,420 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 after ranCCalculate
+2022-08-15 15:45:48,420 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:48,420 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 78 after normalizeContent 
+2022-08-15 15:45:48,420 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 79
+2022-08-15 15:45:48,420 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 before normalizeContent 
+2022-08-15 15:45:48,420 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 in normalizeContent 
+2022-08-15 15:45:48,420 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:48,420 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 before lemmatizer
+2022-08-15 15:45:48,420 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 in addLemma
+2022-08-15 15:45:48,421 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 after addLemma
+2022-08-15 15:45:48,422 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,428 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 after lemmatizer
+2022-08-15 15:45:48,430 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 after ranCCalculate
+2022-08-15 15:45:48,432 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:48,432 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 before lemmatizer
+2022-08-15 15:45:48,432 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 in addLemma
+2022-08-15 15:45:48,433 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 after addLemma
+2022-08-15 15:45:48,433 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,484 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 after lemmatizer
+2022-08-15 15:45:48,504 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 after ranCCalculate
+2022-08-15 15:45:48,504 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] normalize content stop
+2022-08-15 15:45:48,504 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 79 after normalizeContent 
+2022-08-15 15:45:48,504 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] start parsing page Id: 80
+2022-08-15 15:45:48,504 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 80 before normalizeContent 
+2022-08-15 15:45:48,505 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 80 in normalizeContent 
+2022-08-15 15:45:48,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 1
+2022-08-15 15:45:48,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 80 before lemmatizer
+2022-08-15 15:45:48,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 80 in addLemma
+2022-08-15 15:45:48,506 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 80 after addLemma
+2022-08-15 15:45:48,506 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 15:45:48,510 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 80 after lemmatizer
+2022-08-15 15:45:48,511 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 80 after ranCCalculate
+2022-08-15 15:45:48,513 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] field 2
+2022-08-15 15:45:48,513 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 80 before lemmatizer
+2022-08-15 15:45:48,513 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 80 in addLemma
+2022-08-15 15:45:48,513 INFO b.b.s.s.c.s.GettingLemmasService [ForkJoinPool-1-worker-5] page Id: 80 after addLemma
+2022-08-15 15:45:48,514 INFO b.b.s.s.d.i.LemmaServiceImp [ForkJoinPool-1-worker-5] Start to save LemmaEntity
+2022-08-15 16:02:10,169 INFO o.s.o.j.AbstractEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-08-15 16:02:10,173 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-08-15 16:02:10,178 INFO c.z.h.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
